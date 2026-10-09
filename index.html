@@ -494,18 +494,18 @@ section[id^="d"] .sectop{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
 section[id^="d"] .wall{aspect-ratio:16/9}
 @media (max-width:820px){section[id^="d"] .sectop{grid-template-columns:minmax(0,1fr)}}
 .deck{position:relative;min-width:0}
-.slides{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:4px 2px 8px;scrollbar-width:none}
+.slides{display:flex;align-items:flex-start;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:4px 2px 8px;scrollbar-width:none}
 .slides::-webkit-scrollbar{display:none}
+.slides[data-fit]{overflow-y:hidden;transition:height .25s ease}
 .slides:focus-visible{outline:3px solid var(--link);outline-offset:4px;border-radius:18px}
 .slides>*{flex:0 0 var(--sw,min(100%,330px));scroll-snap-align:start;min-width:0;margin:0}
 .slides>.wide{--sw:min(100%,900px)}
 .slides>.half{--sw:min(100%,560px)}
 .qs.slides{flex-direction:row;gap:12px}
 .qs.slides>*{--sw:min(100%,290px)}
-.qs.slides>fieldset,.qs.slides>.how{background:var(--paper);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:4px}
+.qs.slides>.qslide,.qs.slides>.how{background:var(--paper);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:4px}
 .qs.slides>.how{font-size:.94rem;color:var(--muted)}
-.qs.slides legend{float:left;width:100%}
-.qs.slides .opts{clear:both}
+.qslide .legend{font-family:var(--display);font-weight:600;font-size:1.05rem;line-height:1.35;margin:0 0 10px}
 .deckbar{display:flex;align-items:center;gap:12px;margin-top:10px}
 .deckbar .dots{display:flex;gap:6px;flex-wrap:wrap;flex:1}
 .deckbar .dots button{width:9px;height:9px;border-radius:5px;border:0;background:var(--line);padding:0;cursor:pointer;transition:width .2s,background .2s}
@@ -652,39 +652,39 @@ section[id^="d"]{scroll-margin-top:64px}
   <div class="tool">
     <div class="deck" data-deck data-advance aria-label="Six questions"><form class="qs slides" id="diag">
       <div class="sectop cover wide"><div class="sh"><div class="where"><span class="tag">Decision 01</span><span class="pips" data-step="1" aria-hidden="true"></span><span class="pipcap">1 of 6</span></div><h2>Should you create more Instagram pages or keep one?</h2><p class="q">Answer six questions to see whether one page is still enough. The recommendation updates as you answer. For a full strategy, take the <a href="#quiz">quiz</a>.</p></div><div class="wall" data-wall="d1"></div></div>
-      <fieldset><legend>How often does a customer buy from you?</legend><div class="opts">
+      <div class="qslide" role="radiogroup" aria-label="How often does a customer buy from you?"><p class="legend" aria-hidden="true">How often does a customer buy from you?</p><div class="opts">
         <label><input type="radio" name="freq" value="0"><span>Weekly or more</span></label>
         <label><input type="radio" name="freq" value="1" checked><span>Monthly</span></label>
         <label><input type="radio" name="freq" value="2"><span>Once a year</span></label>
         <label><input type="radio" name="freq" value="3"><span>Every few years</span></label>
-      </div></fieldset>
-      <fieldset><legend>How many different interest groups follow you, or should?</legend><div class="opts">
+      </div></div>
+      <div class="qslide" role="radiogroup" aria-label="How many different interest groups follow you, or should?"><p class="legend" aria-hidden="true">How many different interest groups follow you, or should?</p><div class="opts">
         <label><input type="radio" name="groups" value="0"><span>One</span></label>
         <label><input type="radio" name="groups" value="1"><span>Two</span></label>
         <label><input type="radio" name="groups" value="2" checked><span>Three or four</span></label>
         <label><input type="radio" name="groups" value="3"><span>Five or more</span></label>
-      </div></fieldset>
-      <fieldset><legend>Would those groups enjoy each other's content?</legend><div class="opts">
+      </div></div>
+      <div class="qslide" role="radiogroup" aria-label="Would those groups enjoy each other's content?"><p class="legend" aria-hidden="true">Would those groups enjoy each other's content?</p><div class="opts">
         <label><input type="radio" name="overlap" value="0"><span>Yes, mostly</span></label>
         <label><input type="radio" name="overlap" value="1" checked><span>Partly</span></label>
         <label><input type="radio" name="overlap" value="2"><span>Rarely</span></label>
-      </div></fieldset>
-      <fieldset><legend>How is your main page doing?</legend><div class="opts">
+      </div></div>
+      <div class="qslide" role="radiogroup" aria-label="How is your main page doing?"><p class="legend" aria-hidden="true">How is your main page doing?</p><div class="opts">
         <label><input type="radio" name="health" value="0"><span>Growing and engaged</span></label>
         <label><input type="radio" name="health" value="1" checked><span>Flat</span></label>
         <label><input type="radio" name="health" value="2"><span>Reach is falling</span></label>
-      </div></fieldset>
-      <fieldset><legend>What do you need from Instagram in the next year?</legend><div class="opts">
+      </div></div>
+      <div class="qslide" role="radiogroup" aria-label="What do you need from Instagram in the next year?"><p class="legend" aria-hidden="true">What do you need from Instagram in the next year?</p><div class="opts">
         <label><input type="radio" name="goal" value="0"><span>Direct sales</span></label>
         <label><input type="radio" name="goal" value="1" checked><span>Awareness and trust</span></label>
         <label><input type="radio" name="goal" value="2"><span>An audience I can monetise</span></label>
-      </div></fieldset>
-      <fieldset><legend>How much can you produce?</legend><div class="opts">
+      </div></div>
+      <div class="qslide" role="radiogroup" aria-label="How much can you produce?"><p class="legend" aria-hidden="true">How much can you produce?</p><div class="opts">
         <label><input type="radio" name="cap" value="0"><span>Under 3 posts a week</span></label>
         <label><input type="radio" name="cap" value="1" checked><span>3 to 7 posts a week</span></label>
         <label><input type="radio" name="cap" value="2"><span>1 to 2 dedicated people</span></label>
         <label><input type="radio" name="cap" value="3"><span>A content team</span></label>
-      </div></fieldset>
+      </div></div>
       <div class="result" aria-live="polite">
       <div class="label">Your recommended Instagram strategy</div>
       <div id="rArt" style="background:var(--card);border-radius:16px"></div>
@@ -1863,7 +1863,7 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
 // Carousels for the decision sections
 document.querySelectorAll('[data-deck]').forEach(deck=>{
   const track=deck.querySelector('.slides');const items=()=>[...track.children];
-  track.setAttribute('tabindex','0');deck.setAttribute('role','region');deck.setAttribute('aria-roledescription','carousel');
+  track.setAttribute('tabindex','0');track.setAttribute('data-fit','');deck.setAttribute('role','region');deck.setAttribute('aria-roledescription','carousel');
   const bar=document.createElement('div');bar.className='deckbar';
   bar.innerHTML=`<button type="button" class="dbtn prev" aria-label="Previous card">←</button><div class="dots" role="group" aria-label="Choose a card"></div><span class="dcount" aria-live="polite"></span><button type="button" class="dbtn next" aria-label="Next card">→</button>`;
   deck.appendChild(bar);
@@ -1876,6 +1876,9 @@ document.querySelectorAll('[data-deck]').forEach(deck=>{
     const max=track.scrollWidth-track.clientWidth;const x=track.scrollLeft;
     let best=0,bd=1e9;items().forEach((it,i)=>{const d=Math.abs(it.offsetLeft-track.offsetLeft-2-x);if(d<bd){bd=d;best=i}});
     if(x>=max-4)best=n-1;cur=best;
+    // fit the carousel to the tallest card currently on screen
+    const L=x,R=x+track.clientWidth;let hmax=0;items().forEach(it=>{const a=it.offsetLeft-track.offsetLeft,b=a+it.offsetWidth;if(b>L+8&&a<R-8)hmax=Math.max(hmax,it.offsetHeight)});
+    if(hmax){const cs=getComputedStyle(track);track.style.height=(hmax+parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom))+'px'}
     [...dots.children].forEach((b,i)=>b.setAttribute('aria-current',i===cur?'true':'false'));
     count.textContent=`${cur+1} / ${n}`;prev.disabled=x<=4;next.disabled=x>=max-4;
   }
@@ -1884,7 +1887,7 @@ document.querySelectorAll('[data-deck]').forEach(deck=>{
   prev.addEventListener('click',()=>go(cur-1));next.addEventListener('click',()=>go(cur+1));
   dots.addEventListener('click',e=>{const b=e.target.closest('button');if(b)go([...dots.children].indexOf(b))});
   track.addEventListener('keydown',e=>{if(e.target!==track)return;if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}});
-  if(deck.hasAttribute('data-advance'))track.addEventListener('change',e=>{const f=e.target.closest('fieldset');if(!f)return;const i=items().indexOf(f);if(i>-1&&i<n-1)setTimeout(()=>go(i+1),220)});
+  if(deck.hasAttribute('data-advance'))track.addEventListener('change',e=>{const f=e.target.closest('.qslide');if(!f)return;const i=items().indexOf(f);if(i>-1&&i<n-1)setTimeout(()=>go(i+1),220)});
   update();
 });
 })();
