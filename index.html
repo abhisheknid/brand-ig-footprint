@@ -8,27 +8,29 @@
 <meta property="og:title" content="The Instagram Network Playbook">
 <meta property="og:description" content="Six decisions for building a brand's Instagram footprint: when to split, which interests, which structure, which shows, how to run it and how it pays back.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#F5EEE3">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='22' y='10' width='56' height='80' rx='28' fill='%23EC6F78'/%3E%3Ccircle cx='41' cy='42' r='7' fill='white'/%3E%3Ccircle cx='59' cy='42' r='7' fill='white'/%3E%3Ccircle cx='42' cy='43' r='3.5' fill='%233B3035'/%3E%3Ccircle cx='58' cy='43' r='3.5' fill='%233B3035'/%3E%3Cpath d='M42 56 Q50 64 58 56' stroke='%233B3035' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Merriweather:wght@700&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap">
 <style>
 /* Layout: a storybook scroll. Sticky chip nav, then one illustrated "scene" per decision, text column beside or under each scene. Single warm-paper theme on purpose. */
 :root{
   color-scheme:light;
-  --paper:#F5EEE3; --paper2:#EBDFCD; --card:#FFFBF5; --ink:#3B3035; --muted:#76675F; --line:#E2D4C1;
+  --paper:#F5EEE3; --paper2:#EBDFCD; --card:#FFFBF5; --ink:#1D1F24; --muted:#5B616B; --line:#E2D4C1;
   --coral:#EC6F78; --blue:#5B9BE0; --link:#2F6DB5; --orange:#F29E4C; --lilac:#B9A2DE; --mint:#8CCB9B; --yellow:#F5C84C;
   --stage:#C9E4B8; --cork:#D8B78C;
+  --bg:#FFFFFF;
+  --heading:"Merriweather", Georgia, "Times New Roman", serif;
   --display:"Fredoka", "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif;
   --body:"Nunito", "Segoe UI", system-ui, sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.06rem;line-height:1.65;padding-inline:18px;padding-block:0 56px;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.06rem;line-height:1.65;padding-inline:18px;padding-block:0 56px;-webkit-font-smoothing:antialiased}
 img{max-width:100%}
 [hidden]{display:none!important}
-h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;text-wrap:balance;margin:0}
+h1,h2,h3,h4{font-family:var(--heading);font-weight:700;line-height:1.12;text-wrap:balance;margin:0}
 p{margin:0}
 a{color:var(--link)}
 :focus-visible{outline:3px solid var(--link);outline-offset:3px;border-radius:6px}
@@ -38,7 +40,7 @@ a{color:var(--link)}
 
 /* nav */
 
-.modebar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-inline:-18px;padding:10px 18px;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.modebar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-inline:-18px;padding:10px 18px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .modebar .row{max-width:1120px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .modebar .name{font-family:var(--display);font-weight:600;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .seg{display:inline-flex;flex:none;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:3px;gap:2px}
@@ -60,7 +62,7 @@ button.btn{cursor:pointer;font-family:var(--display)}
 /* hero */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;padding-top:36px}
 @media (max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}}
-.hero h1{font-size:clamp(2.3rem,5.2vw,3.9rem);font-weight:700;letter-spacing:-.01em}
+.hero h1{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:700;letter-spacing:-.01em}
 .hero h1 span{color:var(--coral)}
 .hero .lede{font-size:1.2rem;color:var(--ink);max-width:46ch}
 .hero .txt{display:flex;flex-direction:column;gap:20px}
@@ -85,7 +87,7 @@ button.btn{cursor:pointer;font-family:var(--display)}
 section{display:flex;flex-direction:column;gap:28px;scroll-margin-top:70px}
 .sh{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
 .tag{font-family:var(--display);font-weight:600;font-size:.85rem;background:var(--ink);color:var(--paper);border-radius:999px;padding:3px 12px}
-.sh h2{font-size:clamp(1.9rem,3.8vw,2.8rem)}
+.sh h2{font-size:clamp(1.6rem,3.3vw,2.4rem)}
 .sh .q{font-size:1.15rem;color:var(--muted);max-width:56ch}
 
 /* cards */
@@ -213,6 +215,7 @@ ol.steps span{font-size:.96rem;color:var(--muted)}
 .closing .old{text-decoration:line-through;text-decoration-color:var(--coral);text-decoration-thickness:3px;opacity:.65;font-size:.75em;display:block;margin-bottom:6px}
 .closing p{max-width:60ch;opacity:.85}
 footer{font-size:.85rem;color:var(--muted);max-width:70ch}
+.sitefoot{max-width:1120px;margin:56px auto 0;padding-top:20px;border-top:1px solid var(--line);font-family:var(--display);font-weight:600;font-size:.95rem;color:var(--ink)}
 /* infographics */
 .infog{background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:16px;min-width:0}
 .infog h3{font-size:1.4rem}
@@ -905,6 +908,8 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 <footer>Adapted from the ideas in "Everyone Wants a Media Network", episode 2. Brand examples describe public strategies as discussed in that episode. Illustrations are original.</footer>
 </div>
 
+<footer class="sitefoot">Built by Abhishek &amp; Claude</footer>
+
 <script>
 (function(){
 const C={coral:'#EC6F78',blue:'#5B9BE0',orange:'#F29E4C',lilac:'#B9A2DE',mint:'#8CCB9B',yellow:'#F5C84C',sky:'#8EC1EE',pink:'#F4A6B5',brown:'#B88466',ink:'#3B3035'};
@@ -1173,12 +1178,12 @@ feed('fm1',false);feed('fm2',true);
   const x0=200,x1=790,mx=m=>x0+(x1-x0)*m/36;let s='';
   s+=`<text x="10" y="92" class="svgtxt" font-size="15" font-weight="800">Brand page only</text>`;
   s+=`<text x="10" y="182" class="svgtxt" font-size="15" font-weight="800">With a content page</text>`;
-  [0,12,24,36].forEach(m=>{s+=`<line x1="${mx(m)}" y1="40" x2="${mx(m)}" y2="215" stroke="#E2D4C1" stroke-width="1.5"/><text x="${mx(m)}" y="238" text-anchor="middle" class="svgtxt" font-size="13" fill="#76675F">${m===0?'Month 0':m+' mo'}</text>`});
+  [0,12,24,36].forEach(m=>{s+=`<line x1="${mx(m)}" y1="40" x2="${mx(m)}" y2="215" stroke="#E2D4C1" stroke-width="1.5"/><text x="${mx(m)}" y="238" text-anchor="middle" class="svgtxt" font-size="13" fill="#5B616B">${m===0?'Month 0':m+' mo'}</text>`});
   s+=`<line x1="${x0}" y1="88" x2="${x1}" y2="88" stroke="#3B3035" stroke-width="2"/><line x1="${x0}" y1="178" x2="${x1}" y2="178" stroke="#3B3035" stroke-width="2"/>`;
   [6,11,17,23,29].forEach(m=>{s+=`<circle cx="${mx(m)}" cy="88" r="6" fill="#B9AFA5"/>`});
   for(let w=0;w<156;w++){const m=w*36/156;const h=10+((w*7)%5)*3;s+=`<line x1="${mx(m)}" y1="${178-h}" x2="${mx(m)}" y2="178" stroke="${C.mint}" stroke-width="2.4" stroke-linecap="round"/>`}
   [0,36].forEach(m=>{[88,178].forEach(y=>{s+=`<circle cx="${mx(m)}" cy="${y}" r="11" fill="${C.coral}" stroke="#3B3035" stroke-width="2"/>`})});
-  s+=`<text x="${mx(18)}" y="62" text-anchor="middle" class="svgtxt" font-size="14" font-weight="800" fill="#76675F">Long silences. The brand fades from memory.</text>`;
+  s+=`<text x="${mx(18)}" y="62" text-anchor="middle" class="svgtxt" font-size="14" font-weight="800" fill="#5B616B">Long silences. The brand fades from memory.</text>`;
   s+=`<text x="${mx(18)}" y="146" text-anchor="middle" class="svgtxt" font-size="14" font-weight="800">~470 episodes keep the brand in their week</text>`;
   document.getElementById('gap').innerHTML=s;
 })();
