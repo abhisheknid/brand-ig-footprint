@@ -499,70 +499,8 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 .stage .person{position:absolute;left:1%;bottom:0;height:62%;width:auto;z-index:1;filter:drop-shadow(0 8px 12px rgba(29,31,36,.18))}
 .stage .emo.bubble{position:absolute;z-index:3;left:13%;top:28%;background:#fff;border-radius:22%;padding:1.4cqw 1.8cqw;font-size:8cqw;line-height:1;transform:rotate(-6deg);filter:drop-shadow(0 6px 8px rgba(29,31,36,.2))}
 .stage .emo.bubble::after{content:"";position:absolute;left:30%;bottom:-1.4cqw;width:2.8cqw;height:2.8cqw;background:#fff;transform:rotate(45deg)}
-/* decision carousels */
-:is(#d1,#d2){gap:22px}
-:is(#d1,#d2) .sectop{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
-:is(#d1,#d2) .wall{aspect-ratio:16/9}
-@media (max-width:820px){:is(#d1,#d2) .sectop{grid-template-columns:minmax(0,1fr)}}
-.deck{position:relative;min-width:0}
-.slides{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:4px 2px 8px;scrollbar-width:none}
-.slides::-webkit-scrollbar{display:none}
-.slides:focus-visible{outline:3px solid var(--link);outline-offset:4px;border-radius:18px}
-.slides>*{flex:0 0 var(--sw,min(100%,330px));scroll-snap-align:start;min-width:0;margin:0}
-.slides>.wide{--sw:min(100%,900px)}
-.slides>.half{--sw:min(100%,560px)}
-.qs.slides{flex-direction:row;gap:12px}
-.qs.slides>*{--sw:min(100%,290px)}
-.qs.slides>.qslide,.qs.slides>.how{background:var(--paper);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:4px}
-.qs.slides>.how{font-size:.94rem;color:var(--muted)}
 .qslide .legend{font-family:var(--display);font-weight:600;font-size:1.05rem;line-height:1.35;margin:0 0 10px}
-.deckbar{display:flex;align-items:center;gap:12px;margin-top:10px}
-.deckbar .dots{display:flex;gap:6px;flex-wrap:wrap;flex:1}
-.deckbar .dots button{width:9px;height:9px;border-radius:5px;border:0;background:var(--line);padding:0;cursor:pointer;transition:width .2s,background .2s}
-.deckbar .dots button[aria-current="true"]{background:var(--ink);width:26px}
-.dcount{font-size:.85rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
-.dbtn{flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:var(--card);color:var(--ink);cursor:pointer;font-size:1rem;display:grid;place-items:center}
-.dbtn:hover:not(:disabled){background:var(--yellow)}
-.dbtn:disabled{opacity:.3;cursor:default}
-.slides>.model{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:22px;align-items:start}
-.slides>.model .mL,.slides>.model .mR{display:flex;flex-direction:column;gap:10px;min-width:0}
-.slides>.model .mR .mrow:first-child{border-top:0;padding-top:0}
-@media (max-width:700px){.slides>.model{grid-template-columns:minmax(0,1fr)}.slides>.model .mR .mrow:first-child{border-top:1.5px dashed var(--line);padding-top:10px}}
-.cluster.cork{background:var(--cork);border-radius:22px;padding:20px;background-image:radial-gradient(rgba(59,48,53,.12) 1px,transparent 1.5px);background-size:14px 14px}
-.cluster.c1 .note{background:#FCE7A6}.cluster.c2 .note{background:#F9C9CC}.cluster.c3 .note{background:#CFE3F7}
-.slides>.excard{align-self:stretch}
-.slides>.tests{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:20px;grid-template-columns:minmax(0,1fr) 120px}
-.slides>.nope{align-self:stretch}
-.slides .stairs{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
-@media (max-width:820px){.slides .stairs{grid-template-columns:minmax(0,1fr)}}
-.slides .flywrap{max-width:420px}
-.slides .crit{gap:6px}.slides .crit span{font-size:.9rem;padding:6px 10px}
-/* each decision fits one screen: cover card first, cards capped to the viewport */
-:is(#d1,#d2) .slides{padding:8px 8px 10px}
-:is(#d1,#d2) .slides{height:auto;align-items:flex-start}
-:is(#d1,#d2) .slides>*{height:auto;overflow:visible;min-height:var(--deckh,0px)}
-.slides>.cover{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;align-items:center;padding:4px}
-@media (max-width:820px){.slides>.cover{grid-template-columns:minmax(0,1fr);gap:14px;align-content:start}.slides>.cover .sh h2{font-size:1.45rem}.slides>.cover .sh .q{font-size:1rem}}
-#d1 .tool{display:block;background:none;border:0;padding:0;box-shadow:none}
-.qs.slides>.cover{--sw:min(100%,900px)}
-.qs.slides>.result{position:static;--sw:min(100%,440px);align-self:stretch}
-:is(#d1,#d2){scroll-margin-top:64px}
-@media (max-width:820px){
-  :is(#d1,#d2) .nextdec{padding-top:12px;gap:8px}
-  :is(#d1,#d2) .nextdec b{font-size:1rem}
-  :is(#d1,#d2) .nextdec .go{padding:5px 12px;font-size:.9rem}
-  :is(#d1,#d2) .deckbar{margin-top:6px}
-}
-/* eyebrow above each decision carousel */
-.deckeye{display:flex;align-items:center;gap:10px;min-height:28px}
-.deckeye .tag{font-size:.8rem}
-.deckeye b{font-family:var(--display);font-weight:600;font-size:.95rem;min-width:0;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.deckeye .tag,.deckeye .pipcap{flex:none}
-.deckeye .pipcap{margin-left:auto}
-.qs.slides>.qslide{justify-content:center}
-.slides>.cover{align-content:center}
-.slides>.cover .where{display:none}
-.qs.slides>.result{align-self:auto}
+
 /* sticker catchword on each key illustration */
 .wall .catch{position:absolute;z-index:6;right:3%;top:var(--ct,38%);max-width:54%;font-family:"Archivo Black","Arial Black","Helvetica Neue",Impact,sans-serif;font-size:var(--cs,9cqw);line-height:1;letter-spacing:-.01em;color:#1D1F24;white-space:nowrap;
   -webkit-text-stroke:.16em #fff;paint-order:stroke fill;transform:rotate(-7deg);transform-origin:right center;filter:drop-shadow(.07em .07em 0 #1D1F24)}
@@ -667,7 +605,7 @@ body{padding-inline:12px}
 @media (min-width:821px){body{padding-inline:20px}}
 .page{gap:var(--pg)}
 .page>section{gap:var(--pg);scroll-margin-top:92px}
-.page>header.hero,.page>section:not(.stack),.stack>*:not(.board):not(.quiz):not(.sectop){background:var(--card);border:1.5px solid var(--line);border-radius:var(--pr);padding:var(--pp);box-sizing:border-box}
+.page>header.hero,.page>section:not(.stack):not(.decision),.stack>*:not(.board):not(.quiz):not(.sectop):not(.dintro){background:var(--card);border:1.5px solid var(--line);border-radius:var(--pr);padding:var(--pp);box-sizing:border-box}
 .stack>.quiz{border-radius:var(--pr)}
 .page>header.hero{padding-top:var(--pp)}
 .page .card{background:#fff}
@@ -724,6 +662,40 @@ body{line-height:1.6}
 .check label:has(input:checked){background:none}
 .check input{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--ink);margin:0}
 .check input:checked::after{width:5px;height:10px;border-width:0 2.5px 2.5px 0}
+/* tap-to-expand decisions */
+.dcover{background:var(--card);border:1.5px solid var(--line);border-radius:var(--pr);padding:var(--pp);display:grid;grid-template-columns:minmax(0,1fr);gap:20px;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.dcover:hover{border-color:var(--ink)}
+.dcover.open{border-color:var(--ink)}
+.dcover .wall{aspect-ratio:16/10}
+.dhead{display:flex;align-items:center;gap:14px;min-width:0}
+.dcopy{flex:1;min-width:0;display:flex;flex-direction:column;gap:12px}
+.dcopy .where{display:flex;align-items:center;gap:10px}
+.dtitle{font-size:clamp(1.45rem,6vw,1.8rem);line-height:1.1;letter-spacing:-.015em}
+.dtoggle{flex:none;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--ink);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+.dtoggle:hover{background:var(--yellow)}
+.dtoggle svg{width:20px;height:20px;transition:transform .25s}
+.dcover.open .dtoggle svg{transform:rotate(180deg)}
+@media (min-width:821px){.dcover{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center;gap:36px}.dtitle{font-size:clamp(1.8rem,2.7vw,2.3rem)}}
+.dbody{display:flex;flex-direction:column;gap:var(--pg)}
+.dbody:not([hidden]){animation:dopen .3s ease}
+@keyframes dopen{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.dintro{padding:8px 4px 0}
+.dintro h3{font-size:clamp(1.5rem,6vw,2rem);line-height:1.1;letter-spacing:-.015em}
+.dintro .q{margin-top:10px;color:var(--muted);max-width:62ch;font-size:1.1rem}
+.dbody .tool{display:block}
+/* Decision 01: questions beside a sticky live recommendation */
+#diag{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+#diag>.qslide,#diag>.how{background:var(--paper);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:4px;min-width:0}
+#diag>.how{font-size:.94rem;color:var(--muted)}
+@media (min-width:900px){
+  #diag{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:12px 28px;align-items:start}
+  #diag>.qslide,#diag>.how{grid-column:1}
+  #diag>.result{grid-column:2;grid-row:1/span 7;position:sticky;top:96px}
+}
+#diag>.result{position:static}
+@media (min-width:900px){#diag>.result{position:sticky}}
+#terr{--min:230px}
+@media (prefers-reduced-motion:reduce){.dbody:not([hidden]){animation:none}.dtoggle svg{transition:none}}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -819,12 +791,17 @@ body{line-height:1.6}
   </div>
 </section>
 
-<section id="d1">
-  
-  <div class="deckeye"><span class="tag">Decision 01</span><b>Should you create more Instagram pages?</b><span class="pipcap">1 of 6</span></div>
-  <div class="tool">
-    <div class="deck" data-deck data-advance aria-label="Six questions"><form class="qs slides" id="diag">
-      <div class="sectop cover wide"><div class="sh"><div class="where"><span class="tag">Decision 01</span><span class="pips" data-step="1" aria-hidden="true"></span><span class="pipcap">1 of 6</span></div><h2>Should you create more Instagram pages or keep one?</h2><p class="q">Answer six questions to see whether one page is still enough. The recommendation updates as you answer. For a full strategy, take the <a href="#quiz">quiz</a>.</p></div><div class="wall" data-wall="d1"></div></div>
+<section id="d1" class="decision">
+  <div class="dcover">
+    <div class="wall" data-wall="d1"></div>
+    <div class="dhead">
+      <div class="dcopy"><div class="where"><span class="tag">Decision 01</span><span class="pipcap">1 of 6</span></div><h2 class="dtitle" id="d1-title">Should you create more Instagram pages?</h2></div>
+      <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d1-body" aria-labelledby="d1-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+  </div>
+  <div class="dbody stack" id="d1-body" hidden>
+    <div class="dintro"><h3>Should you create more Instagram pages or keep one?</h3><p class="q">Answer six questions to see whether one page is still enough. The recommendation updates as you answer. For a full strategy, take the <a href="#quiz">quiz</a>.</p></div>
+  <div class="tool"><form class="qs" id="diag">
       <div class="qslide" role="radiogroup" aria-label="How often does a customer buy from you?"><p class="legend" aria-hidden="true">How often does a customer buy from you?</p><div class="opts">
         <label><input type="radio" name="freq" value="0"><span>Weekly or more</span></label>
         <label><input type="radio" name="freq" value="1" checked><span>Monthly</span></label>
@@ -872,17 +849,20 @@ body{line-height:1.6}
     </div>
       <div class="how"><span class="label">How it decides</span><p>the case for more pages adds up the gap between purchases, how many audiences you have, how little they overlap, a tired main page and a long-term audience goal. Your team’s capacity then limits how many pages you can keep going. A network you can't feed does worse than one strong page.</p></div>
     </form></div>
-    
   </div>
 </section>
 
-<section id="d2">
-  
-  <div class="deckeye"><span class="tag">Decision 02</span><b>Which audiences deserve their own pages?</b><span class="pipcap">2 of 6</span></div>
-  <div class="deck" data-deck aria-label="Map and score your audience interests">
-    <div class="slides terr" id="terr">
-      <div class="sectop cover wide"><div class="sh"><div class="where"><span class="tag">Decision 02</span><span class="pips" data-step="2" aria-hidden="true"></span><span class="pipcap">2 of 6</span></div><h2>Which audience interests are worth building pages around?</h2><p class="q">Think about what your audience loves next to your product. Luggage leads to travel stories. Food delivery leads to chefs. An events app leads to comedy and movies.</p></div><div class="wall" data-wall="d2"></div></div>
-  <div class="infog wide">
+<section id="d2" class="decision">
+  <div class="dcover">
+    <div class="wall" data-wall="d2"></div>
+    <div class="dhead">
+      <div class="dcopy"><div class="where"><span class="tag">Decision 02</span><span class="pipcap">2 of 6</span></div><h2 class="dtitle" id="d2-title">Which audiences deserve their own pages?</h2></div>
+      <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d2-body" aria-labelledby="d2-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+  </div>
+  <div class="dbody stack" id="d2-body" hidden>
+    <div class="dintro"><h3>Which audience interests are worth building pages around?</h3><p class="q">Think about what your audience loves next to your product. Luggage leads to travel stories. Food delivery leads to chefs. An events app leads to comedy and movies.</p></div>
+  <div class="infog">
     <div class="label">Infographic · Map your audiences before creating new pages</div>
     <div class="twocol">
       <svg viewBox="0 0 600 400" role="img" aria-label="Audience map for a luggage brand: four interest bubbles inside the circle of everyone who might buy. Travel stories and airport humour overlap a little; packing hacks overlaps travel stories more.">
@@ -910,7 +890,7 @@ body{line-height:1.6}
       </div>
     </div>
   </div>
-      <div class="infog half"><span class="label">How to score an interest</span><h3>Rate each interest from 1 to 5 on five questions</h3>
+  <div class="infog"><span class="label">How to score an interest</span><h3>Rate each interest from 1 to 5 on five questions</h3>
   <div class="crit">
     <span><b>Size</b> · how many people care about it here?</span>
     <span><b>Passion</b> · do they save and share?</span>
@@ -921,13 +901,21 @@ body{line-height:1.6}
   <div class="keyline"><span>Scores out of 25:</span><span class="pill go">20–25: launch a dedicated page</span><span class="pill test">15–19: test it as a recurring series first</span><span class="pill park">Under 15: don’t invest in it yet</span></div>
         <p class="cap">The example cards show how a focus and ADHD-management app might score its options. Rename them and move the sliders for your own brand.</p>
       </div>
-    </div>
+  <div class="grid terr" id="terr"></div>
   </div>
 </section>
 
-<section id="d3" class="stack">
-  <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 03</span><span class="pips" data-step="3" aria-hidden="true"></span><span class="pipcap">3 of 6</span></div><h2>Choose the right Instagram structure for your team</h2><p class="q">Four options, simplest first. Move to the next one only when the current one is working.</p></div><div class="wall" data-wall="d3"></div></div>
-  <div class="grid models">
+<section id="d3" class="decision">
+  <div class="dcover">
+    <div class="wall" data-wall="d3"></div>
+    <div class="dhead">
+      <div class="dcopy"><div class="where"><span class="tag">Decision 03</span><span class="pipcap">3 of 6</span></div><h2 class="dtitle" id="d3-title">Which Instagram structure fits your team?</h2></div>
+      <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d3-body" aria-labelledby="d3-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+  </div>
+  <div class="dbody stack" id="d3-body" hidden>
+    <div class="dintro"><h3>Choose the right Instagram structure for your team</h3><p class="q">Four options, simplest first. Move to the next one only when the current one is working.</p></div>
+    <div class="grid models">
     <article class="card model" data-model="A"><div class="art" data-scene="mA"></div><div class="mtag">Option A</div><h3>One page with focused content series</h3><p>One page, organised into two or three named series so it doesn't feel like a noticeboard.</p>
       <div class="mrow"><span class="mk">Accounts</span><div class="net mini" data-net="A"></div></div>
       <div class="mrow"><span class="mk">Best for</span><span>One core audience, frequent purchases, small team.</span></div>
@@ -986,11 +974,20 @@ body{line-height:1.6}
       <li style="--c:var(--orange)"><div class="lart" data-scene="v3"></div><div class="ltxt"><span class="ldot">3</span><b>Build an independent media brand</b><p>Its own name. Your brand shows up only in credits or collabs.</p><p class="sm"><em>Pick it when</em> your logo would put viewers off, or you plan to sell sponsorships.</p></div></li>
     </ol>
   </div>
+  </div>
 </section>
 
-<section id="d4" class="stack">
-  <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 04</span><span class="pips" data-step="4" aria-hidden="true"></span><span class="pipcap">4 of 6</span></div><h2>What recurring content will make people follow and return?</h2><p class="q">A format is a show, not a post. Pin up one card like this for every series before you film anything.</p></div><div class="wall" data-wall="d4"></div></div>
-  <div class="board">
+<section id="d4" class="decision">
+  <div class="dcover">
+    <div class="wall" data-wall="d4"></div>
+    <div class="dhead">
+      <div class="dcopy"><div class="where"><span class="tag">Decision 04</span><span class="pipcap">4 of 6</span></div><h2 class="dtitle" id="d4-title">What content will people return for?</h2></div>
+      <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d4-body" aria-labelledby="d4-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+  </div>
+  <div class="dbody stack" id="d4-body" hidden>
+    <div class="dintro"><h3>What recurring content will make people follow and return?</h3><p class="q">A format is a show, not a post. Pin up one card like this for every series before you film anything.</p></div>
+    <div class="board">
     <div class="cluster"><span class="ctitle">The show</span>
       <div class="note"><b>What will the audience call this show?</b>Something a fan could say out loud.</div>
       <div class="note"><b>What happens in every episode?</b><em>"Every week, ___ tries ___."</em></div>
@@ -1017,11 +1014,20 @@ body{line-height:1.6}
       </ul></div>
     <div data-scene="host"></div>
   </div>
+  </div>
 </section>
 
-<section id="d5" class="stack">
-  <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 05</span><span class="pips" data-step="5" aria-hidden="true"></span><span class="pipcap">5 of 6</span></div><h2>How to run each page and know whether it’s working</h2><p class="q">Every page needs an owner, a rhythm and a rule for when to stop.</p></div><div class="wall" data-wall="d5"></div></div>
-  <div class="grid ops">
+<section id="d5" class="decision">
+  <div class="dcover">
+    <div class="wall" data-wall="d5"></div>
+    <div class="dhead">
+      <div class="dcopy"><div class="where"><span class="tag">Decision 05</span><span class="pipcap">5 of 6</span></div><h2 class="dtitle" id="d5-title">How will you run and measure each page?</h2></div>
+      <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d5-body" aria-labelledby="d5-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+  </div>
+  <div class="dbody stack" id="d5-body" hidden>
+    <div class="dintro"><h3>How to run each page and know whether it’s working</h3><p class="q">Every page needs an owner, a rhythm and a rule for when to stop.</p></div>
+    <div class="grid ops">
     <div class="card"><h3><i style="background:var(--coral)"></i>Assign one accountable owner to every page</h3><p>One named owner per page, even if the production team is shared.</p></div>
     <div class="card"><h3><i style="background:var(--blue)"></i>Set a posting schedule your team can maintain</h3><p>3 to 5 Reels a week per interest page, on fixed days.</p></div>
     <div class="card"><h3><i style="background:var(--orange)"></i>Decide how your pages will promote each other</h3><p>Collab posts and the odd mention. No sales posts on entertainment pages.</p></div>
@@ -1041,11 +1047,20 @@ body{line-height:1.6}
     <div class="scroll"><div class="gantt" id="gantt"></div></div>
     <p class="cap">Diamonds mark a short weekly review of each format. The red diamond is the day-90 decision: keep it, change the format once, or merge it back as a series.</p>
   </div>
+  </div>
 </section>
 
-<section id="d6" class="stack">
-  <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 06</span><span class="pips" data-step="6" aria-hidden="true"></span><span class="pipcap">6 of 6</span></div><h2>How an Instagram network creates business value over time</h2><p class="q">The returns come in stages. Know which step you're on, and don't expect step five in month two.</p></div><div class="wall" data-wall="d6"></div></div>
-  <div class="infog">
+<section id="d6" class="decision">
+  <div class="dcover">
+    <div class="wall" data-wall="d6"></div>
+    <div class="dhead">
+      <div class="dcopy"><div class="where"><span class="tag">Decision 06</span><span class="pipcap">6 of 6</span></div><h2 class="dtitle" id="d6-title">How will the network pay off?</h2></div>
+      <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d6-body" aria-labelledby="d6-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+  </div>
+  <div class="dbody stack" id="d6-body" hidden>
+    <div class="dintro"><h3>How an Instagram network creates business value over time</h3><p class="q">The returns come in stages. Know which step you're on, and don't expect step five in month two.</p></div>
+    <div class="infog">
     <div class="label">Infographic · How content, audience growth and revenue reinforce each other</div>
     <div class="twocol">
       <div class="flywrap"><svg id="fly" viewBox="0 0 520 520" role="img" aria-label="A loop: entertaining shows lead to retention and shares, then more reach, a bigger owned audience, cheaper launches and paid collabs, and that money funds more shows."></svg><div class="mid" data-scene="flyMid"></div></div>
@@ -1081,6 +1096,7 @@ body{line-height:1.6}
         <li>Your audiences overlap a lot. Use named series on one page instead.</li>
         <li>Leadership expects sales from entertainment pages within a quarter.</li>
       </ul></div>
+  </div>
   </div>
 </section>
 
@@ -2046,50 +2062,20 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
   });
 })();
 
-// Carousels for the decision sections
-document.querySelectorAll('[data-deck]').forEach(deck=>{
-  const track=deck.querySelector('.slides');const items=()=>[...track.children];
-  track.setAttribute('tabindex','0');deck.setAttribute('role','region');deck.setAttribute('aria-roledescription','carousel');
-  const bar=document.createElement('div');bar.className='deckbar';
-  bar.innerHTML=`<button type="button" class="dbtn prev" aria-label="Previous card">←</button><div class="dots" role="group" aria-label="Choose a card"></div><span class="dcount" aria-live="polite"></span><button type="button" class="dbtn next" aria-label="Next card">→</button>`;
-  deck.appendChild(bar);
-  const dots=bar.querySelector('.dots'),count=bar.querySelector('.dcount'),prev=bar.querySelector('.prev'),next=bar.querySelector('.next');
-  const n=items().length;
-  dots.innerHTML=items().map((_,i)=>`<button type="button" aria-label="Card ${i+1} of ${n}"></button>`).join('');
-  const go=i=>{const it=items()[Math.max(0,Math.min(n-1,i))];track.scrollTo({left:it.offsetLeft-track.offsetLeft-2,behavior:'smooth'})};
-  let cur=0;
-  function update(){
-    const max=track.scrollWidth-track.clientWidth;const x=track.scrollLeft;
-    let best=0,bd=1e9;items().forEach((it,i)=>{const d=Math.abs(it.offsetLeft-track.offsetLeft-2-x);if(d<bd){bd=d;best=i}});
-    if(x>=max-4)best=n-1;cur=best;
-    [...dots.children].forEach((b,i)=>b.setAttribute('aria-current',i===cur?'true':'false'));
-    count.textContent=`${cur+1} / ${n}`;prev.disabled=x<=4;next.disabled=x>=max-4;
-  }
-  let raf=0;track.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(update)},{passive:true});
-  addEventListener('resize',update);
-  prev.addEventListener('click',()=>go(cur-1));next.addEventListener('click',()=>go(cur+1));
-  dots.addEventListener('click',e=>{const b=e.target.closest('button');if(b)go([...dots.children].indexOf(b))});
-  track.addEventListener('keydown',e=>{if(e.target!==track)return;if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}});
-  if(deck.hasAttribute('data-advance'))track.addEventListener('change',e=>{const f=e.target.closest('.qslide');if(!f)return;const i=items().indexOf(f);if(i>-1&&i<n-1)setTimeout(()=>go(i+1),220)});
-  update();
-});
-
-// Decision carousels: every card takes the height of the tallest card, so nothing scrolls inside a card
+// Decisions: tap a cover card to expand its detailed content (all start collapsed)
 (function(){
-  const secs=['d1','d2'].map(id=>document.getElementById(id));
-  let raf=0,last=-1;
-  function fit(){
-    secs.forEach(x=>x.style.setProperty('--deckh','0px'));
-    let max=0;secs.forEach(x=>x.querySelectorAll('.slides>*').forEach(c=>{max=Math.max(max,c.offsetHeight)}));
-    if(max>0&&max!==last){last=max}
-    secs.forEach(x=>x.style.setProperty('--deckh',(max||0)+'px'));
-  }
-  const later=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(fit)};
-  fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(later);
-  addEventListener('resize',later);addEventListener('load',later);
-  secs.forEach(x=>{x.addEventListener('input',later);x.addEventListener('change',()=>setTimeout(later,60))});
-  document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>setTimeout(later,60)));
-  if('ResizeObserver' in window){const ro=new ResizeObserver(later);secs.forEach(x=>x.querySelectorAll('.slides>*').forEach(c=>ro.observe(c)))}
+  const secs=[...document.querySelectorAll('section.decision')];
+  const set=(sec,open)=>{sec.querySelector('.dbody').hidden=!open;sec.querySelector('.dcover').classList.toggle('open',open);sec.querySelector('.dtoggle').setAttribute('aria-expanded',open?'true':'false')};
+  secs.forEach(sec=>{
+    const cover=sec.querySelector('.dcover'),btn=sec.querySelector('.dtoggle');
+    const toggle=()=>{const open=sec.querySelector('.dbody').hidden;set(sec,open);if(!open){const t=cover.getBoundingClientRect().top;if(t<96)window.scrollTo({top:t+scrollY-96})}};
+    btn.addEventListener('click',toggle);
+    cover.addEventListener('click',e=>{if(btn.contains(e.target)||e.target.closest('a'))return;toggle()});
+  });
+  const open=(id)=>{const sec=document.getElementById(id);if(!sec||!sec.classList.contains('decision'))return;set(sec,true);setTimeout(()=>sec.scrollIntoView({block:'start',behavior:'smooth'}),30)};
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#d"]');if(!a)return;const id=a.getAttribute('href').slice(1);if(/^d[1-6]$/.test(id)){e.preventDefault();open(id)}});
+  const fromHash=()=>{if(/^#d[1-6]$/.test(location.hash))open(location.hash.slice(1))};
+  fromHash();addEventListener('hashchange',fromHash);
 })();
 
 // Lead capture: sends the form to Abhishek's inbox through FormSubmit. Nothing is stored on this site.
