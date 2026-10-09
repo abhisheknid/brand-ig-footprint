@@ -653,6 +653,47 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   .intstops .iph{max-width:none;border-radius:18px;padding:5px}
   .intstops .isc{border-radius:13px}
 }
+/* panel system: one idea per rounded card, tight gaps, roomy padding */
+:root{--pg:14px;--pp:24px;--pr:28px}
+@media (min-width:821px){:root{--pg:18px;--pp:36px}}
+body{padding-inline:12px}
+@media (min-width:821px){body{padding-inline:20px}}
+.page{gap:var(--pg)}
+.page>section{gap:var(--pg);scroll-margin-top:92px}
+.page>header.hero,.page>section:not(.stack),.stack>*:not(.board):not(.quiz){background:var(--card);border:1.5px solid var(--line);border-radius:var(--pr);padding:var(--pp);box-sizing:border-box}
+.stack>.quiz{border-radius:var(--pr)}
+.page>header.hero{padding-top:var(--pp)}
+.page .card{background:#fff}
+.stack>.board{border-radius:var(--pr)}
+.stack>.pgroup{display:flex;flex-direction:column;gap:18px}
+/* floating rounded header */
+.modebar{top:calc(env(safe-area-inset-top,0px) + 10px);max-width:1120px;margin:10px auto var(--pg);padding:9px 12px 9px 18px;border:1.5px solid var(--line);border-radius:22px;background:rgba(255,255,255,.94);box-shadow:0 6px 18px rgba(29,31,36,.08)}
+/* type: big, tight headlines; body stays 17px / 1.65 */
+.hero h1{font-size:clamp(2.45rem,10.6vw,3rem);line-height:1.04;letter-spacing:-.025em}
+@media (min-width:821px){.hero h1{font-size:clamp(2.6rem,4.4vw,3.7rem)}}
+.sh h2{line-height:1.08;letter-spacing:-.015em}
+@media (max-width:820px){.sh h2{font-size:clamp(1.8rem,7.6vw,2.15rem)}}
+.hero .label{align-self:flex-start;display:inline-flex;border:1.5px solid var(--line);border-radius:999px;padding:6px 14px;background:#fff;text-transform:none;letter-spacing:0;font-size:.88rem;font-weight:600;color:var(--ink)}
+.hero .txt{gap:22px}
+/* buttons: 14px corners, stacked full width on phones */
+.btn{border-radius:14px;padding:13px 20px;text-align:center}
+@media (max-width:640px){.btns{flex-direction:column;align-items:stretch}.btns .btn{width:100%}}
+/* phone density: option cards become individual panels with compact rows */
+@media (max-width:820px){
+  .stack>.models{display:contents}
+  .stack>.models>.model{background:var(--card);border:1.5px solid var(--line);border-radius:var(--pr);padding:var(--pp);box-sizing:border-box;display:grid;grid-template-columns:92px minmax(0,1fr);grid-template-rows:none;grid-row:auto;column-gap:14px;row-gap:12px;align-content:start}
+  .stack>.models>.model .art{grid-column:1;grid-row:1/span 3;align-self:start}
+  .stack>.models>.model .mtag,.stack>.models>.model h3,.stack>.models>.model>p{grid-column:2}
+  .stack>.models>.model .mrow{grid-column:1/-1;display:grid;grid-template-columns:96px minmax(0,1fr);gap:4px 12px;align-items:start;padding-top:10px}
+  .stack>.models>.model .mrow:has(.net){grid-template-columns:minmax(0,1fr)}
+  .stack>.models>.model .mrow .mk{padding-top:2px}
+  .page .card{padding:16px}
+  .board{padding:18px;gap:16px}
+  .note{padding:14px 14px 12px}
+  .fmrow{grid-template-columns:34px 72px repeat(4,minmax(0,34px))}
+  .hero .lede{font-size:1.06rem;line-height:1.55}
+  .hero .txt{gap:18px}
+}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -698,13 +739,13 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </ol>
 </section>
 
-<section id="quiz">
+<section id="quiz" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">Quick quiz · 9 questions</span><h2>Should you keep one Instagram page or create several?</h2>
   <p class="q">Answer nine quick questions to get a recommended strategy: which page structure to use, how visible your brand should be, your first recurring show, what to measure, and why. Nothing you answer is saved or sent anywhere.</p></div><div class="wall" data-wall="quiz"></div></div>
   <div class="quiz" id="qz" aria-live="polite"></div>
 </section>
 
-<section id="why">
+<section id="why" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">00 · The idea</span><h2>Give each audience a page that matches its interests</h2>
   <p class="q">The internet splits people by what they love. The narrower a page's audience, the better Instagram can find the right people for it, and the more those people engage.</p></div><div class="wall" data-wall="why"></div></div>
   <div class="infog intinfo">
@@ -729,9 +770,9 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <p class="cap">An illustration of the idea, not measured data.</p>
   </div>
 
-  <h3 style="font-size:1.5rem">How brands decide</h3>
+  <div class="pgroup"><h3 style="font-size:1.5rem">How brands decide</h3>
   <p class="subhead">How successful brands organise their Instagram audiences</p>
-  <div data-brands="m"></div>
+  <div data-brands="m"></div></div>
 
   <div class="infog">
     <div class="label">Infographic · The gap between purchases</div>
@@ -854,7 +895,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </div>
 </section>
 
-<section id="d3">
+<section id="d3" class="stack">
   <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 03</span><span class="pips" data-step="3" aria-hidden="true"></span><span class="pipcap">3 of 6</span></div><h2>Choose the right Instagram structure for your team</h2><p class="q">Four options, simplest first. Move to the next one only when the current one is working.</p></div><div class="wall" data-wall="d3"></div></div>
   <div class="grid models">
     <article class="card model" data-model="A"><div class="art" data-scene="mA"></div><div class="mtag">Option A</div><h3>One page with focused content series</h3><p>One page, organised into two or three named series so it doesn't feel like a noticeboard.</p>
@@ -917,7 +958,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </div>
 </section>
 
-<section id="d4">
+<section id="d4" class="stack">
   <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 04</span><span class="pips" data-step="4" aria-hidden="true"></span><span class="pipcap">4 of 6</span></div><h2>What recurring content will make people follow and return?</h2><p class="q">A format is a show, not a post. Pin up one card like this for every series before you film anything.</p></div><div class="wall" data-wall="d4"></div></div>
   <div class="board">
     <div class="cluster"><span class="ctitle">The show</span>
@@ -948,7 +989,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </div>
 </section>
 
-<section id="d5">
+<section id="d5" class="stack">
   <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 05</span><span class="pips" data-step="5" aria-hidden="true"></span><span class="pipcap">5 of 6</span></div><h2>How to run each page and know whether it’s working</h2><p class="q">Every page needs an owner, a rhythm and a rule for when to stop.</p></div><div class="wall" data-wall="d5"></div></div>
   <div class="grid ops">
     <div class="card"><h3><i style="background:var(--coral)"></i>Assign one accountable owner to every page</h3><p>One named owner per page, even if the production team is shared.</p></div>
@@ -958,12 +999,12 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <div class="card"><h3><i style="background:var(--mint)"></i>Set weekly, monthly and quarterly reviews</h3><p>Weekly per format, monthly per page, quarterly for the whole network.</p></div>
     <div class="card"><h3><i style="background:var(--yellow)"></i>When to fix, pause or merge an underperforming page</h3><p>Flat after 90 days of steady posting? Change the format once, then fold it back in as a series.</p></div>
   </div>
-  <h3 style="font-size:1.5rem">Measure each page by the results it is designed to deliver</h3>
+  <div class="pgroup"><h3 style="font-size:1.5rem">Measure each page by the results it is designed to deliver</h3>
   <div class="grid layers">
     <div class="card" style="--c:var(--blue)"><h3>Measure your brand page by business results</h3><h4>Track</h4><p>Profile visits, link clicks, saves on product posts, conversions.</p><h4>Don't judge by</h4><p>Viral reach alone.</p></div>
     <div class="card" style="--c:var(--coral)"><h3>Measure content pages by audience growth and engagement</h3><h4>Track</h4><p>Watch time, completion, shares, reach beyond followers, follower growth.</p><h4>Don't judge by</h4><p>Sales in the first six months.</p></div>
     <div class="card" style="--c:var(--mint)"><h3>Measure the combined value of your Instagram network</h3><h4>Track</h4><p>Total engaged audience, cost per launch, inbound collab requests, sponsorship revenue.</p><h4>Don't judge by</h4><p>Any single page's numbers.</p></div>
-  </div>
+  </div></div>
   <div class="infog">
     <div class="label">Infographic · The first 90 days of a new page</div>
     <h3>Run a 90-day test before deciding whether to continue</h3>
@@ -972,7 +1013,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </div>
 </section>
 
-<section id="d6">
+<section id="d6" class="stack">
   <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 06</span><span class="pips" data-step="6" aria-hidden="true"></span><span class="pipcap">6 of 6</span></div><h2>How an Instagram network creates business value over time</h2><p class="q">The returns come in stages. Know which step you're on, and don't expect step five in month two.</p></div><div class="wall" data-wall="d6"></div></div>
   <div class="infog">
     <div class="label">Infographic · How content, audience growth and revenue reinforce each other</div>
@@ -1013,7 +1054,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </div>
 </section>
 
-<section id="checklist">
+<section id="checklist" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">Before you launch</span><h2>Are you ready to launch a new Instagram page?</h2><p class="q">Tick these off before a new page goes live. Ticks reset when you reload the page.</p></div><div class="wall" data-wall="check"></div></div>
   <div class="checkwrap">
     <div class="mascot"><div id="mascot" style="width:100%"></div><p id="mascotTxt"></p></div>
@@ -1030,7 +1071,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </div>
 </section>
 
-<section id="lead">
+<section id="lead" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">Get in touch</span><h2>Want help choosing your Instagram strategy?</h2>
   <p class="q">Share a few details and Abhishek will get back to you by email. The quiz and the other tools on this page never send your answers anywhere.</p></div><div class="wall" data-wall="lead"></div></div>
   <div class="leadcard" data-lead="lead"></div>
@@ -1074,28 +1115,28 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   <div class="net" data-net="hero" role="img" aria-label="Diagram: a main brand page connected to three pages, one each for comedy fans, movie fans and food lovers"></div>
 </section>
 
-<section id="s-quiz">
+<section id="s-quiz" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">1-minute quiz · 5 questions</span><h2>Does your brand need more than one Instagram page?</h2>
   <p class="q">Pick the answer that sounds most like your business. You'll get a simple recommendation and the questions to ask your team. Nothing you answer is saved or sent anywhere.</p></div><div class="wall" data-wall="squiz"></div></div>
   <div class="quiz" id="sqz" aria-live="polite"></div>
 </section>
 
-<section id="s-options">
+<section id="s-options" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">Your options</span><h2>The three usual setups</h2><p class="q">Most brands end up with one of these. Start with the simplest one that fits.</p></div><div class="wall" data-wall="soptions"></div></div>
-  <div class="grid" style="--min:250px">
+  <div class="pgroup"><div class="grid" style="--min:250px">
     <div class="card"><div data-net="A" class="net mini"></div><h3>Keep one page, organised</h3><p>Split your posts into two or three regular series, so followers know what to expect.</p><p class="sm"><b>Good if</b> your followers mostly want the same things.</p></div>
     <div class="card"><div data-net="B" class="net mini"></div><h3>Add one fun page</h3><p>Your brand page sells. A second, entertaining page keeps people thinking about you between purchases.</p><p class="sm"><b>Good if</b> people buy from you rarely, like luggage or furniture.</p></div>
     <div class="card"><div data-net="C" class="net mini"></div><h3>A few pages for different interests</h3><p>Your main page plus one page for each big group of followers, each with its own style.</p><p class="sm"><b>Good if</b> different people follow you for very different reasons.</p></div>
   </div>
-  <p class="col" style="color:var(--muted);font-size:.95rem">Very large brands sometimes go further and build a whole media brand about their industry, like Swiggy's "Served". That needs a full content team and at least a year of patience.</p>
+  <p class="col" style="color:var(--muted);font-size:.95rem">Very large brands sometimes go further and build a whole media brand about their industry, like Swiggy's "Served". That needs a full content team and at least a year of patience.</p></div>
 </section>
 
-<section id="s-brands">
+<section id="s-brands" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">Real examples</span><h2>How brands decide</h2><p class="q">How successful brands organise their Instagram audiences. Tap a brand to see what it chose and why.</p></div><div class="wall" data-wall="sbrands"></div></div>
   <div data-brands="s"></div>
 </section>
 
-<section id="s-takes">
+<section id="s-takes" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">What it takes</span><h2>Before you add a page, check you can keep it going</h2></div><div class="wall" data-wall="stakes"></div></div>
   <div class="grid" style="--min:230px">
     <div class="card"><div data-scene="r5" style="max-width:90px"></div><h3>One owner per page</h3><p>A named person responsible for each page, even if they share a team.</p></div>
@@ -1104,7 +1145,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </div>
 </section>
 
-<section id="s-payoff">
+<section id="s-payoff" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">What you get back</span><h2>How it pays off, step by step</h2><p class="q">The benefits come in this order, and they take time. Don't expect step five in month two.</p></div><div class="wall" data-wall="spayoff"></div></div>
   <div class="stairs">
     <div data-scene="stairs" role="img" aria-label="Five characters climbing five steps, each happier than the last"></div>
@@ -1118,7 +1159,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </div>
 </section>
 
-<section id="s-ask">
+<section id="s-ask" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">Before you say yes</span><h2>Questions to ask your team or agency</h2><p class="q">If someone proposes a new Instagram page, these five questions tell you whether it's ready.</p></div><div class="wall" data-wall="sask"></div></div>
   <ol class="steps col">
     <li><div><b>Who exactly is this page for?</b><span>And do they really want different posts from our main page?</span></div></li>
@@ -1129,7 +1170,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </ol>
 </section>
 
-<section id="s-lead">
+<section id="s-lead" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">Get in touch</span><h2>Want help choosing your Instagram strategy?</h2>
   <p class="q">Share a few details and Abhishek will get back to you by email. The quiz and the other tools on this page never send your answers anywhere.</p></div><div class="wall" data-wall="slead"></div></div>
   <div class="leadcard" data-lead="slead"></div>
