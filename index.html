@@ -762,6 +762,8 @@ section.stack>.pcar.pcar.pcar.pcar{background:none;border:0;border-radius:0;padd
 .wall .stamp .pw{position:absolute;z-index:2;height:var(--h);aspect-ratio:874/900;transform:rotate(-2.5deg);transform-origin:20% 100%}
 .wall .stamp .pw>img{display:block;width:100%;height:100%;filter:drop-shadow(0 6px 8px rgba(29,31,36,.22)) drop-shadow(0 1px 1px rgba(29,31,36,.2))}
 .pfly{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.readybanner{width:100%;max-width:620px;margin:6px auto 0;padding-inline:4px;box-sizing:border-box}
+@media (min-width:821px){.readybanner{margin-top:10px}}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1177,6 +1179,8 @@ section.stack>.pcar.pcar.pcar.pcar{background:none;border:0;border-radius:0;padd
   </div>
   </div>
 </section>
+
+<div class="readybanner"><div class="wall" data-wall="check"></div></div>
 
 <section id="lead" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">Get in touch</span><h2>Want help choosing your <mark class="hl">Instagram strategy</mark>?</h2>
@@ -2081,6 +2085,7 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
     spayoff:{catch:'Payday!',bg:'#FCF0C8',p:'up',emoji:'💰',label:'The author looking up at a money-bag emoji, beside characters celebrating with coins',chars:[{shape:'round',color:'yellow',mood:'joy',prop:'coin',arms:'hold',x:74,y:9,w:14},{shape:'bean',color:'mint',mood:'joy',arms:'up',x:90,y:9,w:10}]},
     lead:{catch:'Say hello!',bg:'#FBDCDD',p:'phone',emoji:'📬',label:'The author checking his phone beside a mailbox emoji and a waving character, inviting visitors to get in touch',chars:[{shape:'round',color:'mint',mood:'joy',arms:'wave',x:82,y:9,w:15},{shape:'bean',color:'lilac',mood:'happy',prop:'phone',arms:'hold',x:94,y:9,w:9}]},
     slead:{catch:'Say hello!',bg:'#DCEAF8',p:'sofa',emoji:'💌',label:'The author on a sofa with his phone and a love-letter emoji, inviting visitors to get in touch',chars:[{shape:'round',color:'yellow',mood:'joy',arms:'wave',x:82,y:9,w:15},{shape:'square',color:'coral',mood:'happy',x:94,y:9,w:9}]},
+    check:{catch:'Ready?',bg:'#DCEAF8',p:'plane',emoji:'✅',label:'The author holding a paper plane as if about to launch it, with a checkmark and a character cheering',chars:[{shape:'round',color:'mint',mood:'joy',arms:'up',x:82,y:9,w:15}]},
     sask:{catch:'Ask first!',bg:'#FCE6CF',p:'sofa',emoji:'🙋',label:'The author on a sofa reading a proposal on his phone, with a raised-hand emoji for questions',chars:[{shape:'square',color:'orange',mood:'shock',x:82,y:9,w:14},{shape:'bean',color:'lilac',mood:'happy',x:95,y:9,w:8}]}
   };
   const FLY=`<svg class="pfly" viewBox="0 0 100 103" preserveAspectRatio="none" aria-hidden="true" fill="none" stroke="#1D1F24" stroke-linecap="round" stroke-linejoin="round">
