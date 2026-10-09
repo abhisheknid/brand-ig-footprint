@@ -19,3 +19,9 @@ Settings → Pages → *Deploy from a branch* → `main` and `/ (root)`.
 The site is served at `https://abhisheknid.github.io/brand-ig-footprint/`.
 
 Adapted from the ideas in "Everyone Wants a Media Network", episode 2.
+
+## Lead form
+
+Both views end with a "Get in touch" form (name, work email, optional Instagram handle, strategy goal). Submissions are emailed to the address set in the `TO` constant near the end of `index.html`, using the free [FormSubmit](https://formsubmit.co) service. No database and nothing is stored on this site.
+
+**One-time setup:** the first real submission makes FormSubmit email an activation link to that address. Submit a test entry yourself and click the link, otherwise visitors' submissions are not delivered.

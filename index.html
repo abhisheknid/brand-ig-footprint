@@ -614,6 +614,34 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 .wall .head .w1::before{content:"";position:absolute;z-index:-1;left:-.1em;right:-.25em;top:46%;height:52%;background:#EFE7D4;opacity:.92;transform:rotate(2deg);filter:none;
   clip-path:polygon(0 8%,4% 0,9% 9%,15% 1%,22% 8%,30% 0,38% 9%,46% 1%,54% 9%,62% 0,70% 8%,78% 1%,86% 9%,93% 0,100% 6%,98% 52%,100% 96%,94% 88%,87% 100%,79% 90%,70% 99%,62% 90%,54% 100%,46% 91%,38% 99%,30% 90%,22% 100%,14% 90%,7% 99%,0 92%,2% 50%)}
 .wall .head .w2{font-size:var(--s2,8cqw);transform:rotate(-3deg) skewX(-6deg);margin-right:8%}
+/* lead capture */
+.leadcard{width:100%;max-width:720px;margin-inline:auto;background:var(--card);border:1.5px solid var(--line);border-radius:28px;padding:28px}
+@media (max-width:560px){.leadcard{padding:20px}}
+.leadform{display:flex;flex-direction:column;gap:18px}
+.lf{display:flex;flex-direction:column;gap:6px;min-width:0}
+.lf label{font-weight:800;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lf label small{font-weight:600;letter-spacing:.04em;text-transform:none}
+.lf input,.lf select{font-family:var(--body);font-size:16px;line-height:1.3;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;width:100%;min-width:0;min-height:48px;box-sizing:border-box}
+.lf input::placeholder{color:#8A909A}
+.lf select{appearance:none;-webkit-appearance:none;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231D1F24' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.lf select:invalid{color:#8A909A}
+.lf input:focus,.lf select:focus{outline:3px solid var(--link);outline-offset:1px;border-color:var(--ink)}
+.lf .bad{border-color:#C94452;background:#FFF7F7}
+.lf .at{position:relative}
+.lf .at span{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-weight:800;color:var(--muted);pointer-events:none}
+.lf .at input{padding-left:36px}
+.leadform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.lsend{width:100%;font-size:1.05rem;padding:14px 20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.lsend[disabled]{opacity:.6;cursor:progress;transform:none}
+.lnote{font-size:.88rem;color:var(--muted);text-align:center;margin:0}
+.lstatus{font-size:.95rem;font-weight:700;margin:0;text-align:center}
+.lstatus.err{color:#C94452}
+.lstatus:empty{margin-block:-9px}
+.lthanks .lart{width:110px}
+.lstatus a{color:inherit}
+.lthanks{display:grid;grid-template-columns:110px minmax(0,1fr);gap:20px;align-items:center}
+@media (max-width:520px){.lthanks{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}}
+.lthanks h3{font-size:1.5rem;margin-bottom:6px}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -987,6 +1015,12 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   </div>
 </section>
 
+<section id="lead">
+  <div class="sectop"><div class="sh"><span class="tag">Get in touch</span><h2>Want help choosing your Instagram strategy?</h2>
+  <p class="q">Share a few details and Abhishek will get back to you by email. The quiz and the other tools on this page never send your answers anywhere.</p></div><div class="wall" data-wall="lead"></div></div>
+  <div class="leadcard" data-lead="lead"></div>
+</section>
+
 <div class="closing">
   <div data-scene="party" role="img" aria-label="A happy crowd of characters"></div>
   <div class="band">
@@ -1078,6 +1112,12 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <li><div><b>How will we judge it in the first 90 days?</b><span>Watch time and shares, not sales.</span></div></li>
     <li><div><b>What happens if it isn't working?</b><span>Change the show once, then fold it back into the main page.</span></div></li>
   </ol>
+</section>
+
+<section id="s-lead">
+  <div class="sectop"><div class="sh"><span class="tag">Get in touch</span><h2>Want help choosing your Instagram strategy?</h2>
+  <p class="q">Share a few details and Abhishek will get back to you by email. The quiz and the other tools on this page never send your answers anywhere.</p></div><div class="wall" data-wall="slead"></div></div>
+  <div class="leadcard" data-lead="slead"></div>
 </section>
 
 <div class="closing">
@@ -1884,6 +1924,8 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
     sbrands:{catch:'Steal this!',bg:'#FBDCDD',p:'right',emoji:'👀',label:'The author glancing at an eyes emoji, beside characters showing off famous brands’ ideas',chars:[{shape:'bean',color:'coral',mood:'joy',hat:'flame',arms:'up',x:72,y:9,w:12},{shape:'cloud',color:'sky',mood:'joy',prop:'fork',arms:'hold',x:86,y:9,w:13}]},
     stakes:{catch:'Patience.',bg:'#DDF0E1',p:'phone',emoji:'⏳',label:'The author on his phone with an hourglass emoji, beside a patient sleepy character',chars:[{shape:'cloud',color:'sky',mood:'sleepy',x:82,y:9,w:16}]},
     spayoff:{catch:'Payday!',bg:'#FCF0C8',p:'up',emoji:'💰',label:'The author looking up at a money-bag emoji, beside characters celebrating with coins',chars:[{shape:'round',color:'yellow',mood:'joy',prop:'coin',arms:'hold',x:74,y:9,w:14},{shape:'bean',color:'mint',mood:'joy',arms:'up',x:90,y:9,w:10}]},
+    lead:{catch:'Say hello!',bg:'#FBDCDD',p:'phone',emoji:'📬',label:'The author checking his phone beside a mailbox emoji and a waving character, inviting visitors to get in touch',chars:[{shape:'round',color:'mint',mood:'joy',arms:'wave',x:82,y:9,w:15},{shape:'bean',color:'lilac',mood:'happy',prop:'phone',arms:'hold',x:94,y:9,w:9}]},
+    slead:{catch:'Say hello!',bg:'#DCEAF8',p:'sofa',emoji:'💌',label:'The author on a sofa with his phone and a love-letter emoji, inviting visitors to get in touch',chars:[{shape:'round',color:'yellow',mood:'joy',arms:'wave',x:82,y:9,w:15},{shape:'square',color:'coral',mood:'happy',x:94,y:9,w:9}]},
     sask:{catch:'Ask first!',bg:'#FCE6CF',p:'sofa',emoji:'🙋',label:'The author on a sofa reading a proposal on his phone, with a raised-hand emoji for questions',chars:[{shape:'square',color:'orange',mood:'shock',x:82,y:9,w:14},{shape:'bean',color:'lilac',mood:'happy',x:95,y:9,w:8}]}
   };
   const doodles=`<svg class="doodles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true" fill="none" stroke="#1D1F24" stroke-linecap="round" stroke-linejoin="round">
@@ -1938,6 +1980,63 @@ document.querySelectorAll('[data-deck]').forEach(deck=>{
   if(deck.hasAttribute('data-advance'))track.addEventListener('change',e=>{const f=e.target.closest('.qslide');if(!f)return;const i=items().indexOf(f);if(i>-1&&i<n-1)setTimeout(()=>go(i+1),220)});
   update();
 });
+
+// Lead capture: sends the form to Abhishek's inbox through FormSubmit. Nothing is stored on this site.
+(function(){
+  const TO='hellowork.abhi@gmail.com';
+  const GOALS=['Decide whether to create more Instagram pages','Choose which audiences deserve their own pages','Pick the right Instagram structure','Plan recurring shows people return for','Run and measure each page','Turn the audience into collabs and sponsorships'];
+  const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+  document.querySelectorAll('[data-lead]').forEach(box=>{
+    const k=box.dataset.lead;
+    box.innerHTML=`<form class="leadform" novalidate>
+      <div class="lf"><label for="ln-${k}">Your full name</label><input id="ln-${k}" name="name" type="text" autocomplete="name" required placeholder="e.g. Priya Sharma"></div>
+      <div class="lf"><label for="le-${k}">Work email address</label><input id="le-${k}" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" required placeholder="name@brand.com"></div>
+      <div class="lf"><label for="lh-${k}">Brand Instagram handle <small>(optional)</small></label><div class="at"><span aria-hidden="true">@</span><input id="lh-${k}" name="instagram" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="yourbrand"></div></div>
+      <div class="lf"><label for="lg-${k}">Primary strategy goal</label><select id="lg-${k}" name="goal" required><option value="" selected disabled>Select your main priority…</option>${GOALS.map(g=>`<option>${esc(g)}</option>`).join('')}</select></div>
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit" class="btn solid lsend">Send my details <span aria-hidden="true">→</span></button>
+      <p class="lstatus" role="status" aria-live="polite"></p>
+      <p class="lnote">Your details go straight to Abhishek’s inbox through the FormSubmit service and are used only to reply to you.</p>
+    </form>`;
+    const form=box.querySelector('form'),status=form.querySelector('.lstatus'),btn=form.querySelector('button');
+    const say=(t,err)=>{status.className='lstatus'+(err?' err':'');status.textContent=t};
+    form.addEventListener('input',e=>{if(e.target.classList)e.target.classList.remove('bad')});
+    form.addEventListener('submit',async e=>{
+      e.preventDefault();
+      const f=form.elements;
+      let handle=f.instagram.value.trim().replace(/^https?:\/\/(www\.)?instagram\.com\//i,'').replace(/^@+/,'').replace(/\/.*$/,'');
+      const bad=[];
+      if(!f.name.value.trim())bad.push(f.name);
+      if(!f.email.validity.valid||!f.email.value.trim())bad.push(f.email);
+      if(handle&&!/^[A-Za-z0-9._]{1,30}$/.test(handle))bad.push(f.instagram);
+      if(!f.goal.value)bad.push(f.goal);
+      form.querySelectorAll('.bad').forEach(x=>x.classList.remove('bad'));
+      if(bad.length){bad.forEach(x=>x.classList.add('bad'));bad[0].focus();say(bad.includes(f.instagram)&&bad.length===1?'That handle doesn’t look right. Use letters, numbers, dots and underscores only.':'Please fix the highlighted fields.',true);return}
+      const name=f.name.value.trim();
+      const done=()=>{
+        const t=document.createElement('div');t.className='lthanks';t.setAttribute('role','status');
+        t.innerHTML=`<div class="lart">${one({shape:'round',color:'mint',mood:'joy',arms:'up',w:90})}</div><div><h3></h3><p>Your details are on their way to Abhishek. Watch your inbox for a reply.</p></div>`;
+        t.querySelector('h3').textContent='Thanks, '+name.split(/\s+/)[0]+'!';
+        form.replaceWith(t);t.scrollIntoView({block:'nearest'});
+      };
+      if(f._honey.value){done();return}
+      btn.disabled=true;say('Sending…');
+      const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),15000);
+      try{
+        const res=await fetch('https://formsubmit.co/ajax/'+TO,{method:'POST',signal:ctl.signal,headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({
+          name,email:f.email.value.trim(),instagram:handle?'@'+handle:'(not given)',goal:f.goal.value,
+          page_view:form.closest('#view-s')?'Non-marketer view':'Marketer view',page:location.origin+location.pathname,
+          _subject:'New lead from The Instagram Network Playbook',_template:'table',_captcha:'false'})});
+        const data=await res.json().catch(()=>({}));
+        if(res.ok&&(data.success===true||data.success==='true')){done();return}
+        throw new Error('rejected');
+      }catch(err){
+        btn.disabled=false;status.className='lstatus err';status.textContent='That didn’t send. Please try again, or email ';
+        const a=document.createElement('a');a.href='mailto:'+TO;a.textContent=TO;status.append(a,'.');
+      }finally{clearTimeout(to)}
+    });
+  });
+})();
 })();
 </script>
 </body>
