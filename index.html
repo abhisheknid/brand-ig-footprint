@@ -14,7 +14,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='22' y='10' width='56' height='80' rx='28' fill='%23EC6F78'/%3E%3Ccircle cx='41' cy='42' r='7' fill='white'/%3E%3Ccircle cx='59' cy='42' r='7' fill='white'/%3E%3Ccircle cx='42' cy='43' r='3.5' fill='%233B3035'/%3E%3Ccircle cx='58' cy='43' r='3.5' fill='%233B3035'/%3E%3Cpath d='M42 56 Q50 64 58 56' stroke='%233B3035' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Archivo+Black&family=Merriweather:wght@700&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Archivo+Black&family=Merriweather:wght@700;900&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap">
 <style>
 /* Layout: a storybook scroll. Sticky chip nav, then one illustrated "scene" per decision, text column beside or under each scene. Single warm-paper theme on purpose. */
 :root{
@@ -585,6 +585,35 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
   .linkstops p{font-size:.9rem;line-height:1.45}
   .linkstops .sm{font-size:.86rem}
 }
+/* scrapbook stamp illustrations */
+.wall{background:none!important;border-radius:0;overflow:visible;filter:drop-shadow(0 7px 9px rgba(29,31,36,.18)) drop-shadow(0 1px 1px rgba(29,31,36,.12))}
+.wall::after{display:none}
+.wall.hasart{filter:drop-shadow(0 6px 8px rgba(29,31,36,.16))}
+.wall .artimg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.wall .stamp{position:absolute;inset:0;--r:5px;overflow:hidden;background-color:var(--w,#DDF0E1);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .18 0 0 0 0 .15 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(circle at 50% 42%,rgba(29,31,36,.30) 0 1.7px,rgba(255,255,255,.75) 2.2px 2.9px,transparent 3.3px);background-size:180px 180px,22px 22px;background-position:0 0,8px 8px;
+  -webkit-mask:radial-gradient(var(--r),#0000 97%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));
+          mask:radial-gradient(var(--r),#0000 97%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r))}
+.wall .grid{position:absolute;z-index:1;background-image:linear-gradient(rgba(29,31,36,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(29,31,36,.13) 1px,transparent 1px);background-size:4.2cqw 4.2cqw;
+  -webkit-mask:linear-gradient(90deg,#000 70%,transparent),linear-gradient(#000,#000);mask:linear-gradient(90deg,#000 70%,transparent)}
+.wall .grid.g1{left:4%;top:20%;width:48%;height:76%}
+.wall .grid.g2{left:52%;top:80%;width:44%;height:16%;-webkit-mask:linear-gradient(270deg,#000 60%,transparent);mask:linear-gradient(270deg,#000 60%,transparent)}
+.wall .stamp .person{z-index:2;filter:drop-shadow(0 6px 8px rgba(29,31,36,.22)) drop-shadow(0 1px 1px rgba(29,31,36,.2))}
+.wall .tape{position:absolute;z-index:3;right:4%;bottom:7%;width:42%;height:9%;background:#EFE7D4;opacity:.95;transform:rotate(-2deg);box-shadow:0 2px 3px rgba(29,31,36,.12);
+  clip-path:polygon(0 12%,3% 0,7% 10%,12% 2%,18% 9%,25% 1%,33% 8%,41% 0,50% 9%,58% 1%,66% 8%,74% 0,82% 9%,90% 2%,96% 10%,100% 3%,98% 50%,100% 95%,95% 88%,89% 100%,82% 90%,74% 99%,66% 89%,58% 100%,50% 91%,41% 99%,33% 90%,25% 100%,17% 90%,10% 99%,4% 89%,0 97%,2% 50%)}
+.wall .stamp .scene{z-index:4}
+.wall .pop{position:absolute;z-index:4;left:var(--ex,49%);top:var(--ey,52%);transform:rotate(-5deg);background:#fff;border-radius:2.4cqw;padding:1.4cqw 1.9cqw;font-size:8.5cqw;line-height:1;
+  filter:drop-shadow(0 4px 5px rgba(29,31,36,.22));box-shadow:0 0 0 .5cqw #FBF8F1 inset}
+.wall .pop::after{content:"";position:absolute;left:22%;bottom:-1.5cqw;width:3cqw;height:3cqw;background:#fff;transform:rotate(45deg)}
+.wall img.pop{background:none;padding:0;box-shadow:none;width:11cqw;height:auto}
+.wall img.pop::after{display:none}
+.wall .doodles{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;overflow:visible}
+.wall .head{position:absolute;z-index:6;right:6%;top:8%;width:48%;display:flex;flex-direction:column;align-items:flex-end;gap:.6cqw}
+.wall .head span{font-family:"Merriweather",Georgia,serif;font-weight:900;line-height:1.05;color:#1D1F24;white-space:nowrap;-webkit-text-stroke:.15em #fff;paint-order:stroke fill;filter:drop-shadow(.06em .08em 0 #1D1F24)}
+.wall .head .w1{position:relative;font-size:var(--s1,9cqw);transform:rotate(-6deg);padding:.15em .25em;align-self:center}
+.wall .head .w1::before{content:"";position:absolute;z-index:-1;left:-.1em;right:-.25em;top:46%;height:52%;background:#EFE7D4;opacity:.92;transform:rotate(2deg);filter:none;
+  clip-path:polygon(0 8%,4% 0,9% 9%,15% 1%,22% 8%,30% 0,38% 9%,46% 1%,54% 9%,62% 0,70% 8%,78% 1%,86% 9%,93% 0,100% 6%,98% 52%,100% 96%,94% 88%,87% 100%,79% 90%,70% 99%,62% 90%,54% 100%,46% 91%,38% 99%,30% 90%,22% 100%,14% 90%,7% 99%,0 92%,2% 50%)}
+.wall .head .w2{font-size:var(--s2,8cqw);transform:rotate(-3deg) skewX(-6deg);margin-right:8%}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1835,10 +1864,10 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
 // Key illustrations: photo sticker looking at an emoji, with characters acting out the topic
 (function(){
   const P={
-    right:{src:'images/sticker-look-right.webp?v=20261009d',h:74,left:0,emo:{left:52,top:12,size:14}},
-    up:{src:'images/sticker-look-up.webp?v=20261009d',h:74,left:0,emo:{left:48,top:4,size:14}},
-    sofa:{src:'images/sticker-sofa.webp?v=20261009d',h:80,left:0,emo:{left:30,top:22,size:8.5},bubble:true},
-    phone:{src:'images/sticker-phone.webp?v=20261009d',h:80,left:0,emo:{left:27,top:12,size:9},bubble:true}
+    right:{src:'images/sticker-look-right.webp?v=20261009d',h:72,left:3,bottom:0,emo:{left:52,top:12,size:14}},
+    up:{src:'images/sticker-look-up.webp?v=20261009d',h:72,left:3,bottom:0,emo:{left:48,top:4,size:14}},
+    sofa:{src:'images/sticker-sofa.webp?v=20261009d',h:76,left:3,bottom:4,emo:{left:30,top:22,size:8.5},bubble:true},
+    phone:{src:'images/sticker-phone.webp?v=20261009d',h:76,left:4,bottom:5,emo:{left:27,top:12,size:9},bubble:true}
   };
   const W={
     quiz:{catch:'Which one?',bg:'#FCF0C8',p:'up',emoji:'🤔',label:'The author looking up at a thinking-face emoji, beside characters wondering which option fits',chars:[{shape:'round',color:'yellow',mood:'shock',x:74,y:9,w:15},{shape:'square',color:'sky',mood:'meh',x:89,y:9,w:12}]},
@@ -1847,7 +1876,7 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
     d2:{catch:'Niche down!',bg:'#DDF0E1',p:'up',emoji:'🎯',label:'The author looking up at a target emoji, beside characters representing different audience interests',chars:[{shape:'round',color:'blue',mood:'happy',prop:'popcorn',arms:'hold',x:70,y:9,w:12},{shape:'bean',color:'coral',mood:'joy',prop:'mic',arms:'hold',x:83,y:9,w:11},{shape:'tri',color:'yellow',mood:'happy',prop:'fork',arms:'hold',x:94,y:9,w:10}]},
     d3:{catch:'Pick a setup',bg:'#ECE3F7',p:'right',emoji:'🧩',label:'The author looking at a puzzle-piece emoji, beside a main-page character and two smaller page characters',chars:[{shape:'square',color:'blue',mood:'happy',x:80,y:9,w:15},{shape:'bean',color:'coral',mood:'joy',x:67,y:9,w:9},{shape:'tri',color:'mint',mood:'happy',x:94,y:9,w:9}]},
     d4:{catch:'Binge-worthy',bg:'#FCE6CF',p:'sofa',emoji:'🎬',label:'The author on a sofa watching a show on his phone, beside a host character with a megaphone',chars:[{shape:'square',color:'lilac',mood:'joy',hat:'beanie',prop:'megaphone',arms:'hold',x:80,y:9,w:15},{shape:'bean',color:'coral',mood:'happy',prop:'clap',arms:'hold',x:94,y:9,w:9}]},
-    d5:{catch:'Track it!',bg:'#DDF0E1',p:'phone',emoji:'📊',label:'The author checking the numbers on his phone, beside a page-owner character and a character holding a phone',chars:[{shape:'round',color:'blue',mood:'happy',prop:'phone',arms:'hold',x:80,y:9,w:14},{shape:'bean',color:'mint',mood:'joy',hat:'cap',x:94,y:9,w:9}]},
+    d5:{art:'images/scene-track.webp?v=20261009d',catch:'Track it!',bg:'#DDF0E1',p:'phone',emoji:'📊',label:'The author checking the numbers on his phone, beside a page-owner character and a character holding a phone',chars:[{shape:'round',color:'blue',mood:'happy',prop:'phone',arms:'hold',x:80,y:9,w:14},{shape:'bean',color:'mint',mood:'joy',hat:'cap',x:94,y:9,w:9}]},
     d6:{catch:'Payday!',bg:'#FCF0C8',p:'up',emoji:'💰',label:'The author looking up at a money-bag emoji, beside characters celebrating with coins',chars:[{shape:'round',color:'yellow',mood:'joy',prop:'coin',arms:'hold',x:72,y:9,w:14},{shape:'tall',color:'orange',mood:'joy',arms:'up',x:86,y:9,w:8},{shape:'bean',color:'mint',mood:'joy',prop:'coin',arms:'hold',x:95,y:9,w:9}]},
     check:{catch:'Ready?',bg:'#DCEAF8',p:'phone',emoji:'✅',label:'The author ticking off a checklist on his phone, beside a character cheering',chars:[{shape:'round',color:'mint',mood:'joy',arms:'up',x:82,y:9,w:15}]},
     squiz:{catch:'Which one?',bg:'#FCF0C8',p:'up',emoji:'🤔',label:'The author looking up at a thinking-face emoji, beside characters wondering what to do',chars:[{shape:'round',color:'yellow',mood:'shock',x:74,y:9,w:15},{shape:'square',color:'sky',mood:'meh',x:89,y:9,w:12}]},
@@ -1857,14 +1886,28 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
     spayoff:{catch:'Payday!',bg:'#FCF0C8',p:'up',emoji:'💰',label:'The author looking up at a money-bag emoji, beside characters celebrating with coins',chars:[{shape:'round',color:'yellow',mood:'joy',prop:'coin',arms:'hold',x:74,y:9,w:14},{shape:'bean',color:'mint',mood:'joy',arms:'up',x:90,y:9,w:10}]},
     sask:{catch:'Ask first!',bg:'#FCE6CF',p:'sofa',emoji:'🙋',label:'The author on a sofa reading a proposal on his phone, with a raised-hand emoji for questions',chars:[{shape:'square',color:'orange',mood:'shock',x:82,y:9,w:14},{shape:'bean',color:'lilac',mood:'happy',x:95,y:9,w:8}]}
   };
+  const doodles=`<svg class="doodles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true" fill="none" stroke="#1D1F24" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M362 26 l3 8 8 1 -6 5 2 8 -7-4 -7 4 2-8 -6-5 8-1z" stroke-width="1.6"/>
+    <path d="M300 118 l2 6 6 1 -5 4 2 6 -5-3 -5 3 1-6 -4-4 6-1z" stroke-width="1.4"/>
+    <path d="M378 128 l2 5 5 1 -4 3 1 5 -4-2 -4 2 1-5 -4-3 5-1z" stroke-width="1.3"/>
+    <circle cx="380" cy="44" r="1.6" fill="#1D1F24"/><circle cx="386" cy="56" r="2.2" stroke-width="1.3"/><circle cx="292" cy="98" r="1.4" fill="#1D1F24"/>
+    <path d="M226 142 C 240 156, 268 158, 296 144" stroke-width="2"/><path d="M288 140 l9 3 -6 8" stroke-width="2"/>
+    <path d="M232 214 C 246 236, 262 238, 274 226" stroke-width="1.6" stroke-dasharray="3 5"/>
+    <path d="M300 196 l-6 -9 M310 192 l1 -11 M320 197 l7 -8" stroke-width="1.8"/>
+    <path d="M372 196 l9 -5 M374 206 l10 1" stroke-width="1.6"/>
+  </svg>`;
+  const tapeSplit=t=>{const i=t.indexOf(' '),h=t.indexOf('-');if(h>0&&(i<0||h<i))return[t.slice(0,h+1),t.slice(h+1)];return i>0?[t.slice(0,i),t.slice(i+1)]:[t,''];};
   document.querySelectorAll('[data-wall]').forEach(el=>{
-    const c=W[el.dataset.wall];if(!c)return;const p=P[c.p];
+    const c=W[el.dataset.wall];if(!c)return;
     el.style.setProperty('--w',c.bg);el.setAttribute('role','img');el.setAttribute('aria-label',c.label);
-    const e=p.emo;const pos=`left:${e.left}%;top:${e.top}%;--es:${e.size}cqw`;
-    const emo=c.img?`<img class="emo" src="${c.img}" alt="" style="${pos}">`:`<span class="emo${p.bubble?' bubble':''}" style="${pos}" aria-hidden="true">${c.emoji}</span>`;
-    const chars=c.chars.map(o=>{const w=o.w*1.5;return Object.assign({},o,{w,x:Math.min(Math.max(o.x,56+w/2),99-w/2)})});
-    const cw=c.catch?`<span class="catch" aria-hidden="true" style="--cs:${Math.min(8,50/(c.catch.length*.66)).toFixed(2)}cqw">${c.catch}</span>`:'';
-    el.innerHTML=`<img class="person" src="${p.src}" alt="" style="left:${p.left}%;--h:${p.h}%">${emo}${cw}`+scene(chars,'4/3');
+    if(c.art){el.innerHTML=`<img class="artimg" src="${c.art}" alt="">`;el.classList.add('hasart');return;}
+    const p=P[c.p];
+    const pop=c.img?`<img class="pop" src="${c.img}" alt="">`:`<span class="pop" aria-hidden="true">${c.emoji}</span>`;
+    const chars=c.chars.map(o=>{const w=o.w*1.35;return Object.assign({},o,{y:11,w,x:Math.min(Math.max(o.x,66+w/2),97-w/2)})});
+    let head='';
+    if(c.catch){const [a,b]=tapeSplit(c.catch);const s1=b?Math.min(9.5,40/(a.length*.62)):Math.min(10,50/(a.length*.62)),s2=b?Math.min(8,40/(b.length*.6)):0;
+      head=`<div class="head" aria-hidden="true"><span class="w1" style="--s1:${s1.toFixed(2)}cqw">${a}</span>${b?`<span class="w2" style="--s2:${s2.toFixed(2)}cqw">${b}</span>`:''}</div>`;}
+    el.innerHTML=`<div class="stamp"><span class="grid g1"></span><span class="grid g2"></span><img class="person" src="${p.src}" alt="" style="left:${p.left}%;bottom:${p.bottom}%;--h:${p.h}%"><span class="tape"></span>${pop}${head}${doodles}${scene(chars,'4/3')}</div>`;
   });
 })();
 
