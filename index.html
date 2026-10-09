@@ -312,6 +312,107 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 .qwarn{background:#FBE3E5}
 .qscore{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font-size:.82rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
 .qscore .bar{height:10px}
+/* current section in the nav */
+nav.chips a.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+nav.chips a.on b{color:var(--yellow)}
+
+/* decision journey: where am I, what's next */
+.where{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pips{display:flex;gap:5px}
+.pips i{width:22px;height:6px;border-radius:3px;background:var(--line)}
+.pips i.done{background:var(--coral)}
+.pips i.now{background:var(--ink)}
+.pipcap{font-size:.82rem;font-weight:800;color:var(--muted)}
+.nextdec{display:flex;align-items:center;justify-content:space-between;gap:12px 18px;flex-wrap:wrap;border-top:2px dashed var(--line);padding-top:18px;text-decoration:none;color:var(--ink)}
+.nextdec div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.nextdec b{font-family:var(--display);font-weight:600;font-size:1.2rem;line-height:1.25}
+.nextdec .go{font-family:var(--display);font-weight:600;border:2px solid var(--ink);border-radius:999px;padding:7px 16px;background:var(--card);white-space:nowrap;transition:background .15s}
+.nextdec:hover .go{background:var(--yellow)}
+
+/* account-network diagram: one root account, child accounts, their audiences */
+.net{display:flex;flex-direction:column;align-items:center;width:100%;--gap:22px}
+.net .acct{display:flex;align-items:center;gap:8px;background:var(--card);border:2px solid var(--ink);border-radius:999px;padding:4px 14px 4px 4px;min-width:0;text-align:left}
+.net .av{width:34px;height:34px;flex:none;border-radius:50%;background:var(--paper);display:grid;place-items:center;overflow:hidden}
+.net .av svg{width:78%;height:auto;display:block}
+.net .acct b{display:block;font-family:var(--display);font-weight:600;font-size:.95rem;line-height:1.15}
+.net .acct small{display:block;font-size:.75rem;color:var(--muted);line-height:1.25}
+.net .root{position:relative;padding-bottom:var(--gap);display:flex;justify-content:center}
+.net .root .acct{box-shadow:4px 4px 0 var(--ink)}
+.net .root::after{content:"";position:absolute;left:50%;bottom:0;height:var(--gap);border-left:2px solid var(--ink)}
+.net .root:last-child{padding-bottom:0}
+.net .root:last-child::after{display:none}
+.net .top{position:relative;padding-bottom:var(--gap);display:flex;justify-content:center}
+.net .top::after{content:"";position:absolute;left:50%;bottom:0;height:var(--gap);border-left:2px dashed var(--muted)}
+.net .top span{font-size:.75rem;font-weight:800;color:var(--muted);border:1.5px dashed var(--muted);border-radius:999px;padding:2px 10px;background:var(--paper)}
+.net .kids{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));column-gap:10px;width:100%}
+.net .kid{position:relative;padding-top:var(--gap);display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.net .kid::before{content:"";position:absolute;top:0;left:50%;height:var(--gap);border-left:2px solid var(--ink)}
+.net .kid::after{content:"";position:absolute;top:0;left:-5px;right:-5px;border-top:2px solid var(--ink)}
+.net .kid:first-child::after{left:50%}
+.net .kid:last-child::after{right:50%}
+.net .kid:only-child::after{display:none}
+.net .kid .acct{flex-direction:column;border-radius:16px;padding:8px 6px;gap:4px;width:100%;text-align:center}
+.net .kid.series .acct{border-style:dashed;background:transparent}
+.net .kid.series::before,.net .kid.series::after{border-color:var(--muted);border-left-style:dashed;border-top-style:dashed}
+.net .aud{font-size:.78rem;font-weight:800;line-height:1.25;border-radius:999px;padding:3px 10px;background:var(--c);text-align:center}
+.net.mini{--gap:14px}
+.net.mini .acct{padding:3px 10px 3px 3px;gap:6px}
+.net.mini .av{width:22px;height:22px}
+.net.mini .acct b{font-size:.8rem}
+.net.mini .acct small{font-size:.68rem}
+.net.mini .kid .acct{padding:5px 3px}
+.net.mini .aud{font-size:.68rem;padding:2px 6px}
+.concept{background:var(--card);border:1.5px solid var(--line);border-radius:28px;padding:28px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px;align-items:center}
+@media (max-width:820px){.concept{grid-template-columns:minmax(0,1fr);padding:20px}}
+.concept h2{font-size:clamp(1.5rem,3vw,2.1rem)}
+.cx{display:flex;flex-direction:column;gap:14px}
+.cx ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.cx li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;font-size:1rem}
+.cx li i{width:30px;height:30px;border-radius:50%;background:var(--c);display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:700}
+.cx li b{font-family:var(--display);font-weight:600}
+
+/* option comparison rows */
+.mrow{display:flex;flex-direction:column;gap:4px;border-top:1.5px dashed var(--line);padding-top:10px;font-size:.95rem;min-width:0}
+.mk{font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mrow.warn{border-top-color:var(--coral)}
+.mrow.warn .mk{color:#C94452}
+@supports (grid-template-rows:subgrid){
+  .models .model{display:grid;grid-row:span 11;grid-template-rows:subgrid;row-gap:10px;align-content:start}
+}
+
+/* score scale */
+.scale{position:relative;display:grid;grid-template-columns:2fr 1fr 1fr;height:14px;border-radius:7px;overflow:visible;margin-block:6px 2px}
+.scale .z{display:block}
+.scale .z.park{background:var(--paper2);border-radius:7px 0 0 7px}
+.scale .z.test{background:var(--yellow)}
+.scale .z.go{background:var(--mint);border-radius:0 7px 7px 0}
+.scale i{position:absolute;top:-5px;width:6px;height:24px;margin-left:-3px;border-radius:3px;background:var(--ink);box-shadow:0 0 0 2px var(--card);transition:left .25s}
+.scaleticks{display:grid;grid-template-columns:2fr 1fr 1fr;font-size:.7rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.scaleticks span:nth-child(2),.scaleticks span:nth-child(3){padding-left:3px}
+.terr .card{border-top:7px solid var(--line);transition:border-color .2s}
+.terr .card[data-v="go"]{border-top-color:var(--mint)}
+.terr .card[data-v="test"]{border-top-color:var(--yellow)}
+.terr .verdict .pill{font-size:.84rem;margin-top:2px}
+.keyline .pill{font-size:.8rem}
+
+/* format board grouped by job */
+.board{grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:22px}
+.cluster{display:flex;flex-direction:column;gap:16px;min-width:0}
+.ctitle{align-self:flex-start;font-family:var(--display);font-weight:600;font-size:.9rem;background:var(--ink);color:var(--paper);border-radius:999px;padding:3px 12px}
+.board .cluster:nth-child(1) .note{background:#FCE7A6}
+.board .cluster:nth-child(2) .note{background:#F9C9CC}
+.board .cluster:nth-child(3) .note{background:#CFE3F7}
+.note em{font-style:italic;color:var(--muted)}
+.excard{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;align-items:center;background:var(--paper2);border-radius:22px;padding:18px 22px}
+@media (max-width:520px){.excard{grid-template-columns:80px minmax(0,1fr);padding:16px}}
+.excard b{font-family:var(--display);font-weight:600;font-size:1.15rem}
+
+/* flywheel steps */
+.flysteps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.flysteps li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;font-size:1rem}
+.flysteps li i{width:30px;height:30px;border-radius:50%;background:var(--c);border:2px solid var(--ink);display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:700;font-size:.9rem}
+.flysteps b{font-family:var(--display);font-weight:600}
+.callout{border-left:4px solid var(--yellow);background:var(--paper);border-radius:0 14px 14px 0;padding:10px 14px;font-size:.96rem;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -352,6 +453,19 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     </div>
   </div>
 </header>
+
+<section class="concept" aria-label="How an Instagram network works">
+  <div class="cx">
+    <div class="label">The idea in one picture</div>
+    <h2>One brand, several pages, each built for one audience</h2>
+    <ol>
+      <li><i style="--c:var(--paper2)">1</i><span><b>One page for everyone</b> gets muted, because most posts aren't meant for each follower.</span></li>
+      <li><i style="--c:var(--yellow)">2</i><span><b>Interest pages</b> each serve one audience with shows it comes back for.</span></li>
+      <li><i style="--c:var(--mint)">3</i><span><b>The main brand page</b> keeps selling, linked to the other pages through collab posts and mentions.</span></li>
+    </ol>
+  </div>
+  <div class="net" data-net="hero" role="img" aria-label="Diagram: a main brand page connected to three interest pages, a comedy page for comedy fans, a movies page for movie fans and a food stories page for food lovers"></div>
+</section>
 
 <section class="roadmap" aria-label="The six decisions" style="gap:16px">
   <div class="label">Your six decisions for building an Instagram network</div>
@@ -417,7 +531,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="d1">
-  <div class="sh"><span class="tag">Decision 01</span><h2>Should you create more Instagram pages or keep one?</h2><p class="q">Answer six questions to see whether one page is still enough. The recommendation updates as you answer. For a full strategy, take the <a href="#quiz">quiz</a>.</p></div>
+  <div class="sh"><div class="where"><span class="tag">Decision 01</span><span class="pips" data-step="1" aria-hidden="true"></span><span class="pipcap">1 of 6</span></div><h2>Should you create more Instagram pages or keep one?</h2><p class="q">Answer six questions to see whether one page is still enough. The recommendation updates as you answer. For a full strategy, take the <a href="#quiz">quiz</a>.</p></div>
   <div class="tool">
     <form class="qs" id="diag">
       <fieldset><legend>How often does a customer buy from you?</legend><div class="opts">
@@ -468,10 +582,11 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     </div>
   </div>
   <p class="col sm" style="color:var(--muted);font-size:.95rem">How it decides: the case for more pages adds up the gap between purchases, how many audiences you have, how little they overlap, a tired main page and a long-term audience goal. Your team’s capacity then limits how many pages you can keep going. A network you can't feed does worse than one strong page.</p>
+  <a class="nextdec" href="#d2"><div><span class="label">Next decision · 02</span><b>Which audiences deserve their own pages?</b></div><span class="go">Continue →</span></a>
 </section>
 
 <section id="d2">
-  <div class="sh"><span class="tag">Decision 02</span><h2>Which audience interests are worth building pages around?</h2><p class="q">Think about what your audience loves next to your product. Luggage leads to travel stories. Food delivery leads to chefs. An events app leads to comedy and movies.</p></div>
+  <div class="sh"><div class="where"><span class="tag">Decision 02</span><span class="pips" data-step="2" aria-hidden="true"></span><span class="pipcap">2 of 6</span></div><h2>Which audience interests are worth building pages around?</h2><p class="q">Think about what your audience loves next to your product. Luggage leads to travel stories. Food delivery leads to chefs. An events app leads to comedy and movies.</p></div>
   <div class="infog">
     <div class="label">Infographic · Map your audiences before creating new pages</div>
     <div class="twocol">
@@ -507,22 +622,51 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <span><b>Repeatable</b> · could you make 100 episodes?</span>
     <span><b>Open space</b> · are strong pages missing?</span>
   </div>
-  <div class="grid terr" id="terr"></div>
   <div class="keyline"><span>Scores out of 25:</span><span class="pill go">20–25: launch a dedicated page</span><span class="pill test">15–19: test it as a recurring series first</span><span class="pill park">Under 15: don’t invest in it yet</span></div>
+  <div class="grid terr" id="terr"></div>
   <p class="col" style="color:var(--muted);font-size:.95rem">The example cards show how a focus and ADHD-management app might score its options. Rename them and move the sliders for your own brand.</p>
+  <a class="nextdec" href="#d3"><div><span class="label">Next decision · 03</span><b>Which Instagram structure fits your team?</b></div><span class="go">Continue →</span></a>
 </section>
 
 <section id="d3">
-  <div class="sh"><span class="tag">Decision 03</span><h2>Choose the right Instagram structure for your team</h2><p class="q">Four options, simplest first. Move to the next one only when the current one is working.</p></div>
+  <div class="sh"><div class="where"><span class="tag">Decision 03</span><span class="pips" data-step="3" aria-hidden="true"></span><span class="pipcap">3 of 6</span></div><h2>Choose the right Instagram structure for your team</h2><p class="q">Four options, simplest first. Move to the next one only when the current one is working.</p></div>
   <div class="grid models">
     <article class="card model" data-model="A"><div class="art" data-scene="mA"></div><div class="mtag">Option A</div><h3>One page with focused content series</h3><p>One page, organised into two or three named series so it doesn't feel like a noticeboard.</p>
-      <dl><dt>Use when</dt><dd>One core audience, frequent purchases, small team.</dd><dt>Watch out</dt><dd>It slides back into the family-group problem as you add products.</dd></dl></article>
+      <div class="mrow"><span class="mk">Accounts</span><div class="net mini" data-net="A"></div></div>
+      <div class="mrow"><span class="mk">Best for</span><span>One core audience, frequent purchases, small team.</span></div>
+      <div class="mrow"><span class="mk">Audience</span><span>One core audience, organised by named series.</span></div>
+      <div class="mrow"><span class="mk">Team needed</span><span>Works even with under 3 posts a week.</span></div>
+      <div class="mrow"><span class="mk">Link to your brand</span><span>It is your brand page.</span></div>
+      <div class="mrow"><span class="mk">Example</span><span>Most early-stage D2C brands.</span></div>
+      <div class="mrow warn"><span class="mk">Watch out</span><span>It slides back into the family-group problem as you add products.</span></div>
+    </article>
     <article class="card model" data-model="B"><div class="art" data-scene="mB"></div><div class="mtag">Option B</div><h3>Your brand page plus one entertainment page</h3><p>The brand page sells. A separate entertainment page keeps people close between purchases.</p>
-      <dl><dt>Use when</dt><dd>People buy rarely and share one strong interest.</dd><dt>Like</dt><dd>Mokobara's micro-drama page.</dd><dt>Watch out</dt><dd>The content page turns into a disguised ad and loses its audience.</dd></dl></article>
+      <div class="mrow"><span class="mk">Accounts</span><div class="net mini" data-net="B"></div></div>
+      <div class="mrow"><span class="mk">Best for</span><span>People buy rarely and share one strong interest.</span></div>
+      <div class="mrow"><span class="mk">Audience</span><span>Buyers on the brand page; one shared interest on the entertainment page.</span></div>
+      <div class="mrow"><span class="mk">Team needed</span><span>At least 3 to 7 posts a week.</span></div>
+      <div class="mrow"><span class="mk">Link to your brand</span><span>Branded, endorsed or independent (see below).</span></div>
+      <div class="mrow"><span class="mk">Example</span><span>Mokobara's micro-drama page.</span></div>
+      <div class="mrow warn"><span class="mk">Watch out</span><span>The content page turns into a disguised ad and loses its audience.</span></div>
+    </article>
     <article class="card model" data-model="C"><div class="art" data-scene="mC"></div><div class="mtag">Option C</div><h3>One main page plus pages for different interests</h3><p>A brand hub plus one page per interest group, each with its own voice.</p>
-      <dl><dt>Use when</dt><dd>Several distinct audiences with little overlap.</dd><dt>Like</dt><dd>District, Nike, Netflix.</dd><dt>Watch out</dt><dd>A thin team leaves every page half alive.</dd></dl></article>
+      <div class="mrow"><span class="mk">Accounts</span><div class="net mini" data-net="C"></div></div>
+      <div class="mrow"><span class="mk">Best for</span><span>Several distinct audiences with little overlap.</span></div>
+      <div class="mrow"><span class="mk">Audience</span><span>One page per interest group, each with its own voice.</span></div>
+      <div class="mrow"><span class="mk">Team needed</span><span>1 to 2 dedicated people or more.</span></div>
+      <div class="mrow"><span class="mk">Link to your brand</span><span>Branded, endorsed or independent (see below).</span></div>
+      <div class="mrow"><span class="mk">Example</span><span>District, Nike, Netflix.</span></div>
+      <div class="mrow warn"><span class="mk">Watch out</span><span>A thin team leaves every page half alive.</span></div>
+    </article>
     <article class="card model" data-model="D"><div class="art" data-scene="mD"></div><div class="mtag">Option D</div><h3>Build a media brand around your industry</h3><p>Lightly branded pages about the whole category that grow into shows others pay to appear on.</p>
-      <dl><dt>Use when</dt><dd>You can staff a studio and want sponsorship revenue.</dd><dt>Like</dt><dd>Swiggy's "Served".</dd><dt>Watch out</dt><dd>Slow payback. Leadership needs 12+ months of patience.</dd></dl></article>
+      <div class="mrow"><span class="mk">Accounts</span><div class="net mini" data-net="D"></div></div>
+      <div class="mrow"><span class="mk">Best for</span><span>You can staff a studio and want sponsorship revenue.</span></div>
+      <div class="mrow"><span class="mk">Audience</span><span>Everyone interested in your whole category.</span></div>
+      <div class="mrow"><span class="mk">Team needed</span><span>A content team, plus 12+ months of leadership patience.</span></div>
+      <div class="mrow"><span class="mk">Link to your brand</span><span>Lightly branded.</span></div>
+      <div class="mrow"><span class="mk">Example</span><span>Swiggy's "Served".</span></div>
+      <div class="mrow warn"><span class="mk">Watch out</span><span>Slow payback. Leadership needs 12+ months of patience.</span></div>
+    </article>
   </div>
 
   <div class="infog">
@@ -541,20 +685,28 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <div class="card"><div data-scene="v2" style="background:var(--paper);border-radius:16px"></div><h3>Create a separate identity with “by [Brand]”</h3><p>Its own name and look, with "by Brand" in the bio.</p><p class="sm">The usual default. Feels independent but still credits you.</p></div>
     <div class="card"><div data-scene="v3" style="background:var(--paper);border-radius:16px"></div><h3>Build an independent media brand</h3><p>Its own name. Your brand shows up only in credits or collabs.</p><p class="sm">Pick it when your logo would put viewers off, or you plan to sell sponsorships.</p></div>
   </div>
+  <a class="nextdec" href="#d4"><div><span class="label">Next decision · 04</span><b>What content will people return for?</b></div><span class="go">Continue →</span></a>
 </section>
 
 <section id="d4">
-  <div class="sh"><span class="tag">Decision 04</span><h2>What recurring content will make people follow and return?</h2><p class="q">A format is a show, not a post. Pin up one card like this for every series before you film anything.</p></div>
+  <div class="sh"><div class="where"><span class="tag">Decision 04</span><span class="pips" data-step="4" aria-hidden="true"></span><span class="pipcap">4 of 6</span></div><h2>What recurring content will make people follow and return?</h2><p class="q">A format is a show, not a post. Pin up one card like this for every series before you film anything.</p></div>
   <div class="board">
-    <div class="note"><b>What will the audience call this show?</b>Something a fan could say out loud.</div>
-    <div class="note"><b>What happens in every episode?</b>"Every week, ___ tries ___."</div>
-    <div class="note"><b>Who or what will viewers recognise?</b>A host or character people recognise.</div>
-    <div class="note"><b>What grabs attention in the first two seconds?</b>What happens in the first two seconds.</div>
-    <div class="note"><b>How will each episode unfold?</b>e.g. a 45-second Reel: setup, twist, payoff.</div>
-    <div class="note"><b>How often will new episodes appear?</b>Same days every week. Consistency beats volume.</div>
-    <div class="note"><b>How will the product appear without becoming the whole story?</b>None, background or a cameo. Never the plot.</div>
-    <div class="note"><b>What will show that people want more?</b>Rewatches, shares and "part 2?" comments.</div>
+    <div class="cluster"><span class="ctitle">The show</span>
+      <div class="note"><b>What will the audience call this show?</b>Something a fan could say out loud.</div>
+      <div class="note"><b>What happens in every episode?</b><em>"Every week, ___ tries ___."</em></div>
+      <div class="note"><b>Who or what will viewers recognise?</b>A host or character people recognise.</div>
+    </div>
+    <div class="cluster"><span class="ctitle">Each episode</span>
+      <div class="note"><b>What grabs attention in the first two seconds?</b>What happens in the first two seconds.</div>
+      <div class="note"><b>How will each episode unfold?</b><em>e.g. a 45-second Reel: setup, twist, payoff.</em></div>
+      <div class="note"><b>How often will new episodes appear?</b>Same days every week. Consistency beats volume.</div>
+    </div>
+    <div class="cluster"><span class="ctitle">The product and the proof</span>
+      <div class="note"><b>How will the product appear without becoming the whole story?</b>None, background or a cameo. Never the plot.</div>
+      <div class="note"><b>What will show that people want more?</b>Rewatches, shares and "part 2?" comments.</div>
+    </div>
   </div>
+  <div class="excard"><div data-scene="t2"></div><div><span class="label">Example</span><p><b>"60-second fixes"</b>: a recurring explainer series. One host, one problem, one fix, every Tuesday and Friday.</p></div></div>
   <div class="tests">
     <div class="col"><h3 style="margin-bottom:10px">Test your content idea before you invest in production</h3>
       <ul>
@@ -565,10 +717,11 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
       </ul></div>
     <div data-scene="host"></div>
   </div>
+  <a class="nextdec" href="#d5"><div><span class="label">Next decision · 05</span><b>How will you run and measure each page?</b></div><span class="go">Continue →</span></a>
 </section>
 
 <section id="d5">
-  <div class="sh"><span class="tag">Decision 05</span><h2>How to run each page and know whether it’s working</h2><p class="q">Every page needs an owner, a rhythm and a rule for when to stop.</p></div>
+  <div class="sh"><div class="where"><span class="tag">Decision 05</span><span class="pips" data-step="5" aria-hidden="true"></span><span class="pipcap">5 of 6</span></div><h2>How to run each page and know whether it’s working</h2><p class="q">Every page needs an owner, a rhythm and a rule for when to stop.</p></div>
   <div class="grid ops">
     <div class="card"><h3><i style="background:var(--coral)"></i>Assign one accountable owner to every page</h3><p>One named owner per page, even if the production team is shared.</p></div>
     <div class="card"><h3><i style="background:var(--blue)"></i>Set a posting schedule your team can maintain</h3><p>3 to 5 Reels a week per interest page, on fixed days.</p></div>
@@ -589,17 +742,25 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <div class="scroll"><div class="gantt" id="gantt"></div></div>
     <p class="cap">Diamonds mark a short weekly review of each format. The red diamond is the day-90 decision: keep it, change the format once, or merge it back as a series.</p>
   </div>
+  <a class="nextdec" href="#d6"><div><span class="label">Next decision · 06</span><b>How will the network pay off?</b></div><span class="go">Continue →</span></a>
 </section>
 
 <section id="d6">
-  <div class="sh"><span class="tag">Decision 06</span><h2>How an Instagram network creates business value over time</h2><p class="q">The returns come in stages. Know which step you're on, and don't expect step five in month two.</p></div>
+  <div class="sh"><div class="where"><span class="tag">Decision 06</span><span class="pips" data-step="6" aria-hidden="true"></span><span class="pipcap">6 of 6</span></div><h2>How an Instagram network creates business value over time</h2><p class="q">The returns come in stages. Know which step you're on, and don't expect step five in month two.</p></div>
   <div class="infog">
     <div class="label">Infographic · How content, audience growth and revenue reinforce each other</div>
     <div class="twocol">
       <div class="flywrap"><svg id="fly" viewBox="0 0 520 520" role="img" aria-label="A loop: entertaining shows lead to retention and shares, then more reach, a bigger owned audience, cheaper launches and paid collabs, and that money funds more shows."></svg><div class="mid" data-scene="flyMid"></div></div>
       <div style="display:flex;flex-direction:column;gap:12px">
-        <p>Each turn of the loop makes the next one easier. Good shows keep people watching. Watching earns reach. Reach builds an audience you own. That audience makes launches cheaper and attracts partners who pay, and that money funds more shows.</p>
-        <p style="color:var(--muted);font-size:.96rem">The loop starts slowly. Most brands give up during the first turn, before reach catches up with effort.</p>
+        <p>Each turn of the loop makes the next one easier.</p>
+        <ol class="flysteps">
+          <li><i style="--c:var(--coral)">1</i><span><b>Good shows</b> keep people watching.</span></li>
+          <li><i style="--c:var(--orange)">2</i><span><b>Watching</b> earns reach.</span></li>
+          <li><i style="--c:var(--yellow)">3</i><span><b>Reach</b> builds an audience you own.</span></li>
+          <li><i style="--c:var(--mint)">4</i><span><b>That audience</b> makes launches cheaper and attracts partners who pay.</span></li>
+          <li><i style="--c:var(--blue)">5</i><span><b>That money</b> funds more shows, and the loop starts again at 1.</span></li>
+        </ol>
+        <p class="callout">The loop starts slowly. Most brands give up during the first turn, before reach catches up with effort.</p>
       </div>
     </div>
   </div>
@@ -623,6 +784,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
         <li>Leadership expects sales from entertainment pages within a quarter.</li>
       </ul></div>
   </div>
+  <a class="nextdec" href="#checklist"><div><span class="label">Before you launch</span><b>Are you ready to launch a new Instagram page?</b></div><span class="go">Continue →</span></a>
 </section>
 
 <section id="checklist">
@@ -879,7 +1041,7 @@ rows.forEach((r,i)=>{
   const card=document.createElement('div');card.className='card';
   let html=`<input type="text" id="tn${i}" aria-label="Interest ${i+1} name" value="${r[0]}">`;
   crit.forEach((c,j)=>{html+=`<label class="sl"><span>${c}</span><input type="range" id="t${i}c${j}" min="1" max="5" value="${r[j+1]}"><output>${r[j+1]}</output></label>`});
-  html+=`<div class="verdict"><div class="mini"></div><div><b class="tot"></b><span style="color:var(--muted)">/25</span><br><span class="pill"></span></div></div>`;
+  html+=`<div class="verdict"><div class="mini"></div><div style="flex:1;min-width:0"><b class="tot"></b><span style="color:var(--muted)">/25</span><br><span class="pill"></span><div class="scale" aria-hidden="true"><span class="z park"></span><span class="z test"></span><span class="z go"></span><i></i></div><div class="scaleticks" aria-hidden="true"><span>5</span><span>15</span><span>20–25</span></div></div></div>`;
   card.innerHTML=html;box.appendChild(card);
   card.addEventListener('input',()=>score(card));score(card);
 });
@@ -888,6 +1050,7 @@ function score(card){
   card.querySelector('.tot').textContent=t;
   const p=card.querySelector('.pill');const v=t>=20?['go','Launch a dedicated page','joy','mint']:t>=15?['test','Test it as a recurring series first','happy','yellow']:['park','Don\u2019t invest in it yet','sleepy','sky'];
   p.className='pill '+v[0];p.textContent=v[1];
+  card.dataset.v=v[0];card.querySelector('.scale i').style.left=((t-5)/20*100)+'%';
   const mini=card.querySelector('.mini');if(mini.dataset.k!==v[0]){mini.dataset.k=v[0];mini.innerHTML=char({shape:'bean',color:v[3],mood:v[2],arms:v[0]==='go'?'up':''})}
 }
 
@@ -961,8 +1124,51 @@ form.addEventListener('change',markMatrix);markMatrix();
   nodes.forEach((n,i)=>{const a1=ang(i)+0.39,a2=ang(i+1)-0.39;
     s+=`<path d="M${cx+R*Math.cos(a1)} ${cy+R*Math.sin(a1)} A${R} ${R} 0 0 1 ${cx+R*Math.cos(a2)} ${cy+R*Math.sin(a2)}" fill="none" stroke="#3B3035" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#ah)"/>`});
   nodes.forEach((n,i)=>{const x=cx+R*Math.cos(ang(i)),y=cy+R*Math.sin(ang(i));
-    s+=`<circle cx="${x}" cy="${y}" r="${r}" fill="${n[2]}" stroke="#3B3035" stroke-width="2.5"/><text x="${x}" y="${y-2}" text-anchor="middle" class="svgtxt" font-size="15" font-weight="800">${n[0]}</text><text x="${x}" y="${y+17}" text-anchor="middle" class="svgtxt" font-size="15" font-weight="800">${n[1]}</text>`});
+    s+=`<circle cx="${x}" cy="${y}" r="${r}" fill="${n[2]}" stroke="#3B3035" stroke-width="2.5"/><circle cx="${x-r*0.62}" cy="${y-r*0.62}" r="15" fill="#3B3035"/><text x="${x-r*0.62}" y="${y-r*0.62+5}" text-anchor="middle" font-family="Fredoka,sans-serif" font-size="15" font-weight="700" fill="#F5EEE3">${i+1}</text><text x="${x}" y="${y-2}" text-anchor="middle" class="svgtxt" font-size="15" font-weight="800">${n[0]}</text><text x="${x}" y="${y+17}" text-anchor="middle" class="svgtxt" font-size="15" font-weight="800">${n[1]}</text>`});
   document.getElementById('fly').innerHTML=s;
+})();
+
+// Account-network diagrams
+const av=(o)=>`<span class="av">${char(Object.assign({legs:false},o))}</span>`;
+function net(cfg){
+  let h='';
+  if(cfg.top)h+=`<div class="top"><span>${cfg.top}</span></div>`;
+  h+=`<div class="root"><div class="acct">${av(cfg.root.c)}<span><b>${cfg.root.name}</b><small>${cfg.root.role}</small></span></div></div>`;
+  if(cfg.kids&&cfg.kids.length){
+    h+=`<div class="kids" style="--n:${cfg.kids.length}">`+cfg.kids.map(k=>`<div class="kid${k.series?' series':''}"><div class="acct">${k.series?'':av(k.c)}<span><b>${k.name}</b>${k.role?`<small>${k.role}</small>`:''}</span></div>${k.aud?`<span class="aud" style="--c:${k.audc}">${k.aud}</span>`:''}</div>`).join('')+`</div>`;
+  }
+  return h;
+}
+const NETS={
+  hero:{root:{name:'Main brand page',role:'Sells the product',c:{shape:'bean',color:'blue',mood:'happy'}},kids:[
+    {name:'Comedy page',role:'Interest page',c:{shape:'bean',color:'coral',mood:'joy'},aud:'Comedy fans',audc:'#F9C9CC'},
+    {name:'Movies page',role:'Interest page',c:{shape:'round',color:'blue',mood:'happy'},aud:'Movie fans',audc:'#CFE3F7'},
+    {name:'Food stories',role:'Interest page',c:{shape:'cloud',color:'orange',mood:'joy'},aud:'Food lovers',audc:'#FCE7A6'}]},
+  A:{root:{name:'Brand page',role:'The only account',c:{shape:'bean',color:'blue',mood:'joy'}},kids:[{name:'Series 1',series:true},{name:'Series 2',series:true},{name:'Series 3',series:true}]},
+  B:{root:{name:'Brand page',role:'Sells',c:{shape:'bean',color:'blue',mood:'happy'}},kids:[{name:'Entertainment page',role:'Keeps people close',c:{shape:'round',color:'coral',mood:'joy'},aud:'One shared interest',audc:'#F9C9CC'}]},
+  C:{root:{name:'Main brand page',role:'The hub',c:{shape:'square',color:'blue',mood:'happy'}},kids:[
+    {name:'Interest page',c:{shape:'bean',color:'coral',mood:'joy'},aud:'Group 1',audc:'#F9C9CC'},
+    {name:'Interest page',c:{shape:'round',color:'yellow',mood:'happy'},aud:'Group 2',audc:'#FCE7A6'},
+    {name:'Interest page',c:{shape:'tri',color:'lilac',mood:'happy'},aud:'Group 3',audc:'#CFE3F7'}]},
+  D:{top:'Your brand · light touch',root:{name:'Media brand',role:'About the category',c:{shape:'tall',color:'coral',mood:'joy'}},kids:[
+    {name:'Show',c:{shape:'round',color:'blue',mood:'happy'}},{name:'Show',c:{shape:'cloud',color:'mint',mood:'joy'}},{name:'Show',c:{shape:'square',color:'lilac',mood:'happy'}}]}
+};
+document.querySelectorAll('[data-net]').forEach(el=>{const c=NETS[el.dataset.net];if(c)el.innerHTML=net(c)});
+
+// Position in the six decisions
+document.querySelectorAll('.pips').forEach(el=>{const k=+el.dataset.step;el.innerHTML=[1,2,3,4,5,6].map(j=>`<i class="${j<k?'done':j===k?'now':''}"></i>`).join('')});
+
+// Highlight the nav chip for the section on screen
+(function(){
+  const links=[...document.querySelectorAll('nav.chips a')];const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+  const secs=[...map.keys()].map(id=>document.getElementById(id)).filter(Boolean);
+  if(!('IntersectionObserver' in window))return;
+  const vis=new Set();
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{e.isIntersecting?vis.add(e.target.id):vis.delete(e.target.id)});
+    const cur=secs.find(sec=>vis.has(sec.id));links.forEach(a=>a.classList.remove('on'));
+    if(cur){const a=map.get(cur.id);a.classList.add('on');const row=a.parentElement;const l=a.offsetLeft-row.offsetLeft;if(l<row.scrollLeft||l+a.offsetWidth>row.scrollLeft+row.clientWidth)row.scrollTo({left:l-16,behavior:'smooth'})}
+  },{rootMargin:'-30% 0px -60% 0px'});
+  secs.forEach(sec=>io.observe(sec));
 })();
 
 // Strategy quiz: answers live only in this variable and vanish on reload.
