@@ -7,6 +7,8 @@ The header has a toggle between two views:
 - **Marketer**: the full, detailed playbook.
 - **Non-marketer**: a shorter, plain-English version for clients and non-technical readers, with a 5-question quiz. Link straight to it with `?view=simple`, e.g. `https://abhisheknid.github.io/brand-ig-footprint/?view=simple`.
 
+Both views have a "How brands decide" carousel of 14 brand examples. Each card opens a detail page with its own link, e.g. `#brand-redbull`.
+
 The Marketer view includes an interactive "Should you split?" check, an interest scorer, a launch checklist and infographics (feed relevance, the gap between purchases, an audience map, a model matrix, a 90-day plan and the media-network flywheel).
 
 Everything is in `index.html`: plain HTML, CSS and JavaScript, with no build step. Fonts load from Google Fonts. Illustrations are drawn in code as inline SVG.

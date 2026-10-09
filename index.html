@@ -49,6 +49,56 @@ a{color:var(--link)}
 @media (max-width:420px){.modebar .name{font-size:.88rem}.seg button{padding:6px 10px;font-size:.85rem}}
 button.btn{cursor:pointer;font-family:var(--display)}
 
+/* brand carousel */
+.subhead{font-size:1.08rem;color:var(--muted);margin-top:-14px}
+.bfilter{display:flex;flex-wrap:wrap;gap:8px}
+.bfilter button{font-family:var(--display);font-weight:500;font-size:.9rem;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
+.bfilter button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.railwrap{position:relative;margin-top:14px}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:2px;padding:4px 2px 18px;scrollbar-width:thin}
+.rail:focus-visible{outline:3px solid var(--link);outline-offset:4px;border-radius:16px}
+.bcard{flex:0 0 clamp(230px,26%,270px);scroll-snap-align:start;display:flex;flex-direction:column;gap:10px;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:14px;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s}
+.bcard:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink);border-color:var(--ink)}
+.bcard[hidden]{display:none}
+.bart{display:block;border-radius:16px;overflow:hidden}
+.bhead{display:flex;align-items:center;gap:10px}
+.bhead b{display:block;font-family:var(--heading);font-weight:700;font-size:1.15rem;line-height:1.2}
+.bhead small{display:block;font-size:.78rem;color:var(--muted);font-weight:600}
+.logo{flex:none;width:42px;height:42px;border-radius:12px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:.95rem;letter-spacing:.02em}
+.otag{align-self:flex-start;font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#C94452;background:#FBE3E5;border-radius:999px;padding:2px 10px}
+.otag.big{font-size:.78rem;padding:4px 12px;text-transform:none;letter-spacing:0}
+.bone{font-size:.95rem;line-height:1.5;flex:1}
+.bmore{font-family:var(--display);font-weight:600;font-size:.92rem;color:var(--link)}
+.rnav{position:absolute;top:38%;z-index:2;width:42px;height:42px;border-radius:50%;border:2px solid var(--ink);background:var(--card);color:var(--ink);font-size:1.1rem;cursor:pointer;display:grid;place-items:center}
+.rnav.prev{left:-12px}.rnav.next{right:-12px}
+.rnav:hover{background:var(--yellow)}
+@media (max-width:640px){.rnav{display:none}.bcard{flex-basis:78%}}
+
+/* brand detail sub page */
+html.locked,html.locked body{overflow:hidden}
+.bsheet{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;padding:env(safe-area-inset-top,0px) 18px calc(40px + env(safe-area-inset-bottom,0px))}
+.bsbar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:900px;margin:0 auto;padding:12px 0;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bscount{font-size:.85rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.bspage{max-width:900px;margin:0 auto;padding-top:24px;display:flex;flex-direction:column;gap:24px}
+.bshero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:center}
+@media (max-width:700px){.bshero{grid-template-columns:minmax(0,1fr)}}
+.bsart{border-radius:22px;overflow:hidden}
+.bsintro{display:flex;flex-direction:column;gap:12px}
+.bsintro h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+.bschose{font-size:1.1rem;display:flex;flex-direction:column;gap:4px}
+.bsgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.bsblock{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.bsblock h3{font-size:1.2rem}
+.bsblock ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px;font-size:.97rem}
+.bswhy{margin:0;display:flex;flex-direction:column;gap:12px}
+.bswhy div{display:flex;flex-direction:column;gap:2px;border-top:1.5px dashed var(--line);padding-top:10px}
+.bswhy div:first-child{border-top:0;padding-top:0}
+.bswhy dt{font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bswhy dd{margin:0;font-size:.98rem}
+.bsnav{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.bsnav a.qbtn{text-decoration:none}
+.bsnote{font-size:.85rem;color:var(--muted)}
+
 /* characters & scenes */
 .scene{position:relative;width:100%}
 .sc{position:absolute}
@@ -104,10 +154,6 @@ section{display:flex;flex-direction:column;gap:28px;scroll-margin-top:70px}
 .mphone .hdr{font-family:var(--display);font-size:.85rem;padding:8px 12px;border-bottom:1px solid var(--line)}
 .mcap{text-align:center;font-family:var(--display);font-weight:500;margin-top:8px}
 
-.brand .art{border-radius:16px;margin:-6px -6px 4px}
-.brand dl{margin:0;display:flex;flex-direction:column;gap:8px}
-.brand dt{font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.brand dd{margin:0;font-size:.98rem}
 
 .trio{--min:220px}
 .trio .card{background:transparent;border:0;padding:0}
@@ -500,14 +546,9 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <p class="cap">An illustration of the idea, not measured data.</p>
   </div>
 
-  <h3 style="font-size:1.5rem">How successful brands organise their Instagram audiences</h3>
-  <div class="grid" style="--min:200px">
-    <article class="card brand"><div class="art" data-scene="bNetflix" style="background:#DCEAF8"></div><h3>Netflix</h3><dl><dt>What they did</dt><dd>Separate accounts by genre, region and fandom.</dd><dt>What to learn</dt><dd>Splitting is the long-standing default for big media.</dd></dl></article>
-    <article class="card brand"><div class="art" data-scene="bNike" style="background:#DDF0E1"></div><h3>Nike</h3><dl><dt>What they did</dt><dd>Separate worlds for each sport and community.</dd><dt>What to learn</dt><dd>A runner and a footballer don't want the same feed.</dd></dl></article>
-    <article class="card brand"><div class="art" data-scene="bSwiggy" style="background:#FCE6CF"></div><h3>Swiggy</h3><dl><dt>What they did</dt><dd>"Served" pages with stories about restaurants, chefs and food habits.</dd><dt>What to learn</dt><dd>Talk about the category, not the app.</dd></dl></article>
-    <article class="card brand"><div class="art" data-scene="bDistrict" style="background:#ECE3F7"></div><h3>District</h3><dl><dt>What they did</dt><dd>Separate pages for going out, stand-up and movies.</dd><dt>What to learn</dt><dd>Split by interest even when one app serves them all.</dd></dl></article>
-    <article class="card brand"><div class="art" data-scene="bMoko" style="background:#FBDCDD"></div><h3>Mokobara</h3><dl><dt>What they did</dt><dd>An entertainment page of micro-dramas with recurring characters.</dd><dt>What to learn</dt><dd>People buy luggage every few years. Stories keep them close in between.</dd></dl></article>
-  </div>
+  <h3 style="font-size:1.5rem">How brands decide</h3>
+  <p class="subhead">How successful brands organise their Instagram audiences</p>
+  <div data-brands="m"></div>
 
   <div class="infog">
     <div class="label">Infographic · The gap between purchases</div>
@@ -859,6 +900,11 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <div class="card"><div data-net="C" class="net mini"></div><h3>A few pages for different interests</h3><p>Your main page plus one page for each big group of followers, each with its own style.</p><p class="sm"><b>Good if</b> different people follow you for very different reasons.</p></div>
   </div>
   <p class="col" style="color:var(--muted);font-size:.95rem">Very large brands sometimes go further and build a whole media brand about their industry, like Swiggy's "Served". That needs a full content team and at least a year of patience.</p>
+</section>
+
+<section id="s-brands">
+  <div class="sh"><span class="tag">Real examples</span><h2>How brands decide</h2><p class="q">How successful brands organise their Instagram audiences. Tap a brand to see what it chose and why.</p></div>
+  <div data-brands="s"></div>
 </section>
 
 <section id="s-takes">
@@ -1459,6 +1505,220 @@ ask();
   let start='m';
   try{if(new URL(location.href).searchParams.get('view')==='simple')start='s'}catch(e){}
   if(start==='s'){views.m.hidden=true;views.s.hidden=false;btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.view==='s'?'true':'false'));document.body.dataset.view='s'}
+})();
+
+// Brand examples: carousel cards that open a detail "sub page" (#brand-<slug>)
+(function(){
+const OPT={
+  A:{m:'Option A · One page with focused content series',s:'Keep one page, organised'},
+  B:{m:'Option B · Your brand page plus one entertainment page',s:'Add one fun page'},
+  C:{m:'Option C · One main page plus pages for different interests',s:'A few pages for different interests'},
+  D:{m:'Option D · Build a media brand around your industry',s:'A media brand about the industry'}
+};
+const TINT=['#DCEAF8','#DDF0E1','#FCE6CF','#ECE3F7','#FBDCDD','#FCF0C8'];
+const BR=[
+ {id:'netflix',name:'Netflix',ini:'N',opt:'C',region:'Global',art:'bNetflix',
+  one:'Separate accounts by genre, region and fandom.',
+  setup:['Main Netflix account','Country accounts, such as Netflix India','Genre and fandom accounts, such as its comedy account, Netflix Is A Joke'],
+  chose:'Split by what people watch and where they live, not by what Netflix sells.',
+  why:[['Audiences','A stand-up fan and a K-drama fan want completely different feeds, and they barely overlap.'],['Scale','The catalogue is big enough to feed many pages every day.'],['Capacity','A large in-house social team can run a page per fandom.']],
+  take:'Splitting is the long-standing default for big media.',
+  simple:'Netflix runs different pages for different kinds of shows and countries, because a comedy fan and a drama fan want different things.',
+  net:{root:'Netflix',kids:['Country pages','Comedy','Fandoms']}},
+ {id:'nike',name:'Nike',ini:'N',opt:'C',region:'Global',art:'bNike',
+  one:'Separate worlds for each sport and community.',
+  setup:['Main Nike account','Sport accounts, such as Nike Running, Nike Football and Nike Basketball','Community accounts, such as Nike Women'],
+  chose:'One page per sport and community, each with its own athletes and stories.',
+  why:[['Audiences','A runner and a footballer don’t want the same feed.'],['Product','Each sport has its own products, so each page can still lead to a purchase.'],['Capacity','Nike can staff a page per sport.']],
+  take:'Split by the passion people identify with, not by product line.',
+  simple:'Nike has a page for each sport, because runners and football fans want different posts.',
+  net:{root:'Nike',kids:['Running','Football','Basketball']}},
+ {id:'swiggy',name:'Swiggy',ini:'S',opt:'D',region:'India',art:'bSwiggy',
+  one:'"Served" pages with stories about restaurants, chefs and food habits.',
+  setup:['Main Swiggy account','"Served" pages about food culture: restaurants, chefs and eating habits'],
+  chose:'Build a food-culture media brand that talks about the category, not the app.',
+  why:[['Interest','Everyone eats, so food culture is a huge, daily interest.'],['Positioning','Stories about restaurants and chefs earn attention that app promotions can’t.'],['Payoff','A food audience makes launches cheaper and attracts restaurant and brand collaborations.']],
+  take:'Talk about the category, not the app.',
+  simple:'Swiggy made pages about food and restaurants in general, not just about ordering on Swiggy.',
+  net:{top:'Swiggy · light touch',root:'Served',kids:['Restaurants','Chefs','Food habits']}},
+ {id:'district',name:'District',ini:'D',opt:'C',region:'India',art:'bDistrict',
+  one:'Separate pages for going out, stand-up comedy and movies.',
+  setup:['District going-out pages: things to do in your city','A stand-up comedy page','A movies page'],
+  chose:'One app, but a separate page for each reason people open it.',
+  why:[['Audiences','Someone who loves stand-up doesn’t need restaurant picks or movie recommendations in the same feed.'],['Algorithm','Narrow pages are easier for Instagram to show to the right people.'],['Product','Each page still leads back to booking on the same app.']],
+  take:'Split by interest even when one app serves them all.',
+  simple:'District has separate pages for comedy, movies and going out, even though it’s one app.',
+  net:{root:'District',kids:['Going out','Comedy','Movies']}},
+ {id:'mokobara',name:'Mokobara',ini:'M',opt:'B',region:'India',art:'bMoko',
+  one:'An entertainment page of micro-dramas with recurring characters.',
+  setup:['Main Mokobara brand page','A separate entertainment page built on micro-dramas and recurring characters'],
+  chose:'Keep the brand page for selling and add one entertainment page.',
+  why:[['Purchase frequency','People buy luggage once every few years.'],['Gap','Without content, the brand disappears between purchases.'],['Payoff','If the entertainment page gets big enough, other brands can pay to reach its audience.']],
+  take:'People buy luggage every few years. Stories keep them close in between.',
+  simple:'Mokobara sells luggage, which people buy rarely, so it made a separate fun page with short dramas to stay remembered.',
+  net:{root:'Mokobara',kids:['Micro-drama page']}},
+ {id:'adidas',name:'Adidas',ini:'A',opt:'C',region:'Global',art:'bAdidas',
+  one:'Separate accounts for Originals, football, running and women.',
+  setup:['Main Adidas account','Adidas Originals for streetwear and culture','Sport accounts, such as Adidas Football and Adidas Running','A women’s community account'],
+  chose:'Split streetwear culture from sport performance, then split sport by sport.',
+  why:[['Audiences','A sneaker collector and a marathon runner follow for very different reasons.'],['Little overlap','Streetwear and performance audiences rarely want each other’s posts.'],['Capacity','A global team can feed each page every week.']],
+  take:'When one brand serves a culture and a sport, give each its own page.',
+  simple:'Adidas keeps its fashion page separate from its sports pages, because sneaker fans and runners want different things.',
+  net:{root:'Adidas',kids:['Originals','Football','Running']}},
+ {id:'natgeo',name:'National Geographic',ini:'NG',opt:'C',region:'Global',art:'bNatGeo',
+  one:'The main account plus Travel, Adventure, Wild and Your Shot.',
+  setup:['Main National Geographic account','Interest accounts, such as Nat Geo Travel, Nat Geo Adventure and Nat Geo Wild','Nat Geo Your Shot, built around its photography community'],
+  chose:'Split one big audience into the passions inside it.',
+  why:[['Audiences','Travel lovers, adventurers and wildlife fans are each big enough for a page of their own.'],['Repeatable','Each interest can supply endless posts without running dry.'],['Community','A page for readers’ own photos turns followers into contributors.']],
+  take:'Split by interest rather than by product.',
+  simple:'National Geographic has pages for travel, adventure and wildlife, so each fan sees what they love.',
+  net:{root:'Nat Geo',kids:['Travel','Adventure','Wild']}},
+ {id:'disney',name:'Disney',ini:'D',opt:'C',region:'Global',art:'bDisney',
+  one:'Separate pages for Disney, Pixar, Marvel, Star Wars, Disney+ and the parks.',
+  setup:['Main Disney account','Franchise accounts: Pixar, Marvel and Star Wars','Disney+ for streaming','Disney Parks for holidays and visits'],
+  chose:'Give each fandom and each way of buying its own page.',
+  why:[['Audiences','A Star Wars fan follows for Star Wars, not for princess films.'],['Loyalty','Each fandom is huge and loyal enough to sustain its own page.'],['Products','Streaming and park holidays are different purchases, so they get different pages.']],
+  take:'Big, loyal fandoms deserve their own home.',
+  simple:'Disney has separate pages for Marvel, Star Wars, Pixar and its parks, because each has its own fans.',
+  net:{root:'Disney',kids:['Marvel','Star Wars','Parks']}},
+ {id:'mercedes',name:'Mercedes-Benz',ini:'MB',opt:'C',region:'Global',art:'bMercedes',
+  one:'The main brand, AMG for performance fans, and the F1 team.',
+  setup:['Main Mercedes-Benz account','Mercedes-AMG for performance cars','The Mercedes F1 team account'],
+  chose:'Separate pages for luxury buyers, performance fans and racing fans.',
+  why:[['Purchase frequency','People buy a car every few years, so the brand needs reasons to stay in touch.'],['Audiences','An F1 fan, a performance-car fan and a luxury buyer want different feeds.'],['Payoff','Racing fans may never buy a car, but they build the brand’s reputation and attract sponsors.']],
+  take:'Pages for fans who may never buy can still build the brand.',
+  simple:'Mercedes has separate pages for its everyday cars, its fast cars and its Formula 1 team.',
+  net:{root:'Mercedes-Benz',kids:['AMG','F1 team']}},
+ {id:'redbull',name:'Red Bull',ini:'RB',opt:'D',region:'Global',art:'bRedBull',
+  one:'A full media business about extreme sports and motorsport.',
+  setup:['Red Bull Media House, its media company','Accounts for extreme sports, motorsport and events','Content that rarely mentions the drink itself'],
+  chose:'Build a media brand around an adrenaline lifestyle, not around the product.',
+  why:[['Product','An energy drink is hard to make interesting by itself, but the culture around it isn’t.'],['Capacity','It runs a full content operation with athletes, events and film crews.'],['Payoff','The media business earns attention, partnerships and revenue in its own right.'],['Patience','It has invested in this for decades.']],
+  take:'Probably the strongest example of a brand becoming a media company.',
+  simple:'Red Bull sells a drink, but its pages are all about extreme sports and racing. The drink is barely mentioned.',
+  net:{top:'Red Bull · light touch',root:'Red Bull Media House',kids:['Extreme sports','Motorsport','Events']}},
+ {id:'hubspot',name:'HubSpot',ini:'H',opt:'D',region:'Global · B2B',art:'bHubSpot',
+  one:'Bought The Hustle and built a podcast network for founders.',
+  setup:['Main HubSpot brand','The Hustle, a business newsletter it acquired','A podcast network about business and marketing'],
+  chose:'Own the media that founders and marketers already read and listen to.',
+  why:[['Purchase frequency','Business software is bought rarely and researched for months.'],['Audience','Founders read about business long before they look for software.'],['Payoff','The media brands reach future customers early and can earn sponsorship revenue.']],
+  take:'Media brands work for B2B companies too.',
+  simple:'HubSpot sells business software, so it bought a business newsletter and started podcasts that business owners already enjoy.',
+  net:{top:'HubSpot · light touch',root:'Business media',kids:['The Hustle','Podcasts']}},
+ {id:'michelin',name:'Michelin',ini:'M',opt:'B',region:'Global · historic',art:'bMichelin',
+  one:'A tyre company that created the Michelin Guide.',
+  setup:['Main Michelin tyre brand','The Michelin Guide, now a food and travel brand of its own'],
+  chose:'Create one content property that gives customers reasons to use the product.',
+  why:[['Purchase frequency','People buy tyres rarely.'],['Behaviour','A guide to restaurants worth driving to gets people driving, and wearing out tyres.'],['Longevity','The guide started in 1900 and became more famous than many tyre ads.']],
+  take:'The original version of this idea, and the same logic as Mokobara.',
+  simple:'Michelin sells tyres, so it made a restaurant guide to get people driving more. The guide is now famous on its own.',
+  net:{root:'Michelin',kids:['Michelin Guide']}},
+ {id:'duolingo',name:'Duolingo',ini:'D',opt:'A',region:'Global',art:'bDuolingo',
+  one:'Mostly one main account, built around its owl mascot.',
+  setup:['One main account at the centre','A recurring mascot character and running comedy bits'],
+  chose:'Stay on one page and make the brand itself the entertainment.',
+  why:[['Audiences','Its followers are mostly one group: people learning a language.'],['Frequency','People use the app daily, so the brand already has reasons to show up.'],['Format','A recurring character gives every post a familiar face.']],
+  take:'Splitting isn’t always the answer, especially when your brand is already entertaining.',
+  simple:'Duolingo mostly sticks to one page and makes it funny with its owl mascot. One page works because its followers want the same thing.',
+  net:{root:'Duolingo',series:['Mascot bits','Trends','Learning']}},
+ {id:'liquiddeath',name:'Liquid Death',ini:'LD',opt:'A',region:'Global',art:'bLiquid',
+  one:'A canned-water brand whose single page works as an entertainment channel.',
+  setup:['One main account','Comedy and shock-humour content as the core format'],
+  chose:'Run one page as a comedy channel rather than a product page.',
+  why:[['Audiences','One audience that follows for the humour.'],['Positioning','The joke is the brand, so there’s nothing to split.'],['Capacity','All effort goes into one page.']],
+  take:'One page can work when it already feels like entertainment.',
+  simple:'Liquid Death sells water, but its one page is basically a comedy channel. That’s why people follow it.',
+  net:{root:'Liquid Death',series:['Comedy','Stunts','Collabs']}}
+];
+const extra={
+  bAdidas:()=>scene([{shape:'tall',color:'blue',mood:'joy',hat:'cap',prop:'ball',arms:'hold',x:34,y:6,w:28},{shape:'bean',color:'yellow',mood:'happy',arms:'up',x:68,y:6,w:26}]),
+  bNatGeo:()=>scene([{shape:'square',color:'yellow',mood:'shock',prop:'suitcase',arms:'hold',x:34,y:6,w:32},{shape:'cloud',color:'mint',mood:'joy',x:70,y:6,w:28}]),
+  bDisney:()=>scene([{shape:'round',color:'lilac',mood:'joy',hat:'bun',x:30,y:6,w:26},{shape:'bean',color:'coral',mood:'happy',prop:'popcorn',arms:'hold',x:60,y:6,w:24},{shape:'tri',color:'blue',mood:'shock',x:86,y:6,w:18}]),
+  bMercedes:()=>scene([{shape:'tall',color:'sky',mood:'happy',hat:'cap',x:34,y:6,w:24},{shape:'round',color:'mint',mood:'joy',prop:'megaphone',arms:'hold',x:66,y:6,w:26}]),
+  bRedBull:()=>scene([{shape:'bean',color:'coral',mood:'joy',hat:'flame',arms:'up',x:34,y:6,w:28},{shape:'tall',color:'blue',mood:'shock',prop:'mic',arms:'hold',x:68,y:6,w:22}]),
+  bHubSpot:()=>scene([{shape:'square',color:'orange',mood:'happy',prop:'phone',arms:'hold',x:34,y:6,w:30},{shape:'round',color:'yellow',mood:'joy',prop:'coin',arms:'hold',x:68,y:6,w:26}]),
+  bMichelin:()=>scene([{shape:'cloud',color:'sky',mood:'joy',prop:'fork',arms:'hold',x:36,y:6,w:34},{shape:'bean',color:'coral',mood:'happy',prop:'suitcase',arms:'hold',x:70,y:6,w:24}]),
+  bDuolingo:()=>scene([{shape:'round',color:'mint',mood:'joy',arms:'wave',x:50,y:6,w:32}]),
+  bLiquid:()=>scene([{shape:'tall',color:'lilac',mood:'shock',arms:'up',x:38,y:6,w:22},{shape:'bean',color:'sky',mood:'joy',prop:'mic',arms:'hold',x:66,y:6,w:24}])
+};
+Object.assign(S,extra);
+const art=b=>S[b.art]();
+const tint=i=>TINT[i%TINT.length];
+function mkNet(b){
+  const c=[{shape:'bean',color:'coral',mood:'joy'},{shape:'round',color:'yellow',mood:'happy'},{shape:'tri',color:'lilac',mood:'happy'},{shape:'cloud',color:'mint',mood:'joy'}];
+  const kids=b.net.series?b.net.series.map(n=>({name:n,series:true})):b.net.kids.map((n,i)=>({name:n,c:c[i%4]}));
+  return net({top:b.net.top,root:{name:b.net.root,role:b.net.series?'One account':(b.net.top?'Media brand':'Main page'),c:{shape:'bean',color:'blue',mood:'happy'}},kids});
+}
+function cardHTML(b,i,mode){
+  return `<button type="button" class="bcard" data-brand="${b.id}" data-opt="${b.opt}" aria-label="${b.name}: see how they decided">
+    <span class="bart" style="background:${tint(i)}">${art(b)}</span>
+    <span class="bhead"><span class="logo" aria-hidden="true">${b.ini}</span><span><b>${b.name}</b><small>${b.region}</small></span></span>
+    <span class="otag">Option ${b.opt}${mode==='s'?' · '+OPT[b.opt].s:''}</span>
+    <span class="bone">${mode==='s'?b.simple:b.one}</span>
+    <span class="bmore">See how they decided →</span></button>`;
+}
+document.querySelectorAll('[data-brands]').forEach(root=>{
+  const mode=root.dataset.brands;
+  root.innerHTML=`<div class="bfilter" role="group" aria-label="Filter brands by option">${['all','A','B','C','D'].map(k=>`<button type="button" data-f="${k}" aria-pressed="${k==='all'}">${k==='all'?'All brands':'Option '+k}</button>`).join('')}</div>
+    <div class="railwrap"><button type="button" class="rnav prev" aria-label="Previous brands">←</button><div class="rail" tabindex="0" aria-label="Brand examples">${BR.map((b,i)=>cardHTML(b,i,mode)).join('')}</div><button type="button" class="rnav next" aria-label="Next brands">→</button></div>`;
+  const rail=root.querySelector('.rail');
+  root.querySelector('.prev').addEventListener('click',()=>rail.scrollBy({left:-rail.clientWidth*.8,behavior:'smooth'}));
+  root.querySelector('.next').addEventListener('click',()=>rail.scrollBy({left:rail.clientWidth*.8,behavior:'smooth'}));
+  root.querySelectorAll('.bfilter button').forEach(f=>f.addEventListener('click',()=>{
+    root.querySelectorAll('.bfilter button').forEach(x=>x.setAttribute('aria-pressed',x===f?'true':'false'));
+    rail.querySelectorAll('.bcard').forEach(c=>c.hidden=!(f.dataset.f==='all'||c.dataset.opt===f.dataset.f));
+    rail.scrollTo({left:0});
+  }));
+  rail.addEventListener('click',e=>{const c=e.target.closest('.bcard');if(c)openBrand(c.dataset.brand,true)});
+});
+
+// Detail sub page
+const sheet=document.createElement('div');sheet.className='bsheet';sheet.hidden=true;sheet.setAttribute('role','dialog');sheet.setAttribute('aria-modal','true');sheet.setAttribute('aria-labelledby','bsTitle');
+document.body.appendChild(sheet);
+let pushed=false,lastFocus=null;
+function curMode(){return document.body.dataset.view==='s'?'s':'m'}
+function render(b){
+  const i=BR.indexOf(b),mode=curMode(),prev=BR[(i-1+BR.length)%BR.length],next=BR[(i+1)%BR.length];
+  const opt=mode==='s'?OPT[b.opt].s:OPT[b.opt].m;
+  sheet.innerHTML=`<div class="bsbar"><button type="button" class="qbtn" data-close>← All brands</button><span class="bscount">${i+1} of ${BR.length}</span></div>
+  <article class="bspage">
+    <div class="bshero"><div class="bsart" style="background:${tint(i)}">${art(b)}</div>
+      <div class="bsintro"><div class="bhead"><span class="logo" aria-hidden="true">${b.ini}</span><span><small>${b.region}</small></span></div>
+        <h2 id="bsTitle">${b.name}</h2><span class="otag big">${opt}</span>
+        <p class="bschose"><span class="label">What they chose</span>${mode==='s'?b.simple:b.chose}</p></div></div>
+    <div class="bsgrid">
+      <section class="bsblock"><h3>Their setup</h3><div class="net mini">${mkNet(b)}</div>${mode==='s'?'':`<ul>${b.setup.map(t=>`<li>${t}</li>`).join('')}</ul>`}</section>
+      <section class="bsblock"><h3>Why it made sense</h3><dl class="bswhy">${b.why.map(w=>`<div><dt>${w[0]}</dt><dd>${w[1]}</dd></div>`).join('')}</dl></section>
+    </div>
+    <p class="callout"><b>What to take from it:</b> ${b.take}</p>
+    <div class="bsnav"><button type="button" class="qbtn" data-go="${prev.id}">← ${prev.name}</button><a class="qbtn solid" href="${mode==='s'?'#s-quiz':'#quiz'}" data-close-to>Which option fits you? Take the quiz</a><button type="button" class="qbtn" data-go="${next.id}">${next.name} →</button></div>
+    <p class="bsnote">Describes public strategies as of writing. Account names and setups change over time.</p>
+  </article>`;
+  sheet.scrollTop=0;
+}
+function openBrand(id,push){
+  const b=BR.find(x=>x.id===id);if(!b)return;
+  if(sheet.hidden)lastFocus=document.activeElement;
+  render(b);sheet.hidden=false;document.documentElement.classList.add('locked');
+  const h='#brand-'+id;
+  if(push&&location.hash!==h){history.pushState({brand:id},'',location.pathname+location.search+h);pushed=true}
+  else if(!push&&location.hash!==h){history.replaceState({brand:id},'',location.pathname+location.search+h)}
+  sheet.querySelector('[data-close]').focus();
+}
+function closeBrand(fromHistory){
+  if(sheet.hidden)return;
+  sheet.hidden=true;document.documentElement.classList.remove('locked');
+  if(!fromHistory){if(pushed){pushed=false;history.back()}else history.replaceState(null,'',location.pathname+location.search)}
+  if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true});
+}
+sheet.addEventListener('click',e=>{
+  const g=e.target.closest('[data-go]');if(g){openBrand(g.dataset.go,false);return}
+  if(e.target.closest('[data-close]')){closeBrand();return}
+  const q=e.target.closest('[data-close-to]');if(q){e.preventDefault();const t=q.getAttribute('href').slice(1);closeBrand();setTimeout(()=>{const el=document.getElementById(t);if(el)el.scrollIntoView({block:'start'})},60)}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sheet.hidden)closeBrand()});
+addEventListener('popstate',()=>{const m=location.hash.match(/^#brand-([\w-]+)$/);if(m)openBrand(m[1],false);else{pushed=false;closeBrand(true)}});
+const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
 })();
 })();
 </script>
