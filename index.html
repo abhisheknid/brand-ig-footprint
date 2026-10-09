@@ -667,7 +667,7 @@ body{padding-inline:12px}
 @media (min-width:821px){body{padding-inline:20px}}
 .page{gap:var(--pg)}
 .page>section{gap:var(--pg);scroll-margin-top:92px}
-.page>header.hero,.page>section:not(.stack),.stack>*:not(.board):not(.quiz){background:var(--card);border:1.5px solid var(--line);border-radius:var(--pr);padding:var(--pp);box-sizing:border-box}
+.page>header.hero,.page>section:not(.stack),.stack>*:not(.board):not(.quiz):not(.sectop){background:var(--card);border:1.5px solid var(--line);border-radius:var(--pr);padding:var(--pp);box-sizing:border-box}
 .stack>.quiz{border-radius:var(--pr)}
 .page>header.hero{padding-top:var(--pp)}
 .page .card{background:#fff}
@@ -701,6 +701,29 @@ body{padding-inline:12px}
   .hero .lede{font-size:1.06rem;line-height:1.55}
   .hero .txt{gap:18px}
 }
+/* spec update from the pricing, guides and integrations screens */
+:root{--pr:22px;--pg:18px}
+@media (min-width:821px){:root{--pg:22px}}
+.tag{background:#fff;color:var(--ink);border:1.5px solid var(--line);padding:5px 14px;font-size:.88rem}
+.stack>.sectop{padding:44px 4px 6px}
+@media (max-width:820px){
+  .stack>.sectop{text-align:center;gap:26px}
+  .stack>.sectop .sh{align-items:center;gap:14px}
+  .stack>.sectop .where{justify-content:center}
+  .stack>.sectop .sh .q{margin-inline:auto}
+  .stack>.sectop .sh h2{font-size:clamp(2rem,9vw,2.4rem);line-height:1.06;letter-spacing:-.02em}
+  .hero h1{font-size:clamp(2.5rem,11.4vw,3.2rem)}
+}
+body{line-height:1.6}
+/* featured card: darker border and a pill, like a highlighted plan */
+.model.hit{border-color:var(--ink);box-shadow:none;transform:none}
+.model.hit .mtag::after{content:"Your match";background:var(--mint);color:var(--ink);border-radius:999px;padding:2px 10px;margin-left:8px;font-weight:700;font-size:.78rem}
+/* checklist: plain rows with round ticks */
+.check{gap:0}
+.check label{background:none;border:0;border-radius:0;padding:12px 0;gap:14px;align-items:center}
+.check label:has(input:checked){background:none}
+.check input{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--ink);margin:0}
+.check input:checked::after{width:5px;height:10px;border-width:0 2.5px 2.5px 0}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
