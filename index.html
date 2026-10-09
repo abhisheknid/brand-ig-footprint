@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Instagram Network Playbook</title>
+<meta name="description" content="An illustrated decision manual for turning one brand Instagram page into an interest-based media network.">
+<meta property="og:title" content="The Instagram Network Playbook">
+<meta property="og:description" content="Six decisions for building a brand's Instagram footprint: when to split, which interests, which structure, which shows, how to run it and how it pays back.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F5EEE3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='22' y='10' width='56' height='80' rx='28' fill='%23EC6F78'/%3E%3Ccircle cx='41' cy='42' r='7' fill='white'/%3E%3Ccircle cx='59' cy='42' r='7' fill='white'/%3E%3Ccircle cx='42' cy='43' r='3.5' fill='%233B3035'/%3E%3Ccircle cx='58' cy='43' r='3.5' fill='%233B3035'/%3E%3Cpath d='M42 56 Q50 64 58 56' stroke='%233B3035' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap">
+<style>
+/* Layout: a storybook scroll. Sticky chip nav, then one illustrated "scene" per decision, text column beside or under each scene. Single warm-paper theme on purpose. */
+:root{
+  color-scheme:light;
+  --paper:#F5EEE3; --paper2:#EBDFCD; --card:#FFFBF5; --ink:#3B3035; --muted:#76675F; --line:#E2D4C1;
+  --coral:#EC6F78; --blue:#5B9BE0; --link:#2F6DB5; --orange:#F29E4C; --lilac:#B9A2DE; --mint:#8CCB9B; --yellow:#F5C84C;
+  --stage:#C9E4B8; --cork:#D8B78C;
+  --display:"Fredoka", "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif;
+  --body:"Nunito", "Segoe UI", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.06rem;line-height:1.65;padding-inline:18px;padding-block:0 56px;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.12;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--link);outline-offset:3px;border-radius:6px}
+.page{max-width:1120px;margin-inline:auto;display:flex;flex-direction:column;gap:96px}
+.label{font-family:var(--body);font-weight:800;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.col{max-width:64ch}
+
+/* nav */
+nav.chips{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-inline:-18px;padding:10px 18px;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.chips .row{max-width:1120px;margin-inline:auto;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.chips a{flex:none;font-family:var(--display);font-weight:500;font-size:.92rem;text-decoration:none;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:5px 14px}
+nav.chips a:hover{border-color:var(--ink)}
+nav.chips a b{color:var(--coral);font-weight:600;margin-right:4px}
+
+/* characters & scenes */
+.scene{position:relative;width:100%}
+.sc{position:absolute}
+.sc svg{display:block;width:100%;height:auto;overflow:visible}
+.bob{animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4%)}}
+.eyes{transform-box:fill-box;transform-origin:center;animation:blink 5s infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.scene .bg{position:absolute;inset:0;width:100%;height:100%}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;padding-top:36px}
+@media (max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}}
+.hero h1{font-size:clamp(2.3rem,5.2vw,3.9rem);font-weight:700;letter-spacing:-.01em}
+.hero h1 span{color:var(--coral)}
+.hero .lede{font-size:1.2rem;color:var(--ink);max-width:46ch}
+.hero .txt{display:flex;flex-direction:column;gap:20px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font-family:var(--display);font-weight:600;font-size:1rem;text-decoration:none;border-radius:999px;padding:11px 20px;border:2px solid var(--ink);color:var(--ink);background:var(--card);transition:transform .15s}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn:hover{transform:translateY(-2px)}
+.stage{position:relative;background:var(--stage);border-radius:28px;overflow:hidden;padding:36px 20px;display:flex;justify-content:center}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.phone{position:relative;z-index:1;width:min(260px,64%);background:#2B2427;border-radius:34px;padding:10px;box-shadow:0 18px 40px rgba(59,48,53,.25)}
+.phone .scr{background:var(--card);border-radius:26px;overflow:hidden;display:flex;flex-direction:column}
+.phone .notch{width:38%;height:16px;background:#2B2427;border-radius:0 0 12px 12px;margin:0 auto}
+.phone .hdr{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--line);font-family:var(--display);font-size:.85rem}
+.phone .hdr i{width:22px;height:22px;border-radius:50%;background:var(--blue);flex:none}
+.phone .hdr small{display:block;font-family:var(--body);font-size:.7rem;color:var(--muted);line-height:1.2}
+.say{position:absolute;z-index:2;background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:6px 12px;font-family:var(--display);font-weight:500;font-size:.9rem;white-space:nowrap}
+.say::after{content:"";position:absolute;bottom:-8px;left:18px;width:12px;height:12px;background:var(--card);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg)}
+.say.s1{top:8%;left:4%;transform:rotate(-4deg)} .say.s2{top:44%;right:3%;transform:rotate(3deg)} .say.s3{bottom:9%;left:5%;transform:rotate(-2deg)}
+@media (max-width:440px){.say.s2,.say.s3{display:none}}
+
+/* section heads */
+section{display:flex;flex-direction:column;gap:28px;scroll-margin-top:70px}
+.sh{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.tag{font-family:var(--display);font-weight:600;font-size:.85rem;background:var(--ink);color:var(--paper);border-radius:999px;padding:3px 12px}
+.sh h2{font-size:clamp(1.9rem,3.8vw,2.8rem)}
+.sh .q{font-size:1.15rem;color:var(--muted);max-width:56ch}
+
+/* cards */
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--min,240px)),1fr))}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card h3{font-size:1.25rem}
+.card p{font-size:1rem}
+.card .sm{font-size:.94rem;color:var(--muted)}
+.pop{border-radius:18px;overflow:hidden}
+
+.phones{--min:190px}
+.mphone{background:#2B2427;border-radius:26px;padding:8px;max-width:220px;width:100%;margin-inline:auto}
+.mphone .scr{background:var(--card);border-radius:20px;overflow:hidden}
+.mphone .hdr{font-family:var(--display);font-size:.85rem;padding:8px 12px;border-bottom:1px solid var(--line)}
+.mcap{text-align:center;font-family:var(--display);font-weight:500;margin-top:8px}
+
+.brand .art{border-radius:16px;margin:-6px -6px 4px}
+.brand dl{margin:0;display:flex;flex-direction:column;gap:8px}
+.brand dt{font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.brand dd{margin:0;font-size:.98rem}
+
+.trio{--min:220px}
+.trio .card{background:transparent;border:0;padding:0}
+
+/* diagnostic */
+.tool{background:var(--card);border:1.5px solid var(--line);border-radius:28px;padding:26px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:34px}
+@media (max-width:820px){.tool{grid-template-columns:minmax(0,1fr);padding:18px}}
+.qs{display:flex;flex-direction:column;gap:20px}
+fieldset{border:0;margin:0;padding:0}
+legend{font-family:var(--display);font-weight:600;font-size:1.05rem;margin-bottom:10px;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:7px}
+.opts label{font-weight:600;font-size:.92rem;border:1.5px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;background:var(--paper);user-select:none;transition:transform .1s}
+.opts label:hover{transform:translateY(-1px)}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts label:has(input:checked){border-color:var(--ink);background:var(--yellow)}
+.opts label:has(input:focus-visible){outline:3px solid var(--link);outline-offset:2px}
+.result{position:sticky;top:76px;align-self:start;background:var(--paper);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:820px){.result{position:static}}
+.result h3{font-size:1.55rem}
+.meter{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font-size:.82rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:10px;background:var(--card);border-radius:6px;overflow:hidden;border:1.5px solid var(--line)}
+.bar i{display:block;height:100%;border-radius:6px;transition:width .35s}
+#needBar{background:var(--coral)} #capBar{background:var(--blue)}
+.why{font-size:.97rem;display:flex;flex-direction:column;gap:6px;margin:0;padding-left:1.1em}
+
+/* territories */
+.crit{display:flex;flex-wrap:wrap;gap:8px}
+.crit span{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:8px 12px;font-size:.95rem}
+.crit b{font-family:var(--display);font-weight:600}
+.terr{--min:230px}
+.terr input[type=text]{font:inherit;font-family:var(--display);font-weight:600;font-size:1.05rem;border:0;border-bottom:2px dashed var(--line);background:transparent;color:var(--ink);padding:2px 0;width:100%}
+.terr input[type=text]:focus{outline:none;border-bottom-color:var(--ink)}
+.sl{display:grid;grid-template-columns:96px 1fr 18px;gap:8px;align-items:center;font-size:.9rem}
+.sl input{accent-color:var(--ink);width:100%}
+.sl output{font-weight:800;text-align:right;font-variant-numeric:tabular-nums}
+.verdict{display:flex;align-items:center;gap:12px;border-top:1.5px solid var(--line);padding-top:12px}
+.verdict .mini{width:56px;flex:none}
+.verdict b{font-family:var(--display);font-size:1.5rem;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-weight:800;font-size:.78rem;border-radius:999px;padding:3px 10px}
+.pill.go{background:var(--mint)} .pill.test{background:var(--yellow)} .pill.park{background:var(--paper2);color:var(--muted)}
+.keyline{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:.95rem;color:var(--muted)}
+
+/* models */
+.models{--min:240px}
+.model .art{background:var(--paper);border-radius:16px}
+.model .mtag{font-family:var(--display);font-weight:600;font-size:.82rem;color:var(--coral)}
+.model dl{margin:0;display:flex;flex-direction:column;gap:6px;font-size:.95rem}
+.model dt{font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.model dd{margin:0}
+.model{transition:transform .2s, box-shadow .2s}
+.model.hit{border-color:var(--ink);box-shadow:6px 6px 0 var(--ink);transform:translate(-3px,-3px)}
+.model.hit .mtag::after{content:" · your match";color:var(--ink)}
+
+/* corkboard */
+.board{background:var(--cork);border-radius:24px;padding:26px;background-image:radial-gradient(rgba(59,48,53,.12) 1px,transparent 1.5px);background-size:14px 14px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.note{position:relative;padding:18px 16px 16px;border-radius:4px;box-shadow:0 6px 12px rgba(59,48,53,.18);font-size:.98rem;display:flex;flex-direction:column;gap:4px}
+.note::before{content:"";position:absolute;top:-8px;left:50%;width:56px;height:16px;margin-left:-28px;background:rgba(255,255,255,.55);transform:rotate(-3deg)}
+.note b{font-family:var(--display);font-weight:600;font-size:1.05rem}
+.note:nth-child(4n+1){background:#FCE7A6;transform:rotate(-1.4deg)}
+.note:nth-child(4n+2){background:#F9C9CC;transform:rotate(1.2deg)}
+.note:nth-child(4n+3){background:#CFE3F7;transform:rotate(-.8deg)}
+.note:nth-child(4n+4){background:#D3EDD9;transform:rotate(1.6deg)}
+.tests{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:24px;align-items:center}
+@media (max-width:640px){.tests{grid-template-columns:minmax(0,1fr)}.tests .scene{max-width:180px}}
+.tests ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+
+/* run it */
+.ops{--min:300px}
+.ops .card h3{font-size:1.1rem;display:flex;align-items:center;gap:8px}
+.ops .card h3 i{width:12px;height:12px;border-radius:50%;flex:none}
+.layers{--min:250px}
+.layers .card{border-top:8px solid var(--c)}
+.layers h4{font-size:.75rem;font-family:var(--body);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* stairs */
+.stairs{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:30px;align-items:center}
+@media (max-width:820px){.stairs{grid-template-columns:minmax(0,1fr)}}
+.stepnum{position:absolute;transform:translateX(-50%);font-family:var(--display);font-weight:700;font-size:clamp(.8rem,1.6vw,1.05rem);color:var(--muted)}
+ol.steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;counter-reset:s}
+ol.steps li{display:grid;grid-template-columns:34px 1fr;gap:12px;counter-increment:s}
+ol.steps li::before{content:counter(s);font-family:var(--display);font-weight:700;background:var(--yellow);border-radius:50%;width:34px;height:34px;display:grid;place-items:center}
+ol.steps b{font-family:var(--display);font-weight:600;font-size:1.08rem;display:block}
+ol.steps span{font-size:.96rem;color:var(--muted)}
+.nope{display:grid;grid-template-columns:150px minmax(0,1fr);gap:22px;align-items:center;background:var(--paper2);border-radius:24px;padding:22px}
+@media (max-width:560px){.nope{grid-template-columns:minmax(0,1fr)}.nope .scene{max-width:140px}}
+.nope ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+
+/* checklist */
+.checkwrap{display:grid;grid-template-columns:200px minmax(0,1fr);gap:30px;align-items:start}
+@media (max-width:700px){.checkwrap{grid-template-columns:minmax(0,1fr)}.mascot{max-width:170px}}
+.mascot{position:sticky;top:80px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center}
+.mascot p{font-family:var(--display);font-weight:600}
+.check{display:flex;flex-direction:column;gap:8px}
+.check label{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:12px 14px;cursor:pointer;transition:background .2s}
+.check input{appearance:none;width:24px;height:24px;border:2px solid var(--ink);border-radius:8px;margin:1px 0 0;display:grid;place-items:center;background:var(--card);cursor:pointer}
+.check input:checked{background:var(--mint)}
+.check input:checked::after{content:"";width:6px;height:11px;border:solid var(--ink);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.check label:has(input:checked){background:#EAF5EC}
+.check label:has(input:checked) span{color:var(--muted)}
+
+/* closing */
+.closing{display:flex;flex-direction:column;gap:0}
+.closing .band{background:var(--ink);color:var(--paper);border-radius:28px;padding:34px 28px;display:flex;flex-direction:column;gap:14px}
+.closing h2{font-size:clamp(1.6rem,3.4vw,2.4rem)}
+.closing .old{text-decoration:line-through;text-decoration-color:var(--coral);text-decoration-thickness:3px;opacity:.65;font-size:.75em;display:block;margin-bottom:6px}
+.closing p{max-width:60ch;opacity:.85}
+footer{font-size:.85rem;color:var(--muted);max-width:70ch}
+/* infographics */
+.infog{background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.infog h3{font-size:1.4rem}
+.infog .cap{font-size:.92rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+.svgtxt{font-family:var(--body);fill:var(--ink)}
+
+.road{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;position:relative}
+.road::before{content:"";position:absolute;left:8%;right:8%;top:96px;border-top:3px dashed var(--line)}
+.road li{position:relative}
+.road a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;text-decoration:none;color:var(--ink);padding:8px 4px;border-radius:18px;transition:background .2s}
+.road a:hover{background:var(--card)}
+.road .ch{width:72px}
+.road .dot{width:34px;height:34px;border-radius:50%;background:var(--c);display:grid;place-items:center;font-family:var(--display);font-weight:700;position:relative;z-index:1;border:3px solid var(--paper)}
+.road b{font-family:var(--display);font-weight:600;font-size:1.05rem;line-height:1.2}
+.road small{font-size:.86rem;color:var(--muted);line-height:1.35}
+@media (max-width:760px){.road{grid-template-columns:repeat(3,minmax(0,1fr))}.road::before{display:none}}
+@media (max-width:420px){.road{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.feedmath{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px}
+.fm{display:flex;flex-direction:column;gap:12px;background:var(--paper);border-radius:18px;padding:18px}
+.fm h4{font-size:1.1rem}
+.fmrow{display:grid;grid-template-columns:40px 82px repeat(4,minmax(0,48px));gap:8px;align-items:center}
+.fmrow .who{font-size:.8rem;font-weight:800;color:var(--muted);line-height:1.2}
+.tile{aspect-ratio:1;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:.95rem;color:#fff}
+.tile.off{background:var(--paper2)!important;color:var(--muted);opacity:.7}
+.fmstat{display:flex;align-items:baseline;gap:10px;border-top:1.5px solid var(--line);padding-top:10px}
+.fmstat b{white-space:nowrap;font-family:var(--display);font-size:2.4rem;line-height:1}
+.fmstat span{font-size:.95rem;color:var(--muted)}
+
+.twocol{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:center}
+@media (max-width:820px){.twocol{grid-template-columns:minmax(0,1fr)}}
+.legendrow{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.92rem}
+.legendrow i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+
+.matrix{position:relative;aspect-ratio:16/8;max-width:860px;border-left:3px solid var(--ink);border-bottom:3px solid var(--ink);margin:0 0 34px 34px;background:
+  linear-gradient(var(--line),var(--line)) 50% 0/1.5px 100% no-repeat,
+  linear-gradient(var(--line),var(--line)) 0 50%/100% 1.5px no-repeat}
+.matrix .ax{position:absolute;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.matrix .ax.x{bottom:-30px;left:0;right:0;text-align:center}
+.matrix .ax.y{left:-30px;top:50%;transform:translate(-50%,-50%) rotate(-90deg)}
+.matrix .ax.lo{font-size:.7rem}
+.mpt{position:absolute;transform:translate(-50%,50%);display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;color:var(--ink)}
+.mpt .ch{width:clamp(38px,7vw,64px)}
+.mpt span{font-family:var(--display);font-weight:600;font-size:clamp(.72rem,1.5vw,.92rem);background:var(--card);border:1.5px solid var(--ink);border-radius:999px;padding:1px 10px;white-space:nowrap}
+.mpt.hit span{background:var(--yellow)}
+
+.gantt{display:grid;grid-template-columns:200px repeat(13,minmax(28px,1fr));gap:6px 3px;align-items:center;min-width:680px;font-size:.92rem}
+.gantt .wk{font-size:.72rem;font-weight:800;color:var(--muted);text-align:center}
+.gantt .task{grid-column:1;font-weight:600;padding-right:8px;line-height:1.3}
+.gantt .bar{height:22px;border-radius:999px;background:var(--c)}
+.gantt .ticks{display:flex;justify-content:space-around;align-items:center}
+.gantt .ticks i{width:12px;height:12px;background:var(--c);transform:rotate(45deg);border-radius:2px}
+.gantt .ms{justify-self:center;width:24px;height:24px;background:var(--coral);transform:rotate(45deg);border-radius:4px;border:2.5px solid var(--ink)}
+.gantt .phase{grid-column:2/-1;display:grid;grid-template-columns:2fr 11fr;gap:3px;font-family:var(--display);font-weight:600;font-size:.85rem}
+.gantt .phase span{background:var(--paper2);border-radius:8px;padding:2px 8px;text-align:center}
+
+.flywrap{position:relative;max-width:520px;margin-inline:auto;width:100%}
+.flywrap svg{display:block;width:100%;height:auto}
+.flywrap .mid{position:absolute;left:50%;top:50%;width:24%;transform:translate(-50%,-55%)}
+@media (prefers-reduced-motion:no-preference){.spin{animation:spin 40s linear infinite;transform-origin:260px 260px}}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* strategy quiz */
+.quiz{background:var(--card);border:2px solid var(--ink);border-radius:28px;box-shadow:8px 8px 0 var(--ink);padding:28px;display:flex;flex-direction:column;gap:20px;min-width:0}
+@media (max-width:600px){.quiz{padding:18px;box-shadow:5px 5px 0 var(--ink)}}
+.qtop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.qprog{display:flex;gap:6px;flex:1;min-width:160px;max-width:420px}
+.qprog i{flex:1;height:8px;border-radius:4px;background:var(--paper2);transition:background .25s}
+.qprog i.done{background:var(--coral)}
+.qprog i.now{background:var(--ink)}
+.qcount{font-weight:800;font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.qbody{display:grid;grid-template-columns:170px minmax(0,1fr);gap:28px;align-items:center}
+@media (max-width:640px){.qbody{grid-template-columns:minmax(0,1fr)}.qbody .qart{max-width:120px;margin-inline:auto}}
+.qq{display:flex;flex-direction:column;gap:14px;min-width:0}
+.qq h3{font-size:clamp(1.3rem,2.6vw,1.75rem)}
+.qq .hint{color:var(--muted);font-size:.98rem}
+.qopts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.qopt{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;text-align:left;font:inherit;font-weight:600;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:16px;padding:12px 14px;cursor:pointer;transition:transform .12s,border-color .12s,background .12s}
+.qopt:hover{transform:translateY(-2px);border-color:var(--ink)}
+.qopt.sel{background:var(--yellow);border-color:var(--ink)}
+.qopt b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:2px solid var(--ink);font-family:var(--display);font-weight:700}
+.qopt small{display:block;font-weight:400;font-size:.86rem;color:var(--muted);line-height:1.35}
+.qnav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.qbtn{font-family:var(--display);font-weight:600;font-size:.98rem;border-radius:999px;padding:9px 18px;border:2px solid var(--ink);background:var(--card);color:var(--ink);cursor:pointer}
+.qbtn.solid{background:var(--ink);color:var(--paper)}
+.qbtn[disabled]{opacity:.35;cursor:default}
+.qnote{font-size:.85rem;color:var(--muted)}
+.qres{display:flex;flex-direction:column;gap:22px}
+.qhero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center}
+@media (max-width:760px){.qhero{grid-template-columns:minmax(0,1fr)}}
+.qhero .art{background:var(--paper);border-radius:20px}
+.qhero h3{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+.qhero .kicker{font-family:var(--display);font-weight:600;color:var(--coral)}
+.qgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.qcard{background:var(--paper);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.qcard h4{font-size:.74rem;font-family:var(--body);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.qcard .big{font-family:var(--display);font-weight:600;font-size:1.2rem;line-height:1.25}
+.qcard p,.qcard li{font-size:.97rem}
+.qcard ul,.qcard ol{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:6px}
+.qwhy{border-left:4px solid var(--coral)}
+.qwarn{background:#FBE3E5}
+.qscore{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font-size:.82rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.qscore .bar{height:10px}
+@media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="chips" aria-label="Sections"><div class="row">
+  <a href="#quiz"><b>?</b>Quiz</a>
+  <a href="#why"><b>00</b>Why split</a>
+  <a href="#d1"><b>01</b>Should you?</a>
+  <a href="#d2"><b>02</b>Territories</a>
+  <a href="#d3"><b>03</b>Structure</a>
+  <a href="#d4"><b>04</b>Formats</a>
+  <a href="#d5"><b>05</b>Run it</a>
+  <a href="#d6"><b>06</b>Payback</a>
+  <a href="#checklist"><b>✓</b>Checklist</a>
+</div></nav>
+
+<div class="page">
+
+<header class="hero">
+  <div class="txt">
+    <div class="label">An Instagram playbook for brands</div>
+    <h1>Your brand page has become a <span>family WhatsApp group.</span></h1>
+    <p class="lede">Everyone's in it. Hardly anything in it is meant for them. So they mute it. This playbook walks you through six decisions to turn one crowded page into a small media network that each audience actually wants to follow.</p>
+    <div class="btns"><a class="btn solid" href="#quiz">Take the 2-minute quiz</a><a class="btn" href="#why">Start from the idea</a></div>
+  </div>
+  <div class="stage">
+    <canvas id="doodles" aria-hidden="true"></canvas>
+    <div class="say s1">Why is this in my feed?</div>
+    <div class="say s2">Muted.</div>
+    <div class="say s3">I came for the comedy</div>
+    <div class="phone" role="img" aria-label="A phone showing one brand page crammed with grumpy characters">
+      <div class="scr">
+        <div class="notch"></div>
+        <div class="hdr"><i></i><div>The Brand Page<small>everyone, about everything</small></div></div>
+        <div data-scene="crowd"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="roadmap" aria-label="The six decisions" style="gap:16px">
+  <div class="label">The route through this playbook</div>
+  <ol class="road">
+    <li><a href="#d1"><div class="ch" data-scene="r1"></div><span class="dot" style="--c:var(--coral)">1</span><b>Should you split?</b><small>Is one page still enough?</small></a></li>
+    <li><a href="#d2"><div class="ch" data-scene="r2"></div><span class="dot" style="--c:var(--orange)">2</span><b>Territories</b><small>Which interests get a page</small></a></li>
+    <li><a href="#d3"><div class="ch" data-scene="r3"></div><span class="dot" style="--c:var(--yellow)">3</span><b>Structure</b><small>Pick one of four models</small></a></li>
+    <li><a href="#d4"><div class="ch" data-scene="r4"></div><span class="dot" style="--c:var(--mint)">4</span><b>Formats</b><small>Shows people return to</small></a></li>
+    <li><a href="#d5"><div class="ch" data-scene="r5"></div><span class="dot" style="--c:var(--blue)">5</span><b>Run it</b><small>Owners, rhythm, numbers</small></a></li>
+    <li><a href="#d6"><div class="ch" data-scene="r6"></div><span class="dot" style="--c:var(--lilac)">6</span><b>Payback</b><small>How the audience pays off</small></a></li>
+  </ol>
+</section>
+
+<section id="quiz">
+  <div class="sh"><span class="tag">Quick quiz · 9 questions</span><h2>What should your brand do on Instagram?</h2>
+  <p class="q">Answer nine quick questions and get a strategy: the structure to use, how visible your brand should be, your first show, what to measure, and why. Nothing you answer is saved or sent anywhere.</p></div>
+  <div class="quiz" id="qz" aria-live="polite"></div>
+</section>
+
+<section id="why">
+  <div class="sh"><span class="tag">00 · The idea</span><h2>The fix is one page per interest</h2>
+  <p class="q">The internet splits people by what they love. The narrower a page's audience, the better Instagram can find the right people for it, and the more those people engage.</p></div>
+  <div class="grid phones" role="img" aria-label="Three separate pages, each with one happy follower">
+    <div><div class="mphone"><div class="scr"><div class="hdr">Comedy page</div><div data-scene="p1"></div></div></div><p class="mcap">New set, clip, new set</p></div>
+    <div><div class="mphone"><div class="scr"><div class="hdr">Movies page</div><div data-scene="p2"></div></div></div><p class="mcap">Picks, reviews, trailers</p></div>
+    <div><div class="mphone"><div class="scr"><div class="hdr">Food stories page</div><div data-scene="p3"></div></div></div><p class="mcap">Chefs, places, habits</p></div>
+  </div>
+
+  <div class="infog">
+    <div class="label">Infographic · How relevant is your feed?</div>
+    <h3>Four followers, four posts each. How many do they care about?</h3>
+    <div class="feedmath">
+      <div class="fm"><h4>One page for everyone</h4><div id="fm1" style="display:flex;flex-direction:column;gap:8px"></div>
+        <div class="fmstat"><b style="color:var(--coral)">1 in 4</b><span>posts matter to each follower. The other three teach the algorithm they're not interested.</span></div></div>
+      <div class="fm"><h4>One page per interest</h4><div id="fm2" style="display:flex;flex-direction:column;gap:8px"></div>
+        <div class="fmstat"><b style="color:#3E9A57">4 in 4</b><span>posts match. Every like, save and share tells Instagram to show the page to more people like them.</span></div></div>
+    </div>
+    <p class="cap">An illustration of the idea, not measured data.</p>
+  </div>
+
+  <h3 style="font-size:1.5rem">Who's already doing it</h3>
+  <div class="grid" style="--min:200px">
+    <article class="card brand"><div class="art" data-scene="bNetflix" style="background:#DCEAF8"></div><h3>Netflix</h3><dl><dt>Did</dt><dd>Separate accounts by genre, region and fandom.</dd><dt>Lesson</dt><dd>Splitting is the long-standing default for big media.</dd></dl></article>
+    <article class="card brand"><div class="art" data-scene="bNike" style="background:#DDF0E1"></div><h3>Nike</h3><dl><dt>Did</dt><dd>Separate worlds for each sport and community.</dd><dt>Lesson</dt><dd>A runner and a footballer don't want the same feed.</dd></dl></article>
+    <article class="card brand"><div class="art" data-scene="bSwiggy" style="background:#FCE6CF"></div><h3>Swiggy</h3><dl><dt>Did</dt><dd>"Served" pages with stories about restaurants, chefs and food habits.</dd><dt>Lesson</dt><dd>Talk about the category, not the app.</dd></dl></article>
+    <article class="card brand"><div class="art" data-scene="bDistrict" style="background:#ECE3F7"></div><h3>District</h3><dl><dt>Did</dt><dd>Separate pages for going out, stand-up and movies.</dd><dt>Lesson</dt><dd>Split by interest even when one app serves them all.</dd></dl></article>
+    <article class="card brand"><div class="art" data-scene="bMoko" style="background:#FBDCDD"></div><h3>Mokobara</h3><dl><dt>Did</dt><dd>An entertainment page of micro-dramas with recurring characters.</dd><dt>Lesson</dt><dd>People buy luggage every few years. Stories keep them close in between.</dd></dl></article>
+  </div>
+
+  <div class="infog">
+    <div class="label">Infographic · The gap between purchases</div>
+    <h3>Someone buys a suitcase every three years. What happens in between?</h3>
+    <div class="scroll"><svg id="gap" viewBox="0 0 820 250" style="min-width:640px;width:100%;height:auto" role="img" aria-label="Over 36 months, a brand page alone has 2 purchases and a handful of sale posts. A content page posting 3 times a week has about 470 chances to be remembered."></svg></div>
+    <div class="legendrow"><span><i style="background:var(--coral)"></i>Purchase</span><span><i style="background:#B9AFA5"></i>Sale or launch post</span><span><i style="background:var(--mint)"></i>Episode on the content page (3 a week)</span></div>
+    <p class="cap">That's why Mokobara built an entertainment page. With three episodes a week, a content page gets about 470 chances to be remembered between two purchases.</p>
+  </div>
+
+  <div class="grid trio">
+    <div class="card"><div data-scene="t1" style="max-width:150px"></div><h3>Interest first</h3><p>Find the bigger interest spaces your audience lives in, beyond your product.</p></div>
+    <div class="card"><div data-scene="t2" style="max-width:150px"></div><h3>Shows, not posts</h3><p>Build entertainment-first series people come back for, so attention adds up week after week.</p></div>
+    <div class="card"><div data-scene="t3" style="max-width:150px"></div><h3>The audience is an asset</h3><p>It makes launches cheaper, brings in collaborations and sponsors, and can become its own revenue line.</p></div>
+  </div>
+</section>
+
+<section id="d1">
+  <div class="sh"><span class="tag">Decision 01</span><h2>Should you split at all?</h2><p class="q">Just this decision, with live updates. For a full strategy, take the <a href="#quiz">quiz</a>.</p></div>
+  <div class="tool">
+    <form class="qs" id="diag">
+      <fieldset><legend>How often does a customer buy from you?</legend><div class="opts">
+        <label><input type="radio" name="freq" value="0"><span>Weekly or more</span></label>
+        <label><input type="radio" name="freq" value="1" checked><span>Monthly</span></label>
+        <label><input type="radio" name="freq" value="2"><span>Once a year</span></label>
+        <label><input type="radio" name="freq" value="3"><span>Every few years</span></label>
+      </div></fieldset>
+      <fieldset><legend>How many different interest groups follow you, or should?</legend><div class="opts">
+        <label><input type="radio" name="groups" value="0"><span>One</span></label>
+        <label><input type="radio" name="groups" value="1"><span>Two</span></label>
+        <label><input type="radio" name="groups" value="2" checked><span>Three or four</span></label>
+        <label><input type="radio" name="groups" value="3"><span>Five or more</span></label>
+      </div></fieldset>
+      <fieldset><legend>Would those groups enjoy each other's content?</legend><div class="opts">
+        <label><input type="radio" name="overlap" value="0"><span>Yes, mostly</span></label>
+        <label><input type="radio" name="overlap" value="1" checked><span>Partly</span></label>
+        <label><input type="radio" name="overlap" value="2"><span>Rarely</span></label>
+      </div></fieldset>
+      <fieldset><legend>How is your main page doing?</legend><div class="opts">
+        <label><input type="radio" name="health" value="0"><span>Growing and engaged</span></label>
+        <label><input type="radio" name="health" value="1" checked><span>Flat</span></label>
+        <label><input type="radio" name="health" value="2"><span>Reach is falling</span></label>
+      </div></fieldset>
+      <fieldset><legend>What do you need from Instagram in the next year?</legend><div class="opts">
+        <label><input type="radio" name="goal" value="0"><span>Direct sales</span></label>
+        <label><input type="radio" name="goal" value="1" checked><span>Awareness and trust</span></label>
+        <label><input type="radio" name="goal" value="2"><span>An audience I can monetise</span></label>
+      </div></fieldset>
+      <fieldset><legend>How much can you produce?</legend><div class="opts">
+        <label><input type="radio" name="cap" value="0"><span>Under 3 posts a week</span></label>
+        <label><input type="radio" name="cap" value="1" checked><span>3 to 7 posts a week</span></label>
+        <label><input type="radio" name="cap" value="2"><span>1 to 2 dedicated people</span></label>
+        <label><input type="radio" name="cap" value="3"><span>A content team</span></label>
+      </div></fieldset>
+    </form>
+    <div class="result" aria-live="polite">
+      <div class="label">Your match</div>
+      <div id="rArt" style="background:var(--card);border-radius:16px"></div>
+      <h3 id="rName"></h3>
+      <p id="rLine" style="font-size:1rem"></p>
+      <div class="meter">
+        <span>Need</span><div class="bar"><i id="needBar"></i></div><span id="needN"></span>
+        <span>Capacity</span><div class="bar"><i id="capBar"></i></div><span id="capN"></span>
+      </div>
+      <ul class="why" id="rWhy"></ul>
+      <a href="#d3" style="font-family:var(--display);font-weight:600">See it in Decision 03 →</a>
+    </div>
+  </div>
+  <p class="col sm" style="color:var(--muted);font-size:.95rem">How it decides: "need" adds up the gap between purchases, how many audiences you have, how little they overlap, a tired main page and a long-term audience goal. Capacity then limits what you can keep going. A network you can't feed does worse than one strong page.</p>
+</section>
+
+<section id="d2">
+  <div class="sh"><span class="tag">Decision 02</span><h2>Which interests deserve their own page?</h2><p class="q">Think about what your audience loves next to your product. Luggage leads to travel stories. Food delivery leads to chefs. An events app leads to comedy and movies.</p></div>
+  <div class="infog">
+    <div class="label">Infographic · Map your audience first</div>
+    <div class="twocol">
+      <svg viewBox="0 0 600 400" role="img" aria-label="Audience map for a luggage brand: four interest bubbles inside the circle of everyone who might buy. Travel stories and airport humour overlap a little; packing hacks overlaps travel stories more.">
+        <ellipse cx="300" cy="210" rx="285" ry="180" fill="#EBDFCD" stroke="#3B3035" stroke-width="2" stroke-dasharray="8 7"/>
+        <text x="300" y="22" text-anchor="middle" class="svgtxt" font-size="17" font-weight="800">Everyone who might buy luggage</text>
+        <circle cx="205" cy="185" r="100" fill="#EC6F78" opacity=".8"/>
+        <circle cx="330" cy="150" r="72" fill="#5B9BE0" opacity=".75"/>
+        <circle cx="405" cy="265" r="88" fill="#F5C84C" opacity=".85"/>
+        <circle cx="245" cy="300" r="58" fill="#8CCB9B" opacity=".9"/>
+        <g class="svgtxt" font-weight="800" font-size="17" text-anchor="middle">
+          <text x="170" y="180">Travel</text><text x="170" y="200">stories</text>
+          <text x="345" y="140">Packing</text><text x="345" y="160">hacks</text>
+          <text x="425" y="262">Airport</text><text x="425" y="282">humour</text>
+          <text x="245" y="300">Work</text><text x="245" y="318">trips</text>
+        </g>
+      </svg>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <p>Draw your buyers as one big circle, then the interests inside it. This example is for a luggage brand.</p>
+        <ul class="clean" style="margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px">
+          <li><b>Big bubble, little overlap</b> (airport humour): a good candidate for its own page.</li>
+          <li><b>Heavy overlap</b> (packing hacks and travel stories): keep them together as two series on one page.</li>
+          <li><b>Small bubble</b> (work trips): a recurring series, not a page.</li>
+        </ul>
+        <p class="cap" style="font-size:.92rem;color:var(--muted)">Then score each bubble with the cards below.</p>
+      </div>
+    </div>
+  </div>
+  <div class="crit">
+    <span><b>Size</b> · how many people care about it here?</span>
+    <span><b>Passion</b> · do they save and share?</span>
+    <span><b>Closeness</b> · could a fan become a customer?</span>
+    <span><b>Repeatable</b> · could you make 100 episodes?</span>
+    <span><b>Open space</b> · are strong pages missing?</span>
+  </div>
+  <div class="grid terr" id="terr"></div>
+  <div class="keyline"><span>Scores out of 25:</span><span class="pill go">20+ launch a page</span><span class="pill test">15–19 test as a series first</span><span class="pill park">under 15 park it</span></div>
+  <p class="col" style="color:var(--muted);font-size:.95rem">The example cards show how a focus and ADHD-management app might score its options. Rename them and move the sliders for your own brand.</p>
+</section>
+
+<section id="d3">
+  <div class="sh"><span class="tag">Decision 03</span><h2>Which structure fits?</h2><p class="q">Four models, simplest first. Move to the next one only when the current one is working.</p></div>
+  <div class="grid models">
+    <article class="card model" data-model="A"><div class="art" data-scene="mA"></div><div class="mtag">Model A</div><h3>One sharp brand page</h3><p>One page, organised into two or three named series so it doesn't feel like a noticeboard.</p>
+      <dl><dt>Use when</dt><dd>One core audience, frequent purchases, small team.</dd><dt>Watch out</dt><dd>It slides back into the family-group problem as you add products.</dd></dl></article>
+    <article class="card model" data-model="B"><div class="art" data-scene="mB"></div><div class="mtag">Model B</div><h3>Brand page + one content page</h3><p>The brand page sells. A separate entertainment page keeps people close between purchases.</p>
+      <dl><dt>Use when</dt><dd>People buy rarely and share one strong interest.</dd><dt>Like</dt><dd>Mokobara's micro-drama page.</dd><dt>Watch out</dt><dd>The content page turns into a disguised ad and loses its audience.</dd></dl></article>
+    <article class="card model" data-model="C"><div class="art" data-scene="mC"></div><div class="mtag">Model C</div><h3>Hub + interest pages</h3><p>A brand hub plus one page per interest group, each with its own voice.</p>
+      <dl><dt>Use when</dt><dd>Several distinct audiences with little overlap.</dd><dt>Like</dt><dd>District, Nike, Netflix.</dd><dt>Watch out</dt><dd>A thin team leaves every page half alive.</dd></dl></article>
+    <article class="card model" data-model="D"><div class="art" data-scene="mD"></div><div class="mtag">Model D</div><h3>Category media brand</h3><p>Lightly branded pages about the whole category that grow into shows others pay to appear on.</p>
+      <dl><dt>Use when</dt><dd>You can staff a studio and want sponsorship revenue.</dd><dt>Like</dt><dd>Swiggy's "Served".</dd><dt>Watch out</dt><dd>Slow payback. Leadership needs 12+ months of patience.</dd></dl></article>
+  </div>
+
+  <div class="infog">
+    <div class="label">Infographic · The four models at a glance</div>
+    <h3>More audiences and more capacity move you up and to the right</h3>
+    <div class="matrix" id="matrix">
+      <span class="ax x">Distinct audiences →</span>
+      <span class="ax y">Content capacity →</span>
+    </div>
+    <p class="cap">Your result from Decision 01 is highlighted in yellow.</p>
+  </div>
+
+  <h3 style="font-size:1.5rem">How visible should your brand be on the new page?</h3>
+  <div class="grid" style="--min:230px">
+    <div class="card"><div data-scene="v1" style="background:var(--paper);border-radius:16px"></div><h3>Fully branded</h3><p>Same name, logo and colours, like "Brand Comedy".</p><p class="sm">Pick it when your brand already has fans in that interest.</p></div>
+    <div class="card"><div data-scene="v2" style="background:var(--paper);border-radius:16px"></div><h3>Endorsed</h3><p>Its own name and look, with "by Brand" in the bio.</p><p class="sm">The usual default. Feels independent but still credits you.</p></div>
+    <div class="card"><div data-scene="v3" style="background:var(--paper);border-radius:16px"></div><h3>Independent</h3><p>Its own name. Your brand shows up only in credits or collabs.</p><p class="sm">Pick it when your logo would put viewers off, or you plan to sell sponsorships.</p></div>
+  </div>
+</section>
+
+<section id="d4">
+  <div class="sh"><span class="tag">Decision 04</span><h2>Which shows will people come back for?</h2><p class="q">A format is a show, not a post. Pin up one card like this for every series before you film anything.</p></div>
+  <div class="board">
+    <div class="note"><b>Series name</b>Something a fan could say out loud.</div>
+    <div class="note"><b>One-line premise</b>"Every week, ___ tries ___."</div>
+    <div class="note"><b>Recurring face</b>A host or character people recognise.</div>
+    <div class="note"><b>The hook</b>What happens in the first two seconds.</div>
+    <div class="note"><b>Length and shape</b>e.g. a 45-second Reel: setup, twist, payoff.</div>
+    <div class="note"><b>Cadence</b>Same days every week. Consistency beats volume.</div>
+    <div class="note"><b>Product's role</b>None, background or a cameo. Never the plot.</div>
+    <div class="note"><b>Success signal</b>Rewatches, shares and "part 2?" comments.</div>
+  </div>
+  <div class="tests">
+    <div class="col"><h3 style="margin-bottom:10px">Four quick tests for a format</h3>
+      <ul>
+        <li>Would someone with no interest in your product watch it to the end?</li>
+        <li>Can you list 20 episode ideas today?</li>
+        <li>Would a fan notice if an episode went missing?</li>
+        <li>Is it easy to send to one specific friend?</li>
+      </ul></div>
+    <div data-scene="host"></div>
+  </div>
+</section>
+
+<section id="d5">
+  <div class="sh"><span class="tag">Decision 05</span><h2>How will you run and measure it?</h2><p class="q">Every page needs an owner, a rhythm and a rule for when to stop.</p></div>
+  <div class="grid ops">
+    <div class="card"><h3><i style="background:var(--coral)"></i>Ownership</h3><p>One named owner per page, even if the production team is shared.</p></div>
+    <div class="card"><h3><i style="background:var(--blue)"></i>Cadence</h3><p>3 to 5 Reels a week per interest page, on fixed days.</p></div>
+    <div class="card"><h3><i style="background:var(--orange)"></i>Cross-promotion</h3><p>Collab posts and the odd mention. No sales posts on entertainment pages.</p></div>
+    <div class="card"><h3><i style="background:var(--lilac)"></i>Voice</h3><p>Shared values and limits. Tone, look and humour set per page.</p></div>
+    <div class="card"><h3><i style="background:var(--mint)"></i>Review rhythm</h3><p>Weekly per format, monthly per page, quarterly for the whole network.</p></div>
+    <div class="card"><h3><i style="background:var(--yellow)"></i>Stop or merge</h3><p>Flat after 90 days of steady posting? Change the format once, then fold it back in as a series.</p></div>
+  </div>
+  <h3 style="font-size:1.5rem">Judge each layer by different numbers</h3>
+  <div class="grid layers">
+    <div class="card" style="--c:var(--blue)"><h3>Brand page</h3><h4>Track</h4><p>Profile visits, link clicks, saves on product posts, conversions.</p><h4>Don't judge by</h4><p>Viral reach alone.</p></div>
+    <div class="card" style="--c:var(--coral)"><h3>Interest or content page</h3><h4>Track</h4><p>Watch time, completion, shares, reach beyond followers, follower growth.</p><h4>Don't judge by</h4><p>Sales in the first six months.</p></div>
+    <div class="card" style="--c:var(--mint)"><h3>Whole network</h3><h4>Track</h4><p>Total engaged audience, cost per launch, inbound collab requests, sponsorship revenue.</p><h4>Don't judge by</h4><p>Any single page's numbers.</p></div>
+  </div>
+  <div class="infog">
+    <div class="label">Infographic · The first 90 days of a new page</div>
+    <h3>Prepare for two weeks, post for eleven, then decide</h3>
+    <div class="scroll"><div class="gantt" id="gantt"></div></div>
+    <p class="cap">Diamonds mark a short weekly review of each format. The red diamond is the day-90 decision: keep it, change the format once, or merge it back as a series.</p>
+  </div>
+</section>
+
+<section id="d6">
+  <div class="sh"><span class="tag">Decision 06</span><h2>How does it pay you back?</h2><p class="q">The returns come in stages. Know which step you're on, and don't expect step five in month two.</p></div>
+  <div class="infog">
+    <div class="label">Infographic · The media-network flywheel</div>
+    <div class="twocol">
+      <div class="flywrap"><svg id="fly" viewBox="0 0 520 520" role="img" aria-label="A loop: entertaining shows lead to retention and shares, then more reach, a bigger owned audience, cheaper launches and paid collabs, and that money funds more shows."></svg><div class="mid" data-scene="flyMid"></div></div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <p>Each turn of the loop makes the next one easier. Good shows keep people watching. Watching earns reach. Reach builds an audience you own. That audience makes launches cheaper and attracts partners who pay, and that money funds more shows.</p>
+        <p style="color:var(--muted);font-size:.96rem">The loop starts slowly. Most brands give up during the first turn, before reach catches up with effort.</p>
+      </div>
+    </div>
+  </div>
+  <div class="stairs">
+    <div data-scene="stairs" role="img" aria-label="Five characters climbing five steps, each happier than the last"></div>
+    <ol class="steps">
+      <li><div><b>Relationship</b><span>People know and like your pages. Sign: comments asking for the next episode.</span></div></li>
+      <li><div><b>Cheaper launches</b><span>New products land with a warm audience. Sign: launch posts beat paid ads on cost per sale.</span></div></li>
+      <li><div><b>Collaborations</b><span>Brands, creators and celebrities want in. Sign: collab requests you didn't ask for.</span></div></li>
+      <li><div><b>Sponsorship</b><span>Other companies pay to reach your audience. Sign: a paid integration that doesn't hurt retention.</span></div></li>
+      <li><div><b>Revenue stream</b><span>The network becomes a business line. Sign: media revenue covers its own costs.</span></div></li>
+    </ol>
+  </div>
+  <div class="nope">
+    <div data-scene="nope"></div>
+    <div><h3 style="margin-bottom:10px">Hold off on a network if…</h3>
+      <ul>
+        <li>You haven't made one page work yet. Fix the format before multiplying it.</li>
+        <li>You can't commit 6 months of steady posting to each new page.</li>
+        <li>Your audiences overlap a lot. Use named series on one page instead.</li>
+        <li>Leadership expects sales from entertainment pages within a quarter.</li>
+      </ul></div>
+  </div>
+</section>
+
+<section id="checklist">
+  <div class="sh"><span class="tag">Before you launch</span><h2>Launch checklist</h2><p class="q">Tick these off before a new page goes live. Ticks reset when you reload the page.</p></div>
+  <div class="checkwrap">
+    <div class="mascot"><div id="mascot" style="width:100%"></div><p id="mascotTxt"></p></div>
+    <div class="check" id="checks">
+      <label><input type="checkbox" id="c1"><span>The interest scored 20+, or already worked as a series on the main page.</span></label>
+      <label><input type="checkbox" id="c2"><span>We've picked the branding level: fully branded, endorsed or independent.</span></label>
+      <label><input type="checkbox" id="c3"><span>One or two format cards are filled in, with 20 episode ideas each.</span></label>
+      <label><input type="checkbox" id="c4"><span>The first 12 posts are made before launch day.</span></label>
+      <label><input type="checkbox" id="c5"><span>There's a named owner, a posting calendar and a weekly review slot.</span></label>
+      <label><input type="checkbox" id="c6"><span>Success metrics fit the page (watch time and shares, not sales).</span></label>
+      <label><input type="checkbox" id="c7"><span>Cross-promotion rules with the brand page are agreed.</span></label>
+      <label><input type="checkbox" id="c8"><span>The 90-day review and the stop-or-merge rule are in the calendar.</span></label>
+    </div>
+  </div>
+</section>
+
+<div class="closing">
+  <div data-scene="party" role="img" aria-label="A happy crowd of characters"></div>
+  <div class="band">
+    <div class="label" style="color:inherit;opacity:.7">The question to ask instead</div>
+    <h2><span class="old">How do we advertise this product in a new way?</span>How do we keep talking to our audience, stay relevant and keep them entertained for years?</h2>
+    <p>Build pages around interests, give each one shows people come back for, and let the audience you earn make every launch, collaboration and sponsorship easier.</p>
+  </div>
+</div>
+
+<footer>Adapted from the ideas in "Everyone Wants a Media Network", episode 2. Brand examples describe public strategies as discussed in that episode. Illustrations are original.</footer>
+</div>
+
+<script>
+(function(){
+const C={coral:'#EC6F78',blue:'#5B9BE0',orange:'#F29E4C',lilac:'#B9A2DE',mint:'#8CCB9B',yellow:'#F5C84C',sky:'#8EC1EE',pink:'#F4A6B5',brown:'#B88466',ink:'#3B3035'};
+const INK=C.ink;
+const TOP={bean:16,round:22,cloud:12,tri:14,square:22,tall:8};
+const FACE={bean:46,round:52,cloud:54,tri:62,square:52,tall:36};
+
+function body(shape,f){
+  switch(shape){
+    case 'round':return `<ellipse cx="50" cy="58" rx="34" ry="36" fill="${f}"/>`;
+    case 'cloud':return `<g fill="${f}"><circle cx="32" cy="44" r="18"/><circle cx="50" cy="32" r="20"/><circle cx="68" cy="44" r="18"/><circle cx="28" cy="66" r="18"/><circle cx="72" cy="66" r="18"/><circle cx="50" cy="64" r="28"/></g>`;
+    case 'tri':return `<path d="M50 14 Q56 14 60 22 L88 80 Q93 92 80 92 L20 92 Q7 92 12 80 L40 22 Q44 14 50 14Z" fill="${f}"/>`;
+    case 'square':return `<rect x="18" y="22" width="64" height="70" rx="16" fill="${f}"/>`;
+    case 'tall':return `<rect x="31" y="8" width="38" height="86" rx="19" fill="${f}"/>`;
+    default:return `<rect x="22" y="16" width="56" height="80" rx="28" fill="${f}"/>`;
+  }
+}
+function face(mood){
+  const big=`<g class="eyes"><circle cx="41" cy="47" r="7" fill="#fff"/><circle cx="59" cy="47" r="7" fill="#fff"/><circle cx="42" cy="48" r="3.6" fill="${INK}"/><circle cx="58" cy="48" r="3.6" fill="${INK}"/></g>`;
+  const dot=`<g class="eyes"><ellipse cx="42" cy="48" rx="3.2" ry="4" fill="${INK}"/><ellipse cx="58" cy="48" rx="3.2" ry="4" fill="${INK}"/></g>`;
+  const shut=`<path d="M36 48 Q41 53 46 48 M54 48 Q59 53 64 48" fill="none" stroke="${INK}" stroke-width="2.6" stroke-linecap="round"/>`;
+  const brows=`<path d="M34 37 L46 42 M66 37 L54 42" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>`;
+  const cheeks=`<circle cx="31" cy="58" r="5" fill="#D94E5F" opacity=".28"/><circle cx="69" cy="58" r="5" fill="#D94E5F" opacity=".28"/>`;
+  const st=`fill="none" stroke="${INK}" stroke-width="2.8" stroke-linecap="round"`;
+  switch(mood){
+    case 'joy':return big+cheeks+`<path d="M40 59 Q50 74 60 59 Z" fill="${INK}"/><path d="M45 66 Q50 70 55 66" fill="none" stroke="#F08A95" stroke-width="3" stroke-linecap="round"/>`;
+    case 'calm':return shut+cheeks+`<path d="M46 62 L54 62" ${st}/>`;
+    case 'meh':return dot+`<path d="M44 62 L56 62" ${st}/>`;
+    case 'sad':return big+`<path d="M42 65 Q50 58 58 65" ${st}/>`;
+    case 'angry':return big+brows+`<rect x="39" y="57" width="22" height="13" rx="5" fill="${INK}"/><rect x="42" y="58.5" width="16" height="3.5" rx="1" fill="#fff"/><rect x="42" y="65" width="16" height="3" rx="1" fill="#fff"/>`;
+    case 'grumpy':return dot+brows+`<path d="M42 65 Q50 59 58 65" ${st}/>`;
+    case 'shock':return big+`<ellipse cx="50" cy="63" rx="6" ry="7" fill="${INK}"/>`;
+    case 'sleepy':return shut+`<path d="M46 63 Q50 61 54 63" ${st}/><text x="74" y="22" font-family="Fredoka,sans-serif" font-size="14" font-weight="700" fill="${INK}">z</text><text x="84" y="10" font-family="Fredoka,sans-serif" font-size="10" font-weight="700" fill="${INK}">z</text>`;
+    default:return big+cheeks+`<path d="M42 60 Q50 68 58 60" ${st}/>`;
+  }
+}
+function arms(a,shape){
+  const s=`stroke="${INK}" stroke-width="3" stroke-linecap="round" fill="none"`;
+  const lx=shape==='tall'?31:22, rx=shape==='tall'?69:78;
+  switch(a){
+    case 'up':return `<path d="M${lx+2} 60 L${lx-12} 34 M${rx-2} 60 L${rx+12} 34" ${s}/>`;
+    case 'wave':return `<path d="M${lx+2} 64 L${lx-8} 80 M${rx-2} 58 L${rx+12} 36" ${s}/>`;
+    case 'hold':return `<path d="M${lx+2} 64 L${lx-8} 80 M${rx-2} 64 L${rx+8} 70" ${s}/>`;
+    case 'down':return `<path d="M${lx+2} 64 L${lx-8} 80 M${rx-2} 64 L${rx+8} 80" ${s}/>`;
+    default:return '';
+  }
+}
+function hat(h,f){
+  switch(h){
+    case 'beret':return `<ellipse cx="45" cy="16" rx="20" ry="7" fill="${INK}"/><circle cx="45" cy="9" r="2.5" fill="${INK}"/>`;
+    case 'beanie':return `<path d="M29 24 Q50 -4 71 24 Z" fill="#3F7BC8"/><rect x="27" y="20" width="46" height="8" rx="4" fill="#2F6DB5"/><circle cx="50" cy="6" r="5" fill="#2F6DB5"/>`;
+    case 'bun':return `<circle cx="50" cy="6" r="10" fill="${f}"/><rect x="42" y="13" width="16" height="4" rx="2" fill="#C94452"/>`;
+    case 'flame':return `<path d="M28 24 L31 4 L40 16 L46 -2 L53 14 L61 0 L65 16 L74 6 L72 26 Z" fill="#F07A3A"/>`;
+    case 'sprout':return `<path d="M50 18 L50 4" stroke="#4E9A5E" stroke-width="3" stroke-linecap="round"/><ellipse cx="43" cy="4" rx="7" ry="4" fill="#6DBB7B" transform="rotate(-25 43 4)"/><ellipse cx="57" cy="4" rx="7" ry="4" fill="#6DBB7B" transform="rotate(25 57 4)"/>`;
+    case 'cap':return `<path d="M28 22 Q50 2 72 22 Z" fill="${C.coral}"/><rect x="58" y="18" width="24" height="6" rx="3" fill="${C.coral}"/>`;
+    default:return '';
+  }
+}
+function prop(p){
+  switch(p){
+    case 'mic':return `<line x1="88" y1="74" x2="88" y2="92" stroke="${INK}" stroke-width="3" stroke-linecap="round"/><circle cx="88" cy="68" r="7" fill="${INK}"/><circle cx="86" cy="66" r="2" fill="#fff" opacity=".5"/>`;
+    case 'popcorn':return `<circle cx="81" cy="60" r="5" fill="#FCE9B8"/><circle cx="88" cy="56" r="6" fill="#FFF3D1"/><circle cx="95" cy="60" r="5" fill="#FCE9B8"/><path d="M77 62 L99 62 L95 90 L81 90 Z" fill="#fff"/><path d="M83 62 L84.5 90 M88 62 L88 90 M93 62 L91.5 90" stroke="${C.coral}" stroke-width="3"/>`;
+    case 'phone':return `<rect x="81" y="56" width="15" height="25" rx="3.5" fill="${INK}"/><rect x="83" y="59.5" width="11" height="17" rx="1.5" fill="${C.sky}"/>`;
+    case 'suitcase':return `<path d="M82 66 V60 H94 V66" fill="none" stroke="${INK}" stroke-width="3"/><rect x="76" y="66" width="24" height="20" rx="4" fill="${C.orange}"/><path d="M82 66 V86 M94 66 V86" stroke="#D9822F" stroke-width="2.5"/>`;
+    case 'coin':return `<circle cx="89" cy="66" r="10" fill="${C.yellow}" stroke="#D9A42A" stroke-width="2.5"/><text x="89" y="70.5" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="800" fill="#8A5E0E">₹</text>`;
+    case 'fork':return `<path d="M88 92 L88 66 M83 54 L83 64 Q88 70 93 64 L93 54 M88 54 L88 64" fill="none" stroke="${INK}" stroke-width="2.6" stroke-linecap="round"/>`;
+    case 'ball':return `<circle cx="89" cy="74" r="10" fill="#fff" stroke="${INK}" stroke-width="2"/><path d="M89 64 Q84 74 89 84 M79 74 Q89 70 99 74" fill="none" stroke="${INK}" stroke-width="1.8"/>`;
+    case 'heart':return `<path d="M89 82 L79 71 Q75 64 81 61 Q86 59 89 64 Q92 59 97 61 Q103 64 99 71 Z" fill="${C.coral}"/>`;
+    case 'megaphone':return `<path d="M80 64 L96 54 L96 82 L80 72 Z" fill="${C.yellow}" stroke="${INK}" stroke-width="2.2" stroke-linejoin="round"/>`;
+    case 'clap':return `<rect x="77" y="66" width="24" height="18" rx="2" fill="${INK}"/><path d="M77 66 L99 58 L100 62 L78 70 Z" fill="${INK}"/><path d="M82 64 L86 62 M90 61 L94 59" stroke="#fff" stroke-width="2.5"/>`;
+    default:return '';
+  }
+}
+function char(o){
+  const shape=o.shape||'bean', f=C[o.color]||o.color||C.blue;
+  const dyF=(FACE[shape]||46)-48, dyH=(TOP[shape]||16)-16;
+  const legs=o.legs===false?'':`<path d="M42 92 L40 112 L35 113 M58 92 L60 112 L65 113" fill="none" stroke="${INK}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const badge=o.badge?`<circle cx="${shape==='tall'?58:64}" cy="78" r="6.5" fill="${C[o.badge]}" stroke="#fff" stroke-width="2.5"/>`:'';
+  return `<svg viewBox="-6 -10 112 132" aria-hidden="true"><ellipse cx="50" cy="114" rx="26" ry="4.5" fill="${INK}" opacity=".12"/>${legs}${arms(o.arms,shape)}${body(shape,f)}${badge}<g transform="translate(0 ${dyH})">${hat(o.hat,f)}</g><g transform="translate(0 ${dyF})">${face(o.mood||'happy')}</g>${prop(o.prop)}</svg>`;
+}
+// scene: items with x = centre %, y = bottom %, w = width %
+function scene(items,ar,bg){
+  return `<div class="scene" style="aspect-ratio:${ar||'16/10'}">${bg||''}${items.map(it=>{
+    const anim=it.still?'':' bob';
+    return `<div class="sc${anim}" style="left:${it.x-it.w/2}%;bottom:${it.y||0}%;width:${it.w}%;${it.z?'z-index:'+it.z+';':''}animation-delay:${(-Math.random()*3).toFixed(2)}s">${char(it)}</div>`}).join('')}</div>`;
+}
+const one=(o,ar)=>scene([Object.assign({x:50,y:6,w:o.w||62},o)],ar||'1/1');
+
+const S={
+  r1:()=>one({shape:'bean',color:'coral',mood:'shock',w:70}),
+  r2:()=>one({shape:'cloud',color:'orange',mood:'happy',hat:'sprout',w:76}),
+  r3:()=>one({shape:'square',color:'yellow',mood:'happy',w:72}),
+  r4:()=>one({shape:'tri',color:'mint',mood:'joy',prop:'mic',arms:'hold',w:70}),
+  r5:()=>one({shape:'round',color:'blue',mood:'happy',prop:'phone',arms:'hold',w:70}),
+  r6:()=>one({shape:'tall',color:'lilac',mood:'joy',prop:'coin',arms:'hold',w:56}),
+  flyMid:()=>one({shape:'round',color:'pink',mood:'joy',arms:'up',w:80}),
+  crowd:()=>scene([
+    {shape:'bean',color:'coral',mood:'angry',hat:'beret',x:22,y:46,w:32},
+    {shape:'square',color:'sky',mood:'sad',x:52,y:48,w:30},
+    {shape:'tri',color:'orange',mood:'angry',x:80,y:46,w:32},
+    {shape:'cloud',color:'lilac',mood:'grumpy',x:26,y:22,w:36,z:2},
+    {shape:'tall',color:'mint',mood:'sleepy',x:54,y:24,w:24,z:2},
+    {shape:'round',color:'yellow',mood:'shock',x:80,y:22,w:30,z:2},
+    {shape:'bean',color:'orange',mood:'angry',arms:'up',x:22,y:-2,w:32,z:3},
+    {shape:'square',color:'coral',mood:'grumpy',hat:'beanie',x:52,y:-4,w:32,z:3},
+    {shape:'round',color:'blue',mood:'sad',x:81,y:-3,w:30,z:3}],'9/12'),
+  p1:()=>one({shape:'bean',color:'coral',mood:'joy',arms:'hold',prop:'mic',w:56},'1/1'),
+  p2:()=>one({shape:'round',color:'blue',mood:'happy',arms:'hold',prop:'popcorn',w:58},'1/1'),
+  p3:()=>one({shape:'cloud',color:'orange',mood:'joy',arms:'hold',prop:'fork',w:58},'1/1'),
+  bNetflix:()=>scene([{shape:'round',color:'blue',mood:'joy',prop:'popcorn',arms:'hold',x:34,y:6,w:34},{shape:'bean',color:'coral',mood:'shock',x:68,y:6,w:28}],'16/10'),
+  bNike:()=>scene([{shape:'tall',color:'mint',mood:'joy',arms:'wave',prop:'ball',hat:'cap',x:36,y:6,w:30},{shape:'bean',color:'orange',mood:'happy',arms:'up',x:70,y:6,w:28}],'16/10'),
+  bSwiggy:()=>scene([{shape:'cloud',color:'orange',mood:'joy',prop:'fork',arms:'hold',x:38,y:6,w:36},{shape:'square',color:'yellow',mood:'happy',hat:'bun',x:72,y:6,w:26}],'16/10'),
+  bDistrict:()=>scene([{shape:'bean',color:'lilac',mood:'joy',prop:'mic',arms:'hold',x:30,y:6,w:28},{shape:'round',color:'blue',mood:'happy',prop:'popcorn',arms:'hold',x:62,y:6,w:26},{shape:'tri',color:'mint',mood:'joy',arms:'up',x:86,y:6,w:20}],'16/10'),
+  bMoko:()=>scene([{shape:'square',color:'coral',mood:'happy',prop:'suitcase',arms:'hold',x:36,y:6,w:32},{shape:'bean',color:'sky',mood:'shock',x:70,y:6,w:26,hat:'beret'}],'16/10'),
+  t1:()=>one({shape:"tri",color:"mint",mood:"happy",hat:"sprout",prop:"heart",arms:"hold",w:80}),
+  t2:()=>one({shape:'bean',color:'coral',mood:'joy',prop:"clap",arms:"hold",w:76}),
+  t3:()=>one({shape:'round',color:'yellow',mood:'joy',prop:"coin",arms:"hold",w:78}),
+  mA:()=>scene([{shape:'bean',color:'blue',mood:'joy',arms:'wave',x:50,y:6,w:28}]),
+  mB:()=>scene([{shape:'bean',color:'blue',mood:'happy',arms:'down',x:36,y:6,w:28},{shape:'round',color:'coral',mood:'joy',prop:'popcorn',arms:'hold',x:70,y:6,w:20}]),
+  mC:()=>scene([
+    {shape:'square',color:'blue',mood:'happy',x:50,y:22,w:20,z:2},
+    {shape:'bean',color:'coral',mood:'joy',prop:'mic',arms:'hold',x:16,y:44,w:14},
+    {shape:'round',color:'yellow',mood:'happy',prop:'popcorn',arms:'hold',x:84,y:44,w:14},
+    {shape:'cloud',color:'mint',mood:'joy',x:18,y:2,w:15},
+    {shape:'tri',color:'lilac',mood:'happy',prop:'fork',arms:'hold',x:82,y:2,w:15}],'16/10',
+    `<svg class="bg" viewBox="0 0 160 100" preserveAspectRatio="none" aria-hidden="true"><path d="M80 52 L26 30 M80 52 L134 30 M80 52 L28 80 M80 52 L132 80" stroke="${INK}" stroke-width="1.4" stroke-dasharray="4 4" opacity=".4" fill="none"/></svg>`),
+  mD:()=>scene([
+    {shape:'tall',color:'coral',mood:'joy',prop:'mic',arms:'hold',hat:'flame',x:50,y:8,w:16,z:2},
+    {shape:'round',color:'blue',mood:'happy',x:24,y:4,w:20},
+    {shape:'cloud',color:'mint',mood:'joy',arms:'up',x:77,y:4,w:20},
+    {shape:'bean',color:'yellow',mood:'shock',x:8,y:2,w:12},
+    {shape:'square',color:'lilac',mood:'happy',x:93,y:2,w:12}],'16/10',
+    `<svg class="bg" viewBox="0 0 160 100" preserveAspectRatio="none" aria-hidden="true"><path d="M70 0 L90 0 L120 100 L40 100 Z" fill="${C.yellow}" opacity=".35"/></svg>`),
+  v1:()=>scene([{shape:'bean',color:'blue',mood:'happy',x:36,y:6,w:28},{shape:'round',color:'blue',mood:'joy',x:68,y:6,w:22}]),
+  v2:()=>scene([{shape:'bean',color:'blue',mood:'happy',x:34,y:6,w:28},{shape:'round',color:'coral',mood:'joy',badge:'blue',x:68,y:6,w:22}]),
+  v3:()=>scene([{shape:'bean',color:'blue',mood:'meh',x:24,y:6,w:22},{shape:'tri',color:'orange',mood:'joy',arms:'up',x:72,y:6,w:28}]),
+  host:()=>one({shape:'square',color:'lilac',mood:'joy',prop:'megaphone',arms:'hold',hat:'beanie',w:70}),
+  nope:()=>one({shape:'cloud',color:'sky',mood:'sleepy',w:76}),
+  stairs:()=>{
+    const moods=['calm','happy','happy','joy','joy'];const cols=['lilac','sky','mint','orange','coral'];const shapes=['round','bean','square','tall','bean'];
+    const props=['heart','megaphone','phone','coin','coin'];
+    const items=moods.map((m,i)=>({shape:shapes[i],color:cols[i],mood:m,prop:props[i],arms:i===4?'up':'hold',x:i*20+10,y:(i+1)*13.33,w:11}));
+    let svg=`<svg class="bg" viewBox="0 0 160 90" preserveAspectRatio="none" aria-hidden="true">`;
+    for(let i=0;i<5;i++){svg+=`<rect x="${i*32}" y="${90-(i+1)*12}" width="32" height="${(i+1)*12}" fill="${i%2?'#E3D4BE':'#EBDFCD'}"/>`}
+    svg+=`</svg>`;
+    let nums='';for(let i=0;i<5;i++){nums+=`<span class="stepnum" style="left:${i*20+10}%;bottom:${(i+1)*13.33-9}%">${i+1}</span>`}
+    return scene(items,'16/9',svg+nums);
+  },
+  party:()=>scene([
+    {shape:'round',color:'blue',mood:'joy',hat:'flame',x:10,y:4,w:11},
+    {shape:'bean',color:'mint',mood:'happy',prop:'mic',arms:'hold',x:21,y:2,w:9},
+    {shape:'cloud',color:'lilac',mood:'joy',arms:'up',x:32,y:8,w:11},
+    {shape:'tall',color:'orange',mood:'happy',prop:'popcorn',arms:'hold',x:43,y:4,w:8},
+    {shape:'square',color:'coral',mood:'joy',hat:'bun',x:53,y:2,w:10},
+    {shape:'tri',color:'yellow',mood:'happy',prop:'suitcase',arms:'hold',x:64,y:6,w:10},
+    {shape:'bean',color:'sky',mood:'joy',arms:'up',hat:'beret',x:75,y:2,w:9},
+    {shape:'round',color:'pink',mood:'happy',prop:'coin',arms:'hold',x:86,y:5,w:10},
+    {shape:'bean',color:'brown',mood:'shock',x:95,y:2,w:7}],'16/4.2')
+};
+document.querySelectorAll('[data-scene]').forEach(el=>{const f=S[el.dataset.scene];if(f)el.innerHTML=f()});
+
+// doodle texture on the hero stage
+const cv=document.getElementById('doodles');
+function doodle(){
+  const r=cv.getBoundingClientRect(),d=window.devicePixelRatio||1;
+  cv.width=r.width*d;cv.height=r.height*d;const g=cv.getContext('2d');g.scale(d,d);
+  const grd=g.createRadialGradient(0,0,10,0,0,r.width*.7);grd.addColorStop(0,'rgba(255,255,240,.75)');grd.addColorStop(1,'rgba(255,255,240,0)');
+  g.fillStyle=grd;g.fillRect(0,0,r.width,r.height);
+  const cx=r.width/2,cy=r.height/2;let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+  g.lineCap='round';
+  for(let i=0;i<Math.min(1400,r.width*r.height/120);i++){
+    const a=rnd()*Math.PI*2,rad=40+rnd()*Math.max(r.width,r.height)*.75;
+    const x=cx+Math.cos(a)*rad,y=cy+Math.sin(a)*rad*.8;const t=a+Math.PI/2+(rnd()-.5)*.6;const len=3+rnd()*7;
+    g.strokeStyle=rnd()<.7?'rgba(59,48,53,.55)':'rgba(255,255,255,.8)';g.lineWidth=rnd()<.5?1.2:1.8;
+    g.beginPath();
+    if(rnd()<.3){for(let k=0;k<3;k++){const ox=x+Math.cos(t)*k*3,oy=y+Math.sin(t)*k*3;g.moveTo(ox,oy);g.lineTo(ox+Math.cos(a)*len*.6,oy+Math.sin(a)*len*.6)}}
+    else{g.moveTo(x,y);g.quadraticCurveTo(x+Math.cos(t)*len*.5+Math.cos(a)*3,y+Math.sin(t)*len*.5+Math.sin(a)*3,x+Math.cos(t)*len,y+Math.sin(t)*len)}
+    g.stroke();
+  }
+}
+doodle();let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(doodle,150)});
+
+// Decision 01
+const models={
+  A:{name:"One sharp brand page",line:"Keep one page and organise it into two or three named series."},
+  B:{name:"Brand page + one content page",line:"Keep the brand page for selling. Launch one entertainment page for your strongest neighbouring interest."},
+  C:{name:"Hub + interest pages",line:"Give each distinct audience its own page, starting with your top two interests from Decision 02."},
+  D:{name:"Category media brand",line:"Build lightly branded pages about your whole category, aimed at sponsorship and shows."}
+};
+const form=document.getElementById('diag');
+const val=n=>{const el=form.querySelector('input[name="'+n+'"]:checked');return el?+el.value:0};
+let lastM='';
+function update(){
+  const f=val('freq'),g=val('groups'),o=val('overlap'),h=val('health'),goal=val('goal'),cap=val('cap');
+  const need=f+g+o+h+goal;const why=[];let m;
+  if(need<=3){m='A';why.push('Your audience is fairly unified and buys often, so one well-run page can serve it.')}
+  else if(need<=7){if(cap>=1){m='B';why.push('There is a real gap between purchases or audiences that a content page can fill.')}else{m='A';why.push('A second page makes sense, but you can’t feed one yet. Start with named series on your main page.')}}
+  else{
+    if(cap>=3&&goal===2){m='D';why.push('High need, a full team and a monetisation goal make a category media brand realistic.')}
+    else if(cap>=2&&g>=2){m='C';why.push('Several distinct audiences with little overlap point to one page per interest.')}
+    else if(cap>=1){m='B';why.push('The need is high, but your capacity fits one extra page for now. Add more once it works.')}
+    else{m='A';why.push('The need is high but capacity is the bottleneck. Free up a content owner before splitting.')}
+  }
+  if(f>=2)why.push('Customers buy rarely, so you need reasons for them to stay in touch between purchases.');
+  if(o===2)why.push('Your groups rarely enjoy each other’s content. That’s the strongest signal to split.');
+  if(h===2)why.push('Falling reach often means one page is serving too many audiences at once.');
+  if(goal===0&&m!=='A')why.push('Your goal is sales: keep the brand page focused on conversion and judge new pages on watch time and shares.');
+  document.getElementById('rName').textContent='Model '+m+' · '+models[m].name;
+  document.getElementById('rLine').textContent=models[m].line;
+  document.getElementById('needBar').style.width=(need/12*100)+'%';document.getElementById('needN').textContent=need+'/12';
+  document.getElementById('capBar').style.width=(cap/3*100)+'%';document.getElementById('capN').textContent=cap+'/3';
+  const ul=document.getElementById('rWhy');ul.innerHTML='';why.forEach(t=>{const li=document.createElement('li');li.textContent=t;ul.appendChild(li)});
+  if(m!==lastM){document.getElementById('rArt').innerHTML=S['m'+m]();lastM=m}
+  document.querySelectorAll('.model').forEach(el=>el.classList.toggle('hit',el.dataset.model===m));
+}
+form.addEventListener('change',update);update();
+
+// Decision 02
+const rows=[["ADHD-relatable comedy",5,5,4,5,3],["Work and study focus tips",5,3,5,4,2],["Founder and parent ADHD stories",3,4,4,3,4],["General productivity tools",4,2,3,3,1]];
+const crit=['Size','Passion','Closeness','Repeatable','Open space'];
+const box=document.getElementById('terr');
+rows.forEach((r,i)=>{
+  const card=document.createElement('div');card.className='card';
+  let html=`<input type="text" id="tn${i}" aria-label="Interest ${i+1} name" value="${r[0]}">`;
+  crit.forEach((c,j)=>{html+=`<label class="sl"><span>${c}</span><input type="range" id="t${i}c${j}" min="1" max="5" value="${r[j+1]}"><output>${r[j+1]}</output></label>`});
+  html+=`<div class="verdict"><div class="mini"></div><div><b class="tot"></b><span style="color:var(--muted)">/25</span><br><span class="pill"></span></div></div>`;
+  card.innerHTML=html;box.appendChild(card);
+  card.addEventListener('input',()=>score(card));score(card);
+});
+function score(card){
+  let t=0;card.querySelectorAll('.sl').forEach(l=>{const v=+l.querySelector('input').value;l.querySelector('output').textContent=v;t+=v});
+  card.querySelector('.tot').textContent=t;
+  const p=card.querySelector('.pill');const v=t>=20?['go','Launch a page','joy','mint']:t>=15?['test','Test as a series','happy','yellow']:['park','Park it','sleepy','sky'];
+  p.className='pill '+v[0];p.textContent=v[1];
+  const mini=card.querySelector('.mini');if(mini.dataset.k!==v[0]){mini.dataset.k=v[0];mini.innerHTML=char({shape:'bean',color:v[3],mood:v[2],arms:v[0]==='go'?'up':''})}
+}
+
+// Checklist
+const boxes=[...document.querySelectorAll('#checks input')];
+const lines=['Nothing ticked yet. Let’s get going.','Good start. Keep going.','Halfway there!','Almost ready to launch.','Ready to launch!'];
+let lastMood='';
+function mascot(){
+  const n=boxes.filter(b=>b.checked).length;
+  const st=n===8?[4,'joy','up','mint']:n>=6?[3,'joy','wave','yellow']:n>=4?[2,'happy','wave','orange']:n>=1?[1,'happy','down','sky']:[0,'sleepy','','lilac'];
+  document.getElementById('mascotTxt').textContent=n+' of 8 · '+lines[st[0]];
+  const k=st.join();if(k!==lastMood){lastMood=k;document.getElementById('mascot').innerHTML=one({shape:'round',color:st[3],mood:st[1],arms:st[2],hat:n===8?'flame':'',w:70})}
+}
+boxes.forEach(cb=>{
+  cb.addEventListener('change',mascot);
+});
+mascot();
+
+// Feed-relevance infographic
+const fans=[['Comedy fan','coral','bean'],['Movie fan','blue','round'],['Foodie','orange','cloud'],['Traveller','mint','tri']];
+const icons=['★','▶','✦','✈'];
+function feed(id,split){
+  document.getElementById(id).innerHTML=fans.map((f,i)=>{
+    const tiles=fans.map((t,j)=>{const col=split?f[1]:t[1];const on=split||i===j;return `<div class="tile${on?'':' off'}" style="background:${C[col]}">${on?icons[split?i:j]:''}</div>`}).join('');
+    return `<div class="fmrow"><div>${char({shape:f[2],color:f[1],mood:split?'joy':'meh',legs:false})}</div><div class="who">${f[0]}</div>${tiles}</div>`}).join('');
+}
+feed('fm1',false);feed('fm2',true);
+
+// Purchase-gap timeline
+(function(){
+  const x0=200,x1=790,mx=m=>x0+(x1-x0)*m/36;let s='';
+  s+=`<text x="10" y="92" class="svgtxt" font-size="15" font-weight="800">Brand page only</text>`;
+  s+=`<text x="10" y="182" class="svgtxt" font-size="15" font-weight="800">With a content page</text>`;
+  [0,12,24,36].forEach(m=>{s+=`<line x1="${mx(m)}" y1="40" x2="${mx(m)}" y2="215" stroke="#E2D4C1" stroke-width="1.5"/><text x="${mx(m)}" y="238" text-anchor="middle" class="svgtxt" font-size="13" fill="#76675F">${m===0?'Month 0':m+' mo'}</text>`});
+  s+=`<line x1="${x0}" y1="88" x2="${x1}" y2="88" stroke="#3B3035" stroke-width="2"/><line x1="${x0}" y1="178" x2="${x1}" y2="178" stroke="#3B3035" stroke-width="2"/>`;
+  [6,11,17,23,29].forEach(m=>{s+=`<circle cx="${mx(m)}" cy="88" r="6" fill="#B9AFA5"/>`});
+  for(let w=0;w<156;w++){const m=w*36/156;const h=10+((w*7)%5)*3;s+=`<line x1="${mx(m)}" y1="${178-h}" x2="${mx(m)}" y2="178" stroke="${C.mint}" stroke-width="2.4" stroke-linecap="round"/>`}
+  [0,36].forEach(m=>{[88,178].forEach(y=>{s+=`<circle cx="${mx(m)}" cy="${y}" r="11" fill="${C.coral}" stroke="#3B3035" stroke-width="2"/>`})});
+  s+=`<text x="${mx(18)}" y="62" text-anchor="middle" class="svgtxt" font-size="14" font-weight="800" fill="#76675F">Long silences. The brand fades from memory.</text>`;
+  s+=`<text x="${mx(18)}" y="146" text-anchor="middle" class="svgtxt" font-size="14" font-weight="800">~470 episodes keep the brand in their week</text>`;
+  document.getElementById('gap').innerHTML=s;
+})();
+
+// Model matrix
+const mpts=[['A','One page',16,18,'bean','blue'],['B','Brand + content page',38,46,'round','coral'],['C','Hub + interest pages',76,58,'square','mint'],['D','Media brand',84,88,'tall','lilac']];
+const mx_=document.getElementById('matrix');
+mpts.forEach(p=>{const a=document.createElement('a');a.className='mpt';a.href='#d3';a.dataset.model=p[0];a.style.left=p[2]+'%';a.style.bottom=p[3]+'%';
+  a.innerHTML=`<div class="ch bob" style="animation-delay:-${p[2]%3}s">${char({shape:p[4],color:p[5],mood:'happy'})}</div><span>${p[0]} · ${p[1]}</span>`;mx_.appendChild(a)});
+function markMatrix(){const hit=document.querySelector('.model.hit');const m=hit?hit.dataset.model:'';mx_.querySelectorAll('.mpt').forEach(a=>a.classList.toggle('hit',a.dataset.model===m))}
+form.addEventListener('change',markMatrix);markMatrix();
+
+// 90-day plan
+(function(){
+  const g=document.getElementById('gantt');let h='<div></div>';
+  for(let w=1;w<=13;w++)h+=`<div class="wk">W${w}</div>`;
+  h+=`<div></div><div class="phase"><span>Prepare</span><span>Post and learn</span></div>`;
+  const rows=[['Fill in format cards',1,1,'lilac'],['Make the first 12 posts',1,2,'orange'],['Post 3–5 Reels a week',3,13,'mint'],['Collab posts with the brand page',5,13,'sky'],['Weekly format review',3,13,'yellow','ticks'],['Day-90 decision',13,13,'coral','ms']];
+  rows.forEach(r=>{h+=`<div class="task">${r[0]}</div>`;
+    if(r[4]==='ms')h+=`<div style="grid-column:${r[1]+1}/${r[2]+2}" class="ms" title="Day 90"></div>`;
+    else if(r[4]==='ticks'){h+=`<div style="grid-column:${r[1]+1}/${r[2]+2};--c:${C[r[3]]}" class="ticks">${'<i></i>'.repeat(r[2]-r[1]+1)}</div>`}
+    else h+=`<div style="grid-column:${r[1]+1}/${r[2]+2};--c:${C[r[3]]}" class="bar"></div>`});
+  g.innerHTML=h;
+})();
+
+// Flywheel
+(function(){
+  const nodes=[['Entertaining','shows',C.coral],['Retention','and shares',C.orange],['More','reach',C.yellow],['Bigger owned','audience',C.mint],['Cheaper launches,','paid collabs',C.blue]];
+  const cx=260,cy=260,R=180,r=64;let s=`<defs><marker id="ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#3B3035"/></marker></defs>`;
+  s+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#E2D4C1" stroke-width="22"/>`;
+  const ang=i=>(-90+i*72)*Math.PI/180;
+  nodes.forEach((n,i)=>{const a1=ang(i)+0.39,a2=ang(i+1)-0.39;
+    s+=`<path d="M${cx+R*Math.cos(a1)} ${cy+R*Math.sin(a1)} A${R} ${R} 0 0 1 ${cx+R*Math.cos(a2)} ${cy+R*Math.sin(a2)}" fill="none" stroke="#3B3035" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#ah)"/>`});
+  nodes.forEach((n,i)=>{const x=cx+R*Math.cos(ang(i)),y=cy+R*Math.sin(ang(i));
+    s+=`<circle cx="${x}" cy="${y}" r="${r}" fill="${n[2]}" stroke="#3B3035" stroke-width="2.5"/><text x="${x}" y="${y-2}" text-anchor="middle" class="svgtxt" font-size="15" font-weight="800">${n[0]}</text><text x="${x}" y="${y+17}" text-anchor="middle" class="svgtxt" font-size="15" font-weight="800">${n[1]}</text>`});
+  document.getElementById('fly').innerHTML=s;
+})();
+
+// Strategy quiz: answers live only in this variable and vanish on reload.
+(function(){
+const Q=[
+ {k:'freq',q:'How often does a typical customer buy from you?',hint:'Rare purchases leave long gaps where people forget you.',art:{shape:'square',color:'coral',mood:'happy',prop:'suitcase',arms:'hold'},
+  o:[['Weekly or more','Food, groceries, daily apps'],['About monthly','Beauty, fashion, subscriptions'],['About once a year','Gadgets, travel, courses'],['Every few years','Luggage, furniture, cars']]},
+ {k:'groups',q:'How many different interest groups follow you, or should?',hint:'Count groups that want different things, not demographic segments.',art:{shape:'cloud',color:'lilac',mood:'shock'},
+  o:[['One','Everyone wants roughly the same thing'],['Two',''],['Three or four',''],['Five or more','A different crowd for each product line']]},
+ {k:'overlap',q:'Would those groups enjoy each other’s posts?',hint:'If the comedy fan would happily watch the movie posts, they can share a page.',art:{shape:'round',color:'blue',mood:'meh'},
+  o:[['Yes, mostly','They share most interests'],['Partly','Some posts land with everyone'],['Rarely','Each group skips the others’ posts']]},
+ {k:'health',q:'How is your main brand page doing right now?',hint:'Look at reach and engagement over the last three months.',art:{shape:'bean',color:'mint',mood:'happy',prop:'phone',arms:'hold'},
+  o:[['Growing and engaged',''],['Flat','Steady, but not going anywhere'],['Falling','Reach and engagement are dropping']]},
+ {k:'goal',q:'What do you most need from Instagram in the next year?',hint:'Pick the one that matters most.',art:{shape:'round',color:'yellow',mood:'joy',prop:'coin',arms:'hold'},
+  o:[['Direct sales','Clicks, orders, sign-ups'],['Awareness and trust','Be known and liked in the category'],['An audience I can monetise','Collabs, sponsorships, launches at low cost']]},
+ {k:'cap',q:'How much content can you produce, honestly?',hint:'Count what you can keep up every week, not a launch burst.',art:{shape:'tall',color:'orange',mood:'meh',prop:'clap',arms:'hold'},
+  o:[['Under 3 posts a week','Founder or one marketer, part time'],['3 to 7 posts a week','A part-time creator or agency'],['1 to 2 dedicated people','Someone owns content full time'],['A content team','Writers, editors, on-camera talent']]},
+ {k:'pull',q:'How do people feel about seeing your brand in their feed?',hint:'This decides how visible your brand should be on new pages.',art:{shape:'bean',color:'sky',mood:'happy',hat:'beret'},
+  o:[['They follow us for us','Fans like the brand itself'],['Neutral','Fine if the content is good'],['They skip anything that looks like an ad','Category is seen as salesy or sensitive']]},
+ {k:'fun',q:'What’s easiest to make entertaining around your category?',hint:'This shapes your first show.',art:{shape:'tri',color:'mint',mood:'joy',prop:'mic',arms:'hold'},
+  o:[['Tips and how-tos','Useful, quick, practical'],['Comedy and relatable moments','"This is so me" content'],['Stories with recurring characters','Micro-dramas people follow'],['Picks, reviews and culture','What to watch, eat, try or go to']]},
+ {k:'patience',q:'How long will leadership wait for results from new content?',hint:'New pages usually need months before reach catches up with effort.',art:{shape:'cloud',color:'sky',mood:'sleepy'},
+  o:[['Under 3 months',''],['About 6 months',''],['12 months or more','']]}
+];
+const MODELS={
+ A:{name:'One sharp brand page',kick:'Model A',sum:'Stay on one page and organise it into two or three named series, so each audience knows which posts are for them.'},
+ B:{name:'Brand page + one content page',kick:'Model B',sum:'Keep the brand page for selling and launch one entertainment page around your strongest neighbouring interest.'},
+ C:{name:'Hub + interest pages',kick:'Model C',sum:'Keep a brand hub and give each distinct audience its own page, starting with the top two.'},
+ D:{name:'Category media brand',kick:'Model D',sum:'Build lightly branded pages about your whole category and grow them into shows other brands pay to appear on.'}
+};
+const FORMATS=[
+ {name:'A recurring explainer series',ex:'"60-second fixes": one host, one problem, one fix, every Tuesday and Friday.'},
+ {name:'A relatable sketch series',ex:'"Things only ___ people do": the same two characters in a new everyday situation each episode.'},
+ {name:'A micro-drama with recurring characters',ex:'A 5-part story told in 45-second Reels, ending each episode on a question so people come back.'},
+ {name:'A weekly picks or review show',ex:'"Three things worth your weekend": a familiar host ranks what to watch, eat or try.'}
+];
+const BRANDING=[
+ ['Fully branded','Your fans like the brand itself, so put its name and look on the new page.'],
+ ['Endorsed','Give the page its own name and look, with "by Brand" in the bio. It feels independent but still credits you.'],
+ ['Independent','Give the page its own name. Show your brand only in credits or collabs, because a logo would put viewers off.']
+];
+let a=new Array(Q.length).fill(null),i=0;
+const box=document.getElementById('qz');
+const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+function prog(){return `<div class="qtop"><div class="qprog" aria-hidden="true">${Q.map((_,j)=>`<i class="${j<i?'done':j===i?'now':''}"></i>`).join('')}</div><span class="qcount">${i<Q.length?'Question '+(i+1)+' of '+Q.length:'Your strategy'}</span></div>`}
+
+function ask(){
+  const q=Q[i];
+  box.innerHTML=prog()+`<div class="qbody"><div class="qart">${one(Object.assign({w:84},q.art))}</div><div class="qq"><h3>${q.q}</h3><p class="hint">${q.hint}</p>
+    <div class="qopts" role="group" aria-label="${esc(q.q)}">${q.o.map((o,j)=>`<button type="button" class="qopt${a[i]===j?' sel':''}" data-v="${j}"><b>${'ABCD'[j]}</b><span>${o[0]}${o[1]?`<small>${o[1]}</small>`:''}</span></button>`).join('')}</div></div></div>
+    <div class="qnav"><button type="button" class="qbtn" id="qBack"${i===0?' disabled':''}>← Back</button><span class="qnote">Tap an answer to continue</span>${a[i]!==null?'<button type="button" class="qbtn solid" id="qNext">Next →</button>':'<span></span>'}</div>`;
+  box.querySelectorAll('.qopt').forEach(b=>b.addEventListener('click',()=>{a[i]=+b.dataset.v;b.classList.add('sel');setTimeout(()=>{i++;i<Q.length?ask():result()},180)}));
+  const bk=document.getElementById('qBack');if(bk)bk.addEventListener('click',()=>{if(i>0){i--;ask()}});
+  const nx=document.getElementById('qNext');if(nx)nx.addEventListener('click',()=>{i++;i<Q.length?ask():result()});
+}
+
+function decide(v){
+  const need=v.freq+v.groups+v.overlap+v.health+v.goal;const why=[];const warn=[];let m;
+  if(need<=3){m='A';why.push('Your audience is fairly unified and buys often, so one well-run page can serve everyone.')}
+  else if(need<=7){if(v.cap>=1){m='B';why.push('There’s a clear gap a second page can fill, and you can produce enough to keep one going.')}else{m='A';why.push('A second page would help, but under 3 posts a week can’t feed two pages. Prove a series on the main page first.')}}
+  else{
+    if(v.cap>=3&&v.goal===2&&v.patience===2){m='D';why.push('High need, a full content team, a monetisation goal and a patient leadership team are exactly what a media brand needs.')}
+    else if(v.cap>=2&&v.groups>=2){m='C';why.push('You have several distinct audiences and the people to give each one its own page.')}
+    else if(v.cap>=1){m='B';why.push('The case for splitting is strong, but your capacity fits one extra page for now. Add more once it works.')}
+    else{m='A';why.push('The case for splitting is strong, but capacity is the bottleneck. Free up a content owner before adding pages.')}
+  }
+  if(v.patience===0&&(m==='C'||m==='D')){warn.push('Leadership wants results within 3 months, which is too soon for several new pages. Start with one content page (Model B) and expand at month 6.');m='B'}
+  if(v.patience===0&&m==='B')warn.push('New pages rarely pay off inside 3 months. Agree up front that the content page is judged on watch time and shares, not sales.');
+  if(v.freq>=2)why.push('Customers buy '+(v.freq===3?'every few years':'about once a year')+', so you need a reason for them to keep hearing from you between purchases.');
+  if(v.freq===0)why.push('Customers already buy often, so your brand page has natural reasons to show up in their week.');
+  if(v.groups>=2&&v.overlap===2)why.push('Your groups rarely enjoy each other’s posts. That’s the strongest signal that one page is diluting your reach.');
+  if(v.groups>=2&&v.overlap===0)why.push('Your groups share most interests, so named series on fewer pages will work better than many thin pages.');
+  if(v.health===2)why.push('Falling reach on the main page often means it’s trying to serve too many audiences at once.');
+  if(v.health===0&&m!=='A')why.push('Your main page is healthy. Keep its rhythm and don’t move your best formats away from it.');
+  if(v.cap===0)warn.push('Under 3 posts a week is the main limit on everything else. One reliable series beats several irregular ones.');
+  if(v.goal===0&&m!=='A')warn.push('Your goal is direct sales. Keep sales posts on the brand page and never judge the content page on sales in its first six months.');
+  return {m,need,why,warn};
+}
+
+function result(){
+  const v={};Q.forEach((q,j)=>v[q.k]=a[j]);
+  const d=decide(v);const M=MODELS[d.m];
+  const br=d.m==='A'?['Your brand page','You’re staying on one page, so this doesn’t apply yet. Give each series a clear name and look instead.']:(d.m==='D'&&v.pull===0?BRANDING[1]:BRANDING[v.pull]);
+  const brWhy=d.m==='A'?'':(d.m==='D'&&v.pull===0?'Even fans of the brand follow a media brand for the category, so a lighter touch travels further.':['You said people follow you for the brand itself.','You said people are neutral about your brand, as long as the content is good.','You said people skip anything that looks like an ad in your category.'][v.pull]);
+  const F=FORMATS[v.fun];
+  const cad=['2 episodes a week, as a named series on your main page','3 episodes a week','3 to 5 episodes a week per page','5 episodes a week, spread across pages'][v.cap];
+  const metrics=d.m==='A'?(v.goal===0?['Profile visits and link clicks','Saves on product posts','Conversions from Instagram']:['Saves and shares per post','Reach to non-followers','Follower growth'])
+    :['Watch time and completion rate on the new page','Shares and "part 2?" comments','Reach to people who don’t follow you yet',v.goal===0?'Conversions on the brand page (kept separate)':v.goal===2?'Inbound collab requests':'Follower growth across pages'];
+  const steps={
+    A:['Name two or three series on your page and give each a look people can recognise.','Score your interests in Decision 02 so you know which series could become a page later.','Review in 90 days. If one series clearly outperforms, it’s your candidate for Model B.'],
+    B:['Pick your top interest with the scorer in Decision 02.','Fill one format card (Decision 04) and make 12 episodes before launch.','Launch, post on fixed days, and hold the day-90 review from Decision 05.'],
+    C:['Score every interest in Decision 02 and launch only the top two.','Give each page a named owner and its own format card.','Add a third page only when the first two hit their 90-day targets.'],
+    D:['Name the category media brand and decide its editorial angle.','Build two flagship shows before launch, with 20 episodes planned for each.','Plan your first sponsor integration for month 6 to 9, not before.']
+  }[d.m];
+  box.innerHTML=prog()+`<div class="qres">
+    <div class="qhero"><div><div class="kicker">${M.kick} · your best fit</div><h3>${M.name}</h3><p style="margin-top:10px">${M.sum}</p>
+      <div class="qscore" style="margin-top:16px"><span>Need</span><div class="bar"><i style="width:${d.need/12*100}%;background:var(--coral)"></i></div><span>${d.need}/12</span><span>Capacity</span><div class="bar"><i style="width:${v.cap/3*100}%;background:var(--blue)"></i></div><span>${v.cap}/3</span></div></div>
+      <div class="art">${S['m'+d.m]()}</div></div>
+    <div class="qcard qwhy"><h4>Why this fits you</h4><ul>${d.why.map(t=>`<li>${t}</li>`).join('')}</ul></div>
+    <div class="qgrid">
+      <div class="qcard"><h4>Brand visibility</h4><div class="big">${br[0]}</div><p>${br[1]}</p>${brWhy?`<p style="color:var(--muted)">${brWhy}</p>`:''}</div>
+      <div class="qcard"><h4>Your first show</h4><div class="big">${F.name}</div><p>${F.ex}</p><p style="color:var(--muted)">Cadence: ${cad}.</p></div>
+      <div class="qcard"><h4>What to measure first</h4><ul>${metrics.map(t=>`<li>${t}</li>`).join('')}</ul></div>
+      <div class="qcard"><h4>Your next three steps</h4><ol>${steps.map(t=>`<li>${t}</li>`).join('')}</ol></div>
+    </div>
+    ${d.warn.length?`<div class="qcard qwarn"><h4>Watch out</h4><ul>${d.warn.map(t=>`<li>${t}</li>`).join('')}</ul></div>`:''}
+    <div class="qnav"><button type="button" class="qbtn" id="qBack">← Change last answer</button><span class="qnote">Nothing you answered was saved or sent anywhere.</span><button type="button" class="qbtn solid" id="qRe">Retake the quiz</button></div>
+  </div>`;
+  document.getElementById('qBack').addEventListener('click',()=>{i=Q.length-1;ask()});
+  document.getElementById('qRe').addEventListener('click',()=>{a=new Array(Q.length).fill(null);i=0;ask();box.scrollIntoView({block:'start'})});
+}
+ask();
+})();
+})();
+</script>
+</body>
+</html>
