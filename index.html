@@ -783,6 +783,9 @@ section.stack>.pcar.pcar.pcar.pcar{background:none;border:0;border-radius:0;padd
 .pcdots button[aria-current="true"]{background:var(--ink);width:26px}
 .pccount{font-size:.85rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
 .pcar.fits .pcbar{display:none}
+.wall .stamp .pw{position:absolute;z-index:2;height:var(--h);aspect-ratio:874/900;transform:rotate(-2.5deg);transform-origin:20% 100%}
+.wall .stamp .pw>img{display:block;width:100%;height:100%;filter:drop-shadow(0 6px 8px rgba(29,31,36,.22)) drop-shadow(0 1px 1px rgba(29,31,36,.2))}
+.pfly{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -2115,6 +2118,7 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
     right:{src:'images/sticker-look-right.webp?v=20261009d',h:72,left:3,bottom:0,emo:{left:52,top:12,size:14}},
     up:{src:'images/sticker-look-up.webp?v=20261009d',h:72,left:3,bottom:0,emo:{left:48,top:4,size:14}},
     sofa:{src:'images/sticker-sofa.webp?v=20261009d',h:76,left:3,bottom:4,emo:{left:30,top:22,size:8.5},bubble:true},
+    plane:{src:'images/sticker-plane.webp?v=20261009f',h:72,left:3,bottom:0,wrap:true,emo:{left:45,top:47,size:9},bubble:true},
     phone:{src:'images/sticker-phone.webp?v=20261009d',h:76,left:4,bottom:5,emo:{left:27,top:12,size:9},bubble:true}
   };
   const W={
@@ -2126,7 +2130,7 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
     d4:{catch:'Binge-worthy',bg:'#FCE6CF',p:'sofa',emoji:'🎬',label:'The author on a sofa watching a show on his phone, beside a host character with a megaphone',chars:[{shape:'square',color:'lilac',mood:'joy',hat:'beanie',prop:'megaphone',arms:'hold',x:80,y:9,w:15},{shape:'bean',color:'coral',mood:'happy',prop:'clap',arms:'hold',x:94,y:9,w:9}]},
     d5:{art:'images/scene-track.webp?v=20261009d',catch:'Track it!',bg:'#DDF0E1',p:'phone',emoji:'📊',label:'The author checking the numbers on his phone, beside a page-owner character and a character holding a phone',chars:[{shape:'round',color:'blue',mood:'happy',prop:'phone',arms:'hold',x:80,y:9,w:14},{shape:'bean',color:'mint',mood:'joy',hat:'cap',x:94,y:9,w:9}]},
     d6:{catch:'Payday!',bg:'#FCF0C8',p:'up',emoji:'💰',label:'The author looking up at a money-bag emoji, beside characters celebrating with coins',chars:[{shape:'round',color:'yellow',mood:'joy',prop:'coin',arms:'hold',x:72,y:9,w:14},{shape:'tall',color:'orange',mood:'joy',arms:'up',x:86,y:9,w:8},{shape:'bean',color:'mint',mood:'joy',prop:'coin',arms:'hold',x:95,y:9,w:9}]},
-    check:{catch:'Ready?',bg:'#DCEAF8',p:'phone',emoji:'✅',label:'The author ticking off a checklist on his phone, beside a character cheering',chars:[{shape:'round',color:'mint',mood:'joy',arms:'up',x:82,y:9,w:15}]},
+    check:{catch:'Ready?',bg:'#DCEAF8',p:'plane',emoji:'✅',label:'The author holding a paper plane as if about to launch it, with a checkmark and a character cheering',chars:[{shape:'round',color:'mint',mood:'joy',arms:'up',x:82,y:9,w:15}]},
     squiz:{catch:'Which one?',bg:'#FCF0C8',p:'up',emoji:'🤔',label:'The author looking up at a thinking-face emoji, beside characters wondering what to do',chars:[{shape:'round',color:'yellow',mood:'shock',x:74,y:9,w:15},{shape:'square',color:'sky',mood:'meh',x:89,y:9,w:12}]},
     soptions:{catch:'Pick one!',bg:'#ECE3F7',p:'right',emoji:'🧩',label:'The author looking at a puzzle-piece emoji, beside a main-page character and two smaller page characters',chars:[{shape:'square',color:'blue',mood:'happy',x:80,y:9,w:15},{shape:'bean',color:'coral',mood:'joy',x:67,y:9,w:9},{shape:'tri',color:'mint',mood:'happy',x:94,y:9,w:9}]},
     sbrands:{catch:'Steal this!',bg:'#FBDCDD',p:'right',emoji:'👀',label:'The author glancing at an eyes emoji, beside characters showing off famous brands’ ideas',chars:[{shape:'bean',color:'coral',mood:'joy',hat:'flame',arms:'up',x:72,y:9,w:12},{shape:'cloud',color:'sky',mood:'joy',prop:'fork',arms:'hold',x:86,y:9,w:13}]},
@@ -2136,6 +2140,11 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
     slead:{catch:'Say hello!',bg:'#DCEAF8',p:'sofa',emoji:'💌',label:'The author on a sofa with his phone and a love-letter emoji, inviting visitors to get in touch',chars:[{shape:'round',color:'yellow',mood:'joy',arms:'wave',x:82,y:9,w:15},{shape:'square',color:'coral',mood:'happy',x:94,y:9,w:9}]},
     sask:{catch:'Ask first!',bg:'#FCE6CF',p:'sofa',emoji:'🙋',label:'The author on a sofa reading a proposal on his phone, with a raised-hand emoji for questions',chars:[{shape:'square',color:'orange',mood:'shock',x:82,y:9,w:14},{shape:'bean',color:'lilac',mood:'happy',x:95,y:9,w:8}]}
   };
+  const FLY=`<svg class="pfly" viewBox="0 0 100 103" preserveAspectRatio="none" aria-hidden="true" fill="none" stroke="#1D1F24" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M69 21 C 61 27, 68 33, 60 37 S 54 44, 57 50" stroke-width="2.1" stroke-dasharray="1 6" vector-effect="non-scaling-stroke"/>
+    <path d="M65 25 l-9 3 M68 31 l-10 4" stroke-width="2.4" vector-effect="non-scaling-stroke"/>
+    <path d="M107 5 l8 -6 M109 13 l11 -1" stroke-width="2.2" vector-effect="non-scaling-stroke"/>
+  </svg>`;
   const doodles=`<svg class="doodles" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true" fill="none" stroke="#1D1F24" stroke-linecap="round" stroke-linejoin="round">
     <path d="M362 26 l3 8 8 1 -6 5 2 8 -7-4 -7 4 2-8 -6-5 8-1z" stroke-width="1.6"/>
     <path d="M300 118 l2 6 6 1 -5 4 2 6 -5-3 -5 3 1-6 -4-4 6-1z" stroke-width="1.4"/>
@@ -2157,7 +2166,7 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
     let head='';
     if(c.catch){const [a,b]=tapeSplit(c.catch);const s1=b?Math.min(9.5,40/(a.length*.62)):Math.min(10,50/(a.length*.62)),s2=b?Math.min(8,40/(b.length*.6)):0;
       head=`<div class="head" aria-hidden="true"><span class="w1" style="--s1:${s1.toFixed(2)}cqw">${a}</span>${b?`<span class="w2" style="--s2:${s2.toFixed(2)}cqw">${b}</span>`:''}</div>`;}
-    el.innerHTML=`<div class="stamp"><span class="grid g1"></span><span class="grid g2"></span><img class="person" src="${p.src}" alt="" style="left:${p.left}%;bottom:${p.bottom}%;--h:${p.h}%"><span class="tape"></span>${pop}${head}${doodles}${scene(chars,'4/3')}</div>`;
+    el.innerHTML=`<div class="stamp"><span class="grid g1"></span><span class="grid g2"></span>${p.wrap?`<div class="pw" style="left:${p.left}%;bottom:${p.bottom}%;--h:${p.h}%"><img src="${p.src}" alt="">${FLY}</div>`:`<img class="person" src="${p.src}" alt="" style="left:${p.left}%;bottom:${p.bottom}%;--h:${p.h}%">`}<span class="tape"></span>${pop}${head}${doodles}${scene(chars,'4/3')}</div>`;
   });
 })();
 
