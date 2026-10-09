@@ -156,8 +156,6 @@ section{display:flex;flex-direction:column;gap:28px;scroll-margin-top:70px}
 .mcap{text-align:center;font-family:var(--display);font-weight:500;margin-top:8px}
 
 
-.trio{--min:220px}
-.trio .card{background:transparent;border:0;padding:0}
 
 /* diagnostic */
 .tool{background:var(--card);border:1.5px solid var(--line);border-radius:28px;padding:26px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:34px}
@@ -760,6 +758,33 @@ mark.hl{color:inherit;background:url("data:image/svg+xml,%3Csvg xmlns='http://ww
   .fc-stat.fc-blank span{font-size:.6rem;letter-spacing:.04em;line-height:1.25}
 }
 @media (min-width:821px){.fc-who .fch{width:44px}.fc-who span{font-size:.9rem}.fc-cell{gap:6px;padding:9px 14px}.tile{font-size:1rem;border-radius:10px}.fc-head b{font-size:.95rem}}
+/* principles carousel: pastel postage-stamp cards */
+section.stack>.pcar.pcar.pcar.pcar{background:none;border:0;border-radius:0;padding:0}
+.pcar{position:relative;min-width:0}
+.pctrack{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;padding:8px 6px 20px}
+.pctrack::-webkit-scrollbar{display:none}
+.pctrack:focus-visible{outline:3px solid var(--link);outline-offset:2px;border-radius:18px}
+.pc{flex:0 0 min(84%,340px);scroll-snap-align:center;filter:drop-shadow(0 7px 9px rgba(29,31,36,.16)) drop-shadow(0 1px 1px rgba(29,31,36,.1));min-width:0;display:flex}
+@media (min-width:821px){.pc{flex:1 1 0;min-width:0}.pctrack{padding-inline:30px}}
+.pcs{--r:6px;position:relative;flex:1;box-sizing:border-box;padding:30px 28px 28px;background-color:var(--pt);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .18 0 0 0 0 .15 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px;display:flex;flex-direction:column;gap:14px;
+  -webkit-mask:radial-gradient(var(--r),#0000 97%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));
+          mask:radial-gradient(var(--r),#0000 97%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r))}
+.pcn{position:absolute;top:26px;right:30px;font-family:var(--display);font-weight:600;font-size:.95rem;color:rgba(29,31,36,.38)}
+.pcs h3{font-size:clamp(1.3rem,5.4vw,1.55rem);line-height:1.12;letter-spacing:-.01em;padding-right:36px}
+.pcart{width:min(100%,190px);align-self:center;margin-block:2px}
+.pcs p{font-size:1rem;line-height:1.5;color:#2B2F36;margin:0}
+.pcb{position:absolute;top:44%;z-index:3;width:40px;height:40px;border:0;background:none;color:rgba(29,31,36,.45);font-size:2.6rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 4px}
+.pcb:hover:not(:disabled){color:var(--ink)}
+.pcb:disabled{opacity:.2;cursor:default}
+.pcb.prev{left:-6px}.pcb.next{right:-6px}
+@media (min-width:821px){.pcb.prev{left:-14px}.pcb.next{right:-14px}.pcar.fits .pcb{display:none}.pcar.fits .pctrack{padding-inline:6px}}
+@media (max-width:820px){.pcb{display:none}}
+.pcbar{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:2px}
+.pcdots{display:flex;gap:7px}
+.pcdots button{width:9px;height:9px;border-radius:5px;border:0;background:var(--line);padding:0;cursor:pointer;transition:width .2s,background .2s}
+.pcdots button[aria-current="true"]{background:var(--ink);width:26px}
+.pccount{font-size:.85rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.pcar.fits .pcbar{display:none}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -855,10 +880,14 @@ mark.hl{color:inherit;background:url("data:image/svg+xml,%3Csvg xmlns='http://ww
     <p class="cap">That's why Mokobara built an entertainment page. With three episodes a week, a content page gets about 470 chances to be remembered between two purchases.</p>
   </div>
 
-  <div class="grid trio">
-    <div class="card"><div data-scene="t1" style="max-width:150px"></div><h3>Build around <mark class="hl">what your audience loves</mark>, not just what you sell</h3><p>Find the bigger interest spaces your audience lives in, beyond your product.</p></div>
-    <div class="card"><div data-scene="t2" style="max-width:150px"></div><h3>Create <mark class="hl">recurring shows</mark> instead of one-off posts</h3><p>Build entertainment-first series people come back for, so attention adds up week after week.</p></div>
-    <div class="card"><div data-scene="t3" style="max-width:150px"></div><h3>Turn your audience into a long-term <mark class="hl">business asset</mark></h3><p>It makes launches cheaper, brings in collaborations and sponsors, and can become its own revenue line.</p></div>
+  <div class="pcar" role="region" aria-roledescription="carousel" aria-label="Three principles">
+    <div class="pctrack" tabindex="0">
+      <article class="pc" id="pc1" role="group" aria-roledescription="slide" aria-label="1 of 3" style="--pt:#D3EBD6"><div class="pcs"><span class="pcn" aria-hidden="true">01</span><h3>Build around <mark class="hl">what your audience loves</mark>, not just what you sell</h3><div class="pcart" data-scene="t1"></div><p>Find the bigger interest spaces your audience lives in, beyond your product.</p></div></article>
+      <article class="pc" id="pc2" role="group" aria-roledescription="slide" aria-label="2 of 3" style="--pt:#F8D3D6"><div class="pcs"><span class="pcn" aria-hidden="true">02</span><h3>Create <mark class="hl">recurring shows</mark> instead of one-off posts</h3><div class="pcart" data-scene="t2"></div><p>Build entertainment-first series people come back for, so attention adds up week after week.</p></div></article>
+      <article class="pc" id="pc3" role="group" aria-roledescription="slide" aria-label="3 of 3" style="--pt:#F7E6B8"><div class="pcs"><span class="pcn" aria-hidden="true">03</span><h3>Turn your audience into a long-term <mark class="hl">business asset</mark></h3><div class="pcart" data-scene="t3"></div><p>It makes launches cheaper, brings in collaborations and sponsors, and can become its own revenue line.</p></div></article>
+    </div>
+    <button type="button" class="pcb prev" aria-label="Previous">&#8249;</button><button type="button" class="pcb next" aria-label="Next">&#8250;</button>
+    <div class="pcbar"><div class="pcdots" role="group" aria-label="Choose a card"></div><span class="pccount" aria-live="polite"></span></div>
   </div>
 </section>
 
@@ -2133,6 +2162,31 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
     if(c.catch){const [a,b]=tapeSplit(c.catch);const s1=b?Math.min(9.5,40/(a.length*.62)):Math.min(10,50/(a.length*.62)),s2=b?Math.min(8,40/(b.length*.6)):0;
       head=`<div class="head" aria-hidden="true"><span class="w1" style="--s1:${s1.toFixed(2)}cqw">${a}</span>${b?`<span class="w2" style="--s2:${s2.toFixed(2)}cqw">${b}</span>`:''}</div>`;}
     el.innerHTML=`<div class="stamp"><span class="grid g1"></span><span class="grid g2"></span><img class="person" src="${p.src}" alt="" style="left:${p.left}%;bottom:${p.bottom}%;--h:${p.h}%"><span class="tape"></span>${pop}${head}${doodles}${scene(chars,'4/3')}</div>`;
+  });
+})();
+
+// Principles carousel
+(function(){
+  document.querySelectorAll('.pcar').forEach(car=>{
+    const tr=car.querySelector('.pctrack'),cards=[...tr.children],n=cards.length;
+    const dots=car.querySelector('.pcdots'),count=car.querySelector('.pccount'),prev=car.querySelector('.prev'),next=car.querySelector('.next');
+    dots.innerHTML=cards.map((_,i)=>`<button type="button" aria-label="Card ${i+1} of ${n}"></button>`).join('');
+    const left=c=>c.offsetLeft-tr.offsetLeft-(tr.clientWidth-c.offsetWidth)/2;
+    let cur=0;
+    const go=i=>{i=Math.max(0,Math.min(n-1,i));tr.scrollTo({left:left(cards[i]),behavior:'smooth'})};
+    function upd(){
+      car.classList.toggle('fits',tr.scrollWidth<=tr.clientWidth+2);
+      const max=tr.scrollWidth-tr.clientWidth,x=tr.scrollLeft;let best=0,bd=1e9;
+      cards.forEach((c,i)=>{const d=Math.abs(left(c)-x);if(d<bd){bd=d;best=i}});
+      if(x>=max-4)best=n-1;if(x<=4)best=0;cur=best;
+      [...dots.children].forEach((b,i)=>b.setAttribute('aria-current',i===cur?'true':'false'));
+      count.textContent=(cur+1)+' / '+n;prev.disabled=x<=4;next.disabled=x>=max-4;
+    }
+    let raf=0;tr.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(upd)},{passive:true});
+    addEventListener('resize',upd);prev.addEventListener('click',()=>go(cur-1));next.addEventListener('click',()=>go(cur+1));
+    dots.addEventListener('click',e=>{const b=e.target.closest('button');if(b)go([...dots.children].indexOf(b))});
+    tr.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(upd);upd();
   });
 })();
 
