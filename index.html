@@ -466,6 +466,27 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 .flysteps li i{width:30px;height:30px;border-radius:50%;background:var(--c);border:2px solid var(--ink);display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:700;font-size:.9rem}
 .flysteps b{font-family:var(--display);font-weight:600}
 .callout{border-left:4px solid var(--yellow);background:var(--paper);border-radius:0 14px 14px 0;padding:10px 14px;font-size:.96rem;color:var(--muted)}
+/* key illustration: pastel perforated wall with photo stickers, emoji and characters */
+.sectop{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;align-items:center}
+@media (max-width:820px){.sectop{grid-template-columns:minmax(0,1fr);gap:20px}}
+.wall{position:relative;aspect-ratio:4/3;border-radius:24px;overflow:hidden;container-type:inline-size;background-color:var(--w,#DCEAF8);
+  background-image:radial-gradient(circle,rgba(29,31,36,.16) 0 1.6px,rgba(255,255,255,.6) 2.1px 2.7px,transparent 3.1px);background-size:20px 20px;background-position:6px 6px}
+.wall::after{content:"";position:absolute;left:0;right:0;bottom:0;height:9%;background:rgba(29,31,36,.06);border-top:2px solid rgba(255,255,255,.55)}
+.wall .scene{position:absolute;inset:0;height:100%;z-index:3}
+.wall .person{position:absolute;bottom:0;z-index:2;height:var(--h,88%);width:auto;filter:drop-shadow(0 8px 12px rgba(29,31,36,.18))}
+.wall .emo{position:absolute;z-index:4;font-size:var(--es,14cqw);line-height:1;transform:rotate(var(--rot,-6deg));
+  filter:drop-shadow(2.5px 0 0 #fff) drop-shadow(-2.5px 0 0 #fff) drop-shadow(0 2.5px 0 #fff) drop-shadow(0 -2.5px 0 #fff) drop-shadow(0 6px 8px rgba(29,31,36,.22))}
+.wall img.emo{width:var(--es,14cqw);height:auto;filter:drop-shadow(0 6px 8px rgba(29,31,36,.22))}
+.wall .emo.bubble{background:#fff;border-radius:22%;padding:1.6cqw 2cqw;font-size:var(--es,9cqw);filter:drop-shadow(0 6px 8px rgba(29,31,36,.2))}
+.wall .emo.bubble::after{content:"";position:absolute;left:24%;bottom:-1.6cqw;width:3.2cqw;height:3.2cqw;background:#fff;transform:rotate(45deg)}
+.wall .gaze{position:absolute;z-index:3;border-top:3px dotted rgba(29,31,36,.35);transform-origin:left center}
+.stage.wallbg{background-color:#FCE6CF;background-image:radial-gradient(circle,rgba(29,31,36,.16) 0 1.6px,rgba(255,255,255,.6) 2.1px 2.7px,transparent 3.1px);background-size:20px 20px;justify-content:flex-end;container-type:inline-size}
+.stage.wallbg canvas{display:none}
+.stage.wallbg .phone{z-index:2}
+.stage.wallbg .say{z-index:4}
+.stage .person{position:absolute;left:1%;bottom:0;height:62%;width:auto;z-index:1;filter:drop-shadow(0 8px 12px rgba(29,31,36,.18))}
+.stage .emo.bubble{position:absolute;z-index:3;left:13%;top:28%;background:#fff;border-radius:22%;padding:1.4cqw 1.8cqw;font-size:8cqw;line-height:1;transform:rotate(-6deg);filter:drop-shadow(0 6px 8px rgba(29,31,36,.2))}
+.stage .emo.bubble::after{content:"";position:absolute;left:30%;bottom:-1.4cqw;width:2.8cqw;height:2.8cqw;background:#fff;transform:rotate(45deg)}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -483,8 +504,9 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <div class="btns"><a class="btn solid" href="#quiz">Take the 2-minute quiz</a><a class="btn" href="#why">Read the playbook</a></div>
     <img class="heroimg" src="images/hero.jpg" width="1290" height="853" alt="Author portrait beside the title “Decide your IG Strategy”, with the Instagram logo, a large “6M” and the playbook’s characters">
   </div>
-  <div class="stage">
+  <div class="stage wallbg">
     <canvas id="doodles" aria-hidden="true"></canvas>
+    <img class="person" src="images/sticker-phone.webp" alt="" aria-hidden="true"><span class="emo bubble" aria-hidden="true">😩</span>
     <div class="say s1">Why followers stop caring about your content</div>
     <div class="say s2">Muted.</div>
     <div class="say s3">I came for the comedy</div>
@@ -524,14 +546,14 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="quiz">
-  <div class="sh"><span class="tag">Quick quiz · 9 questions</span><h2>Should you keep one Instagram page or create several?</h2>
-  <p class="q">Answer nine quick questions to get a recommended strategy: which page structure to use, how visible your brand should be, your first recurring show, what to measure, and why. Nothing you answer is saved or sent anywhere.</p></div>
+  <div class="sectop"><div class="sh"><span class="tag">Quick quiz · 9 questions</span><h2>Should you keep one Instagram page or create several?</h2>
+  <p class="q">Answer nine quick questions to get a recommended strategy: which page structure to use, how visible your brand should be, your first recurring show, what to measure, and why. Nothing you answer is saved or sent anywhere.</p></div><div class="wall" data-wall="quiz"></div></div>
   <div class="quiz" id="qz" aria-live="polite"></div>
 </section>
 
 <section id="why">
-  <div class="sh"><span class="tag">00 · The idea</span><h2>Give each audience a page that matches its interests</h2>
-  <p class="q">The internet splits people by what they love. The narrower a page's audience, the better Instagram can find the right people for it, and the more those people engage.</p></div>
+  <div class="sectop"><div class="sh"><span class="tag">00 · The idea</span><h2>Give each audience a page that matches its interests</h2>
+  <p class="q">The internet splits people by what they love. The narrower a page's audience, the better Instagram can find the right people for it, and the more those people engage.</p></div><div class="wall" data-wall="why"></div></div>
   <div class="grid phones" role="img" aria-label="Three separate pages, each with one happy follower">
     <div><div class="mphone"><div class="scr"><div class="hdr">Comedy page</div><div data-scene="p1"></div></div></div><p class="mcap">New set, clip, new set</p></div>
     <div><div class="mphone"><div class="scr"><div class="hdr">Movies page</div><div data-scene="p2"></div></div></div><p class="mcap">Picks, reviews, trailers</p></div>
@@ -570,7 +592,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="d1">
-  <div class="sh"><div class="where"><span class="tag">Decision 01</span><span class="pips" data-step="1" aria-hidden="true"></span><span class="pipcap">1 of 6</span></div><h2>Should you create more Instagram pages or keep one?</h2><p class="q">Answer six questions to see whether one page is still enough. The recommendation updates as you answer. For a full strategy, take the <a href="#quiz">quiz</a>.</p></div>
+  <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 01</span><span class="pips" data-step="1" aria-hidden="true"></span><span class="pipcap">1 of 6</span></div><h2>Should you create more Instagram pages or keep one?</h2><p class="q">Answer six questions to see whether one page is still enough. The recommendation updates as you answer. For a full strategy, take the <a href="#quiz">quiz</a>.</p></div><div class="wall" data-wall="d1"></div></div>
   <div class="tool">
     <form class="qs" id="diag">
       <fieldset><legend>How often does a customer buy from you?</legend><div class="opts">
@@ -625,7 +647,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="d2">
-  <div class="sh"><div class="where"><span class="tag">Decision 02</span><span class="pips" data-step="2" aria-hidden="true"></span><span class="pipcap">2 of 6</span></div><h2>Which audience interests are worth building pages around?</h2><p class="q">Think about what your audience loves next to your product. Luggage leads to travel stories. Food delivery leads to chefs. An events app leads to comedy and movies.</p></div>
+  <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 02</span><span class="pips" data-step="2" aria-hidden="true"></span><span class="pipcap">2 of 6</span></div><h2>Which audience interests are worth building pages around?</h2><p class="q">Think about what your audience loves next to your product. Luggage leads to travel stories. Food delivery leads to chefs. An events app leads to comedy and movies.</p></div><div class="wall" data-wall="d2"></div></div>
   <div class="infog">
     <div class="label">Infographic · Map your audiences before creating new pages</div>
     <div class="twocol">
@@ -668,7 +690,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="d3">
-  <div class="sh"><div class="where"><span class="tag">Decision 03</span><span class="pips" data-step="3" aria-hidden="true"></span><span class="pipcap">3 of 6</span></div><h2>Choose the right Instagram structure for your team</h2><p class="q">Four options, simplest first. Move to the next one only when the current one is working.</p></div>
+  <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 03</span><span class="pips" data-step="3" aria-hidden="true"></span><span class="pipcap">3 of 6</span></div><h2>Choose the right Instagram structure for your team</h2><p class="q">Four options, simplest first. Move to the next one only when the current one is working.</p></div><div class="wall" data-wall="d3"></div></div>
   <div class="grid models">
     <article class="card model" data-model="A"><div class="art" data-scene="mA"></div><div class="mtag">Option A</div><h3>One page with focused content series</h3><p>One page, organised into two or three named series so it doesn't feel like a noticeboard.</p>
       <div class="mrow"><span class="mk">Accounts</span><div class="net mini" data-net="A"></div></div>
@@ -728,7 +750,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="d4">
-  <div class="sh"><div class="where"><span class="tag">Decision 04</span><span class="pips" data-step="4" aria-hidden="true"></span><span class="pipcap">4 of 6</span></div><h2>What recurring content will make people follow and return?</h2><p class="q">A format is a show, not a post. Pin up one card like this for every series before you film anything.</p></div>
+  <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 04</span><span class="pips" data-step="4" aria-hidden="true"></span><span class="pipcap">4 of 6</span></div><h2>What recurring content will make people follow and return?</h2><p class="q">A format is a show, not a post. Pin up one card like this for every series before you film anything.</p></div><div class="wall" data-wall="d4"></div></div>
   <div class="board">
     <div class="cluster"><span class="ctitle">The show</span>
       <div class="note"><b>What will the audience call this show?</b>Something a fan could say out loud.</div>
@@ -760,7 +782,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="d5">
-  <div class="sh"><div class="where"><span class="tag">Decision 05</span><span class="pips" data-step="5" aria-hidden="true"></span><span class="pipcap">5 of 6</span></div><h2>How to run each page and know whether it’s working</h2><p class="q">Every page needs an owner, a rhythm and a rule for when to stop.</p></div>
+  <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 05</span><span class="pips" data-step="5" aria-hidden="true"></span><span class="pipcap">5 of 6</span></div><h2>How to run each page and know whether it’s working</h2><p class="q">Every page needs an owner, a rhythm and a rule for when to stop.</p></div><div class="wall" data-wall="d5"></div></div>
   <div class="grid ops">
     <div class="card"><h3><i style="background:var(--coral)"></i>Assign one accountable owner to every page</h3><p>One named owner per page, even if the production team is shared.</p></div>
     <div class="card"><h3><i style="background:var(--blue)"></i>Set a posting schedule your team can maintain</h3><p>3 to 5 Reels a week per interest page, on fixed days.</p></div>
@@ -785,7 +807,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="d6">
-  <div class="sh"><div class="where"><span class="tag">Decision 06</span><span class="pips" data-step="6" aria-hidden="true"></span><span class="pipcap">6 of 6</span></div><h2>How an Instagram network creates business value over time</h2><p class="q">The returns come in stages. Know which step you're on, and don't expect step five in month two.</p></div>
+  <div class="sectop"><div class="sh"><div class="where"><span class="tag">Decision 06</span><span class="pips" data-step="6" aria-hidden="true"></span><span class="pipcap">6 of 6</span></div><h2>How an Instagram network creates business value over time</h2><p class="q">The returns come in stages. Know which step you're on, and don't expect step five in month two.</p></div><div class="wall" data-wall="d6"></div></div>
   <div class="infog">
     <div class="label">Infographic · How content, audience growth and revenue reinforce each other</div>
     <div class="twocol">
@@ -827,7 +849,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="checklist">
-  <div class="sh"><span class="tag">Before you launch</span><h2>Are you ready to launch a new Instagram page?</h2><p class="q">Tick these off before a new page goes live. Ticks reset when you reload the page.</p></div>
+  <div class="sectop"><div class="sh"><span class="tag">Before you launch</span><h2>Are you ready to launch a new Instagram page?</h2><p class="q">Tick these off before a new page goes live. Ticks reset when you reload the page.</p></div><div class="wall" data-wall="check"></div></div>
   <div class="checkwrap">
     <div class="mascot"><div id="mascot" style="width:100%"></div><p id="mascotTxt"></p></div>
     <div class="check" id="checks">
@@ -865,7 +887,8 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <div class="btns"><a class="btn solid" href="#s-quiz">Take the 1-minute quiz</a><a class="btn" href="#s-idea">Explain it simply</a></div>
     <img class="heroimg" src="images/hero.jpg" width="1290" height="853" alt="Author portrait beside the title “Decide your IG Strategy”, with the Instagram logo, a large “6M” and the playbook’s characters">
   </div>
-  <div class="stage">
+  <div class="stage wallbg">
+    <img class="person" src="images/sticker-phone.webp" alt="" aria-hidden="true"><span class="emo bubble" aria-hidden="true">😩</span>
     <div class="say s1">Why is this in my feed?</div>
     <div class="say s2">Muted.</div>
     <div class="phone" role="img" aria-label="A phone showing one brand page crammed with grumpy characters">
@@ -892,13 +915,13 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="s-quiz">
-  <div class="sh"><span class="tag">1-minute quiz · 5 questions</span><h2>Does your brand need more than one Instagram page?</h2>
-  <p class="q">Pick the answer that sounds most like your business. You'll get a simple recommendation and the questions to ask your team. Nothing you answer is saved or sent anywhere.</p></div>
+  <div class="sectop"><div class="sh"><span class="tag">1-minute quiz · 5 questions</span><h2>Does your brand need more than one Instagram page?</h2>
+  <p class="q">Pick the answer that sounds most like your business. You'll get a simple recommendation and the questions to ask your team. Nothing you answer is saved or sent anywhere.</p></div><div class="wall" data-wall="squiz"></div></div>
   <div class="quiz" id="sqz" aria-live="polite"></div>
 </section>
 
 <section id="s-options">
-  <div class="sh"><span class="tag">Your options</span><h2>The three usual setups</h2><p class="q">Most brands end up with one of these. Start with the simplest one that fits.</p></div>
+  <div class="sectop"><div class="sh"><span class="tag">Your options</span><h2>The three usual setups</h2><p class="q">Most brands end up with one of these. Start with the simplest one that fits.</p></div><div class="wall" data-wall="soptions"></div></div>
   <div class="grid" style="--min:250px">
     <div class="card"><div data-net="A" class="net mini"></div><h3>Keep one page, organised</h3><p>Split your posts into two or three regular series, so followers know what to expect.</p><p class="sm"><b>Good if</b> your followers mostly want the same things.</p></div>
     <div class="card"><div data-net="B" class="net mini"></div><h3>Add one fun page</h3><p>Your brand page sells. A second, entertaining page keeps people thinking about you between purchases.</p><p class="sm"><b>Good if</b> people buy from you rarely, like luggage or furniture.</p></div>
@@ -908,12 +931,12 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="s-brands">
-  <div class="sh"><span class="tag">Real examples</span><h2>How brands decide</h2><p class="q">How successful brands organise their Instagram audiences. Tap a brand to see what it chose and why.</p></div>
+  <div class="sectop"><div class="sh"><span class="tag">Real examples</span><h2>How brands decide</h2><p class="q">How successful brands organise their Instagram audiences. Tap a brand to see what it chose and why.</p></div><div class="wall" data-wall="sbrands"></div></div>
   <div data-brands="s"></div>
 </section>
 
 <section id="s-takes">
-  <div class="sh"><span class="tag">What it takes</span><h2>Before you add a page, check you can keep it going</h2></div>
+  <div class="sectop"><div class="sh"><span class="tag">What it takes</span><h2>Before you add a page, check you can keep it going</h2></div><div class="wall" data-wall="stakes"></div></div>
   <div class="grid" style="--min:230px">
     <div class="card"><div data-scene="r5" style="max-width:90px"></div><h3>One owner per page</h3><p>A named person responsible for each page, even if they share a team.</p></div>
     <div class="card"><div data-scene="r4" style="max-width:90px"></div><h3>3 to 5 short videos a week</h3><p>Per extra page, posted on the same days every week. Steady beats a lot at once.</p></div>
@@ -922,7 +945,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="s-payoff">
-  <div class="sh"><span class="tag">What you get back</span><h2>How it pays off, step by step</h2><p class="q">The benefits come in this order, and they take time. Don't expect step five in month two.</p></div>
+  <div class="sectop"><div class="sh"><span class="tag">What you get back</span><h2>How it pays off, step by step</h2><p class="q">The benefits come in this order, and they take time. Don't expect step five in month two.</p></div><div class="wall" data-wall="spayoff"></div></div>
   <div class="stairs">
     <div data-scene="stairs" role="img" aria-label="Five characters climbing five steps, each happier than the last"></div>
     <ol class="steps">
@@ -936,7 +959,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 </section>
 
 <section id="s-ask">
-  <div class="sh"><span class="tag">Before you say yes</span><h2>Questions to ask your team or agency</h2><p class="q">If someone proposes a new Instagram page, these five questions tell you whether it's ready.</p></div>
+  <div class="sectop"><div class="sh"><span class="tag">Before you say yes</span><h2>Questions to ask your team or agency</h2><p class="q">If someone proposes a new Instagram page, these five questions tell you whether it's ready.</p></div><div class="wall" data-wall="sask"></div></div>
   <ol class="steps col">
     <li><div><b>Who exactly is this page for?</b><span>And do they really want different posts from our main page?</span></div></li>
     <li><div><b>What's the recurring show?</b><span>Could we list 20 episode ideas today?</span></div></li>
@@ -1724,6 +1747,41 @@ sheet.addEventListener('click',e=>{
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sheet.hidden)closeBrand()});
 addEventListener('popstate',()=>{const m=location.hash.match(/^#brand-([\w-]+)$/);if(m)openBrand(m[1],false);else{pushed=false;closeBrand(true)}});
 const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
+})();
+
+// Key illustrations: photo sticker looking at an emoji, with characters acting out the topic
+(function(){
+  const P={
+    right:{src:'images/sticker-look-right.webp',h:80,left:1,emo:{left:52,top:12,size:14}},
+    up:{src:'images/sticker-look-up.webp',h:80,left:1,emo:{left:48,top:4,size:14}},
+    sofa:{src:'images/sticker-sofa.webp',h:80,left:0,emo:{left:30,top:22,size:8.5},bubble:true},
+    phone:{src:'images/sticker-phone.webp',h:80,left:0,emo:{left:27,top:12,size:9},bubble:true}
+  };
+  const W={
+    quiz:{bg:'#FCF0C8',p:'up',emoji:'🤔',label:'The author looking up at a thinking-face emoji, beside characters wondering which option fits',chars:[{shape:'round',color:'yellow',mood:'shock',x:74,y:9,w:15},{shape:'square',color:'sky',mood:'meh',x:89,y:9,w:12}]},
+    why:{bg:'#FBDCDD',p:'right',img:'images/sticker-popcorn.webp',label:'The author glancing at a popcorn sticker, beside characters each holding their own interest',chars:[{shape:'bean',color:'coral',mood:'joy',prop:'mic',arms:'hold',x:70,y:9,w:12},{shape:'cloud',color:'orange',mood:'joy',prop:'fork',arms:'hold',x:84,y:9,w:13},{shape:'tri',color:'mint',mood:'happy',prop:'suitcase',arms:'hold',x:95,y:9,w:9}]},
+    d1:{bg:'#DCEAF8',p:'right',emoji:'✂️',label:'The author looking at a scissors emoji next to a crowd of grumpy characters, wondering whether to split the page',chars:[{shape:'bean',color:'coral',mood:'angry',x:72,y:9,w:12},{shape:'cloud',color:'lilac',mood:'grumpy',x:84,y:9,w:13},{shape:'round',color:'blue',mood:'sad',x:94,y:9,w:10}]},
+    d2:{bg:'#DDF0E1',p:'up',emoji:'🎯',label:'The author looking up at a target emoji, beside characters representing different audience interests',chars:[{shape:'round',color:'blue',mood:'happy',prop:'popcorn',arms:'hold',x:70,y:9,w:12},{shape:'bean',color:'coral',mood:'joy',prop:'mic',arms:'hold',x:83,y:9,w:11},{shape:'tri',color:'yellow',mood:'happy',prop:'fork',arms:'hold',x:94,y:9,w:10}]},
+    d3:{bg:'#ECE3F7',p:'right',emoji:'🧩',label:'The author looking at a puzzle-piece emoji, beside a main-page character and two smaller page characters',chars:[{shape:'square',color:'blue',mood:'happy',x:80,y:9,w:15},{shape:'bean',color:'coral',mood:'joy',x:67,y:9,w:9},{shape:'tri',color:'mint',mood:'happy',x:94,y:9,w:9}]},
+    d4:{bg:'#FCE6CF',p:'sofa',emoji:'🎬',label:'The author on a sofa watching a show on his phone, beside a host character with a megaphone',chars:[{shape:'square',color:'lilac',mood:'joy',hat:'beanie',prop:'megaphone',arms:'hold',x:80,y:9,w:15},{shape:'bean',color:'coral',mood:'happy',prop:'clap',arms:'hold',x:94,y:9,w:9}]},
+    d5:{bg:'#DDF0E1',p:'phone',emoji:'📊',label:'The author checking the numbers on his phone, beside a page-owner character and a character holding a phone',chars:[{shape:'round',color:'blue',mood:'happy',prop:'phone',arms:'hold',x:80,y:9,w:14},{shape:'bean',color:'mint',mood:'joy',hat:'cap',x:94,y:9,w:9}]},
+    d6:{bg:'#FCF0C8',p:'up',emoji:'💰',label:'The author looking up at a money-bag emoji, beside characters celebrating with coins',chars:[{shape:'round',color:'yellow',mood:'joy',prop:'coin',arms:'hold',x:72,y:9,w:14},{shape:'tall',color:'orange',mood:'joy',arms:'up',x:86,y:9,w:8},{shape:'bean',color:'mint',mood:'joy',prop:'coin',arms:'hold',x:95,y:9,w:9}]},
+    check:{bg:'#DCEAF8',p:'phone',emoji:'✅',label:'The author ticking off a checklist on his phone, beside a character cheering',chars:[{shape:'round',color:'mint',mood:'joy',arms:'up',x:82,y:9,w:15}]},
+    squiz:{bg:'#FCF0C8',p:'up',emoji:'🤔',label:'The author looking up at a thinking-face emoji, beside characters wondering what to do',chars:[{shape:'round',color:'yellow',mood:'shock',x:74,y:9,w:15},{shape:'square',color:'sky',mood:'meh',x:89,y:9,w:12}]},
+    soptions:{bg:'#ECE3F7',p:'right',emoji:'🧩',label:'The author looking at a puzzle-piece emoji, beside a main-page character and two smaller page characters',chars:[{shape:'square',color:'blue',mood:'happy',x:80,y:9,w:15},{shape:'bean',color:'coral',mood:'joy',x:67,y:9,w:9},{shape:'tri',color:'mint',mood:'happy',x:94,y:9,w:9}]},
+    sbrands:{bg:'#FBDCDD',p:'right',emoji:'👀',label:'The author glancing at an eyes emoji, beside characters showing off famous brands’ ideas',chars:[{shape:'bean',color:'coral',mood:'joy',hat:'flame',arms:'up',x:72,y:9,w:12},{shape:'cloud',color:'sky',mood:'joy',prop:'fork',arms:'hold',x:86,y:9,w:13}]},
+    stakes:{bg:'#DDF0E1',p:'phone',emoji:'⏳',label:'The author on his phone with an hourglass emoji, beside a patient sleepy character',chars:[{shape:'cloud',color:'sky',mood:'sleepy',x:82,y:9,w:16}]},
+    spayoff:{bg:'#FCF0C8',p:'up',emoji:'💰',label:'The author looking up at a money-bag emoji, beside characters celebrating with coins',chars:[{shape:'round',color:'yellow',mood:'joy',prop:'coin',arms:'hold',x:74,y:9,w:14},{shape:'bean',color:'mint',mood:'joy',arms:'up',x:90,y:9,w:10}]},
+    sask:{bg:'#FCE6CF',p:'sofa',emoji:'🙋',label:'The author on a sofa reading a proposal on his phone, with a raised-hand emoji for questions',chars:[{shape:'square',color:'orange',mood:'shock',x:82,y:9,w:14},{shape:'bean',color:'lilac',mood:'happy',x:95,y:9,w:8}]}
+  };
+  document.querySelectorAll('[data-wall]').forEach(el=>{
+    const c=W[el.dataset.wall];if(!c)return;const p=P[c.p];
+    el.style.setProperty('--w',c.bg);el.setAttribute('role','img');el.setAttribute('aria-label',c.label);
+    const e=p.emo;const pos=`left:${e.left}%;top:${e.top}%;--es:${e.size}cqw`;
+    const emo=c.img?`<img class="emo" src="${c.img}" alt="" style="${pos}">`:`<span class="emo${p.bubble?' bubble':''}" style="${pos}" aria-hidden="true">${c.emoji}</span>`;
+    const chars=c.chars.map(o=>{const w=o.w*1.5;return Object.assign({},o,{w,x:Math.min(Math.max(o.x,56+w/2),99-w/2)})});
+    el.innerHTML=`<img class="person" src="${p.src}" alt="" style="left:${p.left}%;--h:${p.h}%">${emo}`+scene(chars,'4/3');
+  });
 })();
 })();
 </script>
