@@ -556,7 +556,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 .slides>.cover .where{display:none}
 .qs.slides>.result{align-self:auto}
 /* sticker catchword on each key illustration */
-.wall .catch{position:absolute;z-index:6;right:3%;top:var(--ct,40%);max-width:64%;font-family:"Archivo Black","Arial Black","Helvetica Neue",Impact,sans-serif;font-size:var(--cs,9cqw);line-height:1;letter-spacing:-.01em;color:#1D1F24;white-space:nowrap;
+.wall .catch{position:absolute;z-index:6;right:3%;top:var(--ct,38%);max-width:54%;font-family:"Archivo Black","Arial Black","Helvetica Neue",Impact,sans-serif;font-size:var(--cs,9cqw);line-height:1;letter-spacing:-.01em;color:#1D1F24;white-space:nowrap;
   -webkit-text-stroke:.16em #fff;paint-order:stroke fill;transform:rotate(-7deg);transform-origin:right center;filter:drop-shadow(.07em .07em 0 #1D1F24)}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -1810,8 +1810,8 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
 // Key illustrations: photo sticker looking at an emoji, with characters acting out the topic
 (function(){
   const P={
-    right:{src:'images/sticker-look-right.webp',h:80,left:1,emo:{left:52,top:12,size:14}},
-    up:{src:'images/sticker-look-up.webp',h:80,left:1,emo:{left:48,top:4,size:14}},
+    right:{src:'images/sticker-look-right.webp',h:74,left:0,emo:{left:52,top:12,size:14}},
+    up:{src:'images/sticker-look-up.webp',h:74,left:0,emo:{left:48,top:4,size:14}},
     sofa:{src:'images/sticker-sofa.webp',h:80,left:0,emo:{left:30,top:22,size:8.5},bubble:true},
     phone:{src:'images/sticker-phone.webp',h:80,left:0,emo:{left:27,top:12,size:9},bubble:true}
   };
@@ -1838,7 +1838,7 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
     const e=p.emo;const pos=`left:${e.left}%;top:${e.top}%;--es:${e.size}cqw`;
     const emo=c.img?`<img class="emo" src="${c.img}" alt="" style="${pos}">`:`<span class="emo${p.bubble?' bubble':''}" style="${pos}" aria-hidden="true">${c.emoji}</span>`;
     const chars=c.chars.map(o=>{const w=o.w*1.5;return Object.assign({},o,{w,x:Math.min(Math.max(o.x,56+w/2),99-w/2)})});
-    const cw=c.catch?`<span class="catch" aria-hidden="true" style="--cs:${Math.min(9,62/(c.catch.length*.66)).toFixed(2)}cqw">${c.catch}</span>`:'';
+    const cw=c.catch?`<span class="catch" aria-hidden="true" style="--cs:${Math.min(8,50/(c.catch.length*.66)).toFixed(2)}cqw">${c.catch}</span>`:'';
     el.innerHTML=`<img class="person" src="${p.src}" alt="" style="left:${p.left}%;--h:${p.h}%">${emo}${cw}`+scene(chars,'4/3');
   });
 })();
