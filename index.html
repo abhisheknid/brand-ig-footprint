@@ -680,7 +680,7 @@ body{line-height:1.6}
 .dbody:not([hidden]){animation:dopen .3s ease}
 @keyframes dopen{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 .dintro{padding:8px 4px 0}
-.dintro h3{font-size:clamp(1.5rem,6vw,2rem);line-height:1.1;letter-spacing:-.015em}
+.dintro h4{font-size:clamp(1.5rem,6vw,2rem);line-height:1.1;letter-spacing:-.015em}
 .dintro .q{margin-top:10px;color:var(--muted);max-width:62ch;font-size:1.1rem}
 .dbody .tool{display:block}
 /* Decision 01: questions beside a sticky live recommendation */
@@ -709,6 +709,10 @@ body{line-height:1.6}
 .qwarn{background:#FBE3E5;border-color:#F3C6CB}
 .callout{background:#fff}
 #diag>.qslide,#diag>.how{background:#fff;border:1.5px solid var(--line)}
+.decide-intro{padding:44px 4px 0}
+.decide-intro h2{font-size:clamp(2rem,9vw,2.4rem);line-height:1.06;letter-spacing:-.02em}
+@media (max-width:820px){.decide-intro{text-align:center}}
+.page{overflow-anchor:none}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -804,16 +808,18 @@ body{line-height:1.6}
   </div>
 </section>
 
+<div class="decide-intro"><h2 id="decide">Here’s how to decide</h2></div>
+
 <section id="d1" class="decision">
   <div class="dcover">
     <div class="wall" data-wall="d1"></div>
     <div class="dhead">
-      <div class="dcopy"><div class="where"><span class="tag">Decision 01</span><span class="pipcap">1 of 6</span></div><h2 class="dtitle" id="d1-title">Should you create more Instagram pages?</h2></div>
+      <div class="dcopy"><div class="where"><span class="tag">Decision 01</span><span class="pipcap">1 of 6</span></div><h3 class="dtitle" id="d1-title">Should you create more Instagram pages?</h3></div>
       <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d1-body" aria-labelledby="d1-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </div>
   <div class="dbody stack" id="d1-body" hidden>
-    <div class="dintro"><h3>Should you create more Instagram pages or keep one?</h3><p class="q">Answer six questions to see whether one page is still enough. The recommendation updates as you answer. For a full strategy, take the <a href="#quiz">quiz</a>.</p></div>
+    <div class="dintro"><h4>Should you create more Instagram pages or keep one?</h4><p class="q">Answer six questions to see whether one page is still enough. The recommendation updates as you answer. For a full strategy, take the <a href="#quiz">quiz</a>.</p></div>
   <div class="tool"><form class="qs" id="diag">
       <div class="qslide" role="radiogroup" aria-label="How often does a customer buy from you?"><p class="legend" aria-hidden="true">How often does a customer buy from you?</p><div class="opts">
         <label><input type="radio" name="freq" value="0"><span>Weekly or more</span></label>
@@ -869,12 +875,12 @@ body{line-height:1.6}
   <div class="dcover">
     <div class="wall" data-wall="d2"></div>
     <div class="dhead">
-      <div class="dcopy"><div class="where"><span class="tag">Decision 02</span><span class="pipcap">2 of 6</span></div><h2 class="dtitle" id="d2-title">Which audiences deserve their own pages?</h2></div>
+      <div class="dcopy"><div class="where"><span class="tag">Decision 02</span><span class="pipcap">2 of 6</span></div><h3 class="dtitle" id="d2-title">Which audiences deserve their own pages?</h3></div>
       <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d2-body" aria-labelledby="d2-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </div>
   <div class="dbody stack" id="d2-body" hidden>
-    <div class="dintro"><h3>Which audience interests are worth building pages around?</h3><p class="q">Think about what your audience loves next to your product. Luggage leads to travel stories. Food delivery leads to chefs. An events app leads to comedy and movies.</p></div>
+    <div class="dintro"><h4>Which audience interests are worth building pages around?</h4><p class="q">Think about what your audience loves next to your product. Luggage leads to travel stories. Food delivery leads to chefs. An events app leads to comedy and movies.</p></div>
   <div class="infog">
     <div class="label">Infographic · Map your audiences before creating new pages</div>
     <div class="twocol">
@@ -922,12 +928,12 @@ body{line-height:1.6}
   <div class="dcover">
     <div class="wall" data-wall="d3"></div>
     <div class="dhead">
-      <div class="dcopy"><div class="where"><span class="tag">Decision 03</span><span class="pipcap">3 of 6</span></div><h2 class="dtitle" id="d3-title">Which Instagram structure fits your team?</h2></div>
+      <div class="dcopy"><div class="where"><span class="tag">Decision 03</span><span class="pipcap">3 of 6</span></div><h3 class="dtitle" id="d3-title">Which Instagram structure fits your team?</h3></div>
       <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d3-body" aria-labelledby="d3-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </div>
   <div class="dbody stack" id="d3-body" hidden>
-    <div class="dintro"><h3>Choose the right Instagram structure for your team</h3><p class="q">Four options, simplest first. Move to the next one only when the current one is working.</p></div>
+    <div class="dintro"><h4>Choose the right Instagram structure for your team</h4><p class="q">Four options, simplest first. Move to the next one only when the current one is working.</p></div>
     <div class="grid models">
     <article class="card model" data-model="A"><div class="art" data-scene="mA"></div><div class="mtag">Option A</div><h3>One page with focused content series</h3><p>One page, organised into two or three named series so it doesn't feel like a noticeboard.</p>
       <div class="mrow"><span class="mk">Accounts</span><div class="net mini" data-net="A"></div></div>
@@ -994,12 +1000,12 @@ body{line-height:1.6}
   <div class="dcover">
     <div class="wall" data-wall="d4"></div>
     <div class="dhead">
-      <div class="dcopy"><div class="where"><span class="tag">Decision 04</span><span class="pipcap">4 of 6</span></div><h2 class="dtitle" id="d4-title">What content will people return for?</h2></div>
+      <div class="dcopy"><div class="where"><span class="tag">Decision 04</span><span class="pipcap">4 of 6</span></div><h3 class="dtitle" id="d4-title">What content will people return for?</h3></div>
       <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d4-body" aria-labelledby="d4-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </div>
   <div class="dbody stack" id="d4-body" hidden>
-    <div class="dintro"><h3>What recurring content will make people follow and return?</h3><p class="q">A format is a show, not a post. Pin up one card like this for every series before you film anything.</p></div>
+    <div class="dintro"><h4>What recurring content will make people follow and return?</h4><p class="q">A format is a show, not a post. Pin up one card like this for every series before you film anything.</p></div>
     <div class="board">
     <div class="cluster"><span class="ctitle">The show</span>
       <div class="note"><b>What will the audience call this show?</b>Something a fan could say out loud.</div>
@@ -1034,12 +1040,12 @@ body{line-height:1.6}
   <div class="dcover">
     <div class="wall" data-wall="d5"></div>
     <div class="dhead">
-      <div class="dcopy"><div class="where"><span class="tag">Decision 05</span><span class="pipcap">5 of 6</span></div><h2 class="dtitle" id="d5-title">How will you run and measure each page?</h2></div>
+      <div class="dcopy"><div class="where"><span class="tag">Decision 05</span><span class="pipcap">5 of 6</span></div><h3 class="dtitle" id="d5-title">How will you run and measure each page?</h3></div>
       <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d5-body" aria-labelledby="d5-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </div>
   <div class="dbody stack" id="d5-body" hidden>
-    <div class="dintro"><h3>How to run each page and know whether it’s working</h3><p class="q">Every page needs an owner, a rhythm and a rule for when to stop.</p></div>
+    <div class="dintro"><h4>How to run each page and know whether it’s working</h4><p class="q">Every page needs an owner, a rhythm and a rule for when to stop.</p></div>
     <div class="grid ops">
     <div class="card"><h3><i style="background:var(--coral)"></i>Assign one accountable owner to every page</h3><p>One named owner per page, even if the production team is shared.</p></div>
     <div class="card"><h3><i style="background:var(--blue)"></i>Set a posting schedule your team can maintain</h3><p>3 to 5 Reels a week per interest page, on fixed days.</p></div>
@@ -1067,12 +1073,12 @@ body{line-height:1.6}
   <div class="dcover">
     <div class="wall" data-wall="d6"></div>
     <div class="dhead">
-      <div class="dcopy"><div class="where"><span class="tag">Decision 06</span><span class="pipcap">6 of 6</span></div><h2 class="dtitle" id="d6-title">How will the network pay off?</h2></div>
+      <div class="dcopy"><div class="where"><span class="tag">Decision 06</span><span class="pipcap">6 of 6</span></div><h3 class="dtitle" id="d6-title">How will the network pay off?</h3></div>
       <button type="button" class="dtoggle" aria-expanded="false" aria-controls="d6-body" aria-labelledby="d6-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </div>
   <div class="dbody stack" id="d6-body" hidden>
-    <div class="dintro"><h3>How an Instagram network creates business value over time</h3><p class="q">The returns come in stages. Know which step you're on, and don't expect step five in month two.</p></div>
+    <div class="dintro"><h4>How an Instagram network creates business value over time</h4><p class="q">The returns come in stages. Know which step you're on, and don't expect step five in month two.</p></div>
     <div class="infog">
     <div class="label">Infographic · How content, audience growth and revenue reinforce each other</div>
     <div class="twocol">
@@ -2075,17 +2081,27 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
   });
 })();
 
-// Decisions: tap a cover card to expand its detailed content (all start collapsed)
+// Decisions: tap a cover card to expand its detailed content. All start collapsed, and only one can be open at a time.
 (function(){
   const secs=[...document.querySelectorAll('section.decision')];
   const set=(sec,open)=>{sec.querySelector('.dbody').hidden=!open;sec.querySelector('.dcover').classList.toggle('open',open);sec.querySelector('.dtoggle').setAttribute('aria-expanded',open?'true':'false')};
+  // open one decision, close the others, and keep the tapped card where it was on screen
+  const show=(sec,jump)=>{
+    const cover=sec.querySelector('.dcover'),before=cover.getBoundingClientRect().top;
+    secs.forEach(o=>{if(o!==sec)set(o,false)});set(sec,true);
+    if(jump){setTimeout(()=>sec.scrollIntoView({block:'start',behavior:'smooth'}),30)}
+    else{const d=cover.getBoundingClientRect().top-before;if(d)window.scrollBy(0,d)}
+  };
   secs.forEach(sec=>{
-    const cover=sec.querySelector('.dcover'),btn=sec.querySelector('.dtoggle');
-    const toggle=()=>{const open=sec.querySelector('.dbody').hidden;set(sec,open);if(!open){const t=cover.getBoundingClientRect().top;if(t<24)window.scrollTo({top:t+scrollY-24})}};
+    const cover=sec.querySelector('.dcover'),btn=sec.querySelector('.dtoggle'),body=sec.querySelector('.dbody');
+    const toggle=()=>{
+      if(body.hidden){show(sec,false)}
+      else{set(sec,false);const t=cover.getBoundingClientRect().top;if(t<24)window.scrollTo({top:t+scrollY-24})}
+    };
     btn.addEventListener('click',toggle);
     cover.addEventListener('click',e=>{if(btn.contains(e.target)||e.target.closest('a'))return;toggle()});
   });
-  const open=(id)=>{const sec=document.getElementById(id);if(!sec||!sec.classList.contains('decision'))return;set(sec,true);setTimeout(()=>sec.scrollIntoView({block:'start',behavior:'smooth'}),30)};
+  const open=id=>{const sec=document.getElementById(id);if(sec&&sec.classList.contains('decision'))show(sec,true)};
   document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#d"]');if(!a)return;const id=a.getAttribute('href').slice(1);if(/^d[1-6]$/.test(id)){e.preventDefault();open(id)}});
   const fromHash=()=>{if(/^#d[1-6]$/.test(location.hash))open(location.hash.slice(1))};
   fromHash();addEventListener('hashchange',fromHash);
