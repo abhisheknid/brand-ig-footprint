@@ -716,6 +716,10 @@ body{line-height:1.6}
 /* highlighter marker on the important words in headings */
 mark.hl{color:var(--ink);background:linear-gradient(100deg,rgba(247,181,0,0) 0,#F7B500 1.6%,#F7B500 96%,rgba(247,181,0,0) 100%) 0 86%/100% .62em no-repeat;padding:0 .14em;margin:0 -.14em;border-radius:.2em .55em .25em .5em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .closing mark.hl{background-position:0 50%;background-size:100% 94%;padding:.04em .16em}
+/* roadmap heading */
+.rhead{display:flex;flex-direction:column;gap:14px;align-items:flex-start;max-width:62ch;margin-bottom:6px}
+.rhead h2{font-size:clamp(1.9rem,8.4vw,2.4rem);line-height:1.08;letter-spacing:-.02em}
+@media (max-width:820px){.rhead{align-items:center;text-align:center;margin-inline:auto}}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -739,7 +743,7 @@ mark.hl{color:var(--ink);background:linear-gradient(100deg,rgba(247,181,0,0) 0,#
 <section class="concept" aria-label="How an Instagram network works">
   <div class="cx">
     <div class="label">The idea in one picture</div>
-    <h2>One brand, several pages, each built for <mark class="hl">one audience</mark></h2>
+    <h2>Can your brand have several IG pages? <mark class="hl">Yes.</mark></h2>
     <ol>
       <li><i style="--c:var(--paper2)">1</i><span><b>One page for everyone</b> gets muted, because most posts aren't meant for each follower.</span></li>
       <li><i style="--c:var(--yellow)">2</i><span><b>Interest pages</b> each serve one audience with shows it comes back for.</span></li>
@@ -749,8 +753,8 @@ mark.hl{color:var(--ink);background:linear-gradient(100deg,rgba(247,181,0,0) 0,#
   <div class="net" data-net="hero" role="img" aria-label="Diagram: a main brand page connected to three interest pages, a comedy page for comedy fans, a movies page for movie fans and a food stories page for food lovers"></div>
 </section>
 
-<section class="roadmap" aria-label="The six decisions" style="gap:16px">
-  <div class="label">Your six decisions for building an Instagram network</div>
+<section class="roadmap" aria-labelledby="road-h" style="gap:16px">
+  <div class="rhead"><span class="tag">Your roadmap</span><h2 id="road-h"><mark class="hl">6 decisions</mark> that help you build your Instagram network</h2></div>
   <ol class="road">
     <li><a href="#d1"><div class="ch" data-scene="r1"></div><span class="dot" style="--c:var(--coral)">1</span><b>Should you create more Instagram pages?</b><small>Or is one page enough?</small></a></li>
     <li><a href="#d2"><div class="ch" data-scene="r2"></div><span class="dot" style="--c:var(--orange)">2</span><b>Which audiences deserve their own pages?</b><small>Score each interest</small></a></li>
