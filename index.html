@@ -37,11 +37,15 @@ a{color:var(--link)}
 .col{max-width:64ch}
 
 /* nav */
-nav.chips{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-inline:-18px;padding:10px 18px;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav.chips .row{max-width:1120px;margin-inline:auto;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
-nav.chips a{flex:none;font-family:var(--display);font-weight:500;font-size:.92rem;text-decoration:none;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:5px 14px}
-nav.chips a:hover{border-color:var(--ink)}
-nav.chips a b{color:var(--coral);font-weight:600;margin-right:4px}
+
+.modebar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-inline:-18px;padding:10px 18px;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.modebar .row{max-width:1120px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.modebar .name{font-family:var(--display);font-weight:600;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.seg{display:inline-flex;flex:none;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.seg button{font-family:var(--display);font-weight:500;font-size:.92rem;border:0;background:transparent;color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper);font-weight:600}
+@media (max-width:420px){.modebar .name{font-size:.88rem}.seg button{padding:6px 10px;font-size:.85rem}}
+button.btn{cursor:pointer;font-family:var(--display)}
 
 /* characters & scenes */
 .scene{position:relative;width:100%}
@@ -312,9 +316,6 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 .qwarn{background:#FBE3E5}
 .qscore{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font-size:.82rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
 .qscore .bar{height:10px}
-/* current section in the nav */
-nav.chips a.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-nav.chips a.on b{color:var(--yellow)}
 
 /* decision journey: where am I, what's next */
 .where{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -418,19 +419,9 @@ nav.chips a.on b{color:var(--yellow)}
 </head>
 <body>
 
-<nav class="chips" aria-label="Sections"><div class="row">
-  <a href="#quiz"><b>?</b>Quiz</a>
-  <a href="#why"><b>00</b>Why split</a>
-  <a href="#d1"><b>01</b>More pages?</a>
-  <a href="#d2"><b>02</b>Audiences</a>
-  <a href="#d3"><b>03</b>Structure</a>
-  <a href="#d4"><b>04</b>Content</a>
-  <a href="#d5"><b>05</b>Run &amp; measure</a>
-  <a href="#d6"><b>06</b>Payoff</a>
-  <a href="#checklist"><b>✓</b>Checklist</a>
-</div></nav>
+<header class="modebar"><div class="row"><span class="name">The Instagram Network Playbook</span><div class="seg" role="group" aria-label="Choose your view"><button type="button" data-view="m" aria-pressed="true">Marketer</button><button type="button" data-view="s" aria-pressed="false">Non-marketer</button></div></div></header>
 
-<div class="page">
+<div class="page" id="view-m">
 
 <header class="hero">
   <div class="txt">
@@ -816,6 +807,104 @@ nav.chips a.on b{color:var(--yellow)}
 <footer>Adapted from the ideas in "Everyone Wants a Media Network", episode 2. Brand examples describe public strategies as discussed in that episode. Illustrations are original.</footer>
 </div>
 
+<div class="page" id="view-s" hidden>
+
+<header class="hero">
+  <div class="txt">
+    <div class="label">A plain-English guide for founders and clients</div>
+    <h1>Why one Instagram page isn't always <span>enough</span></h1>
+    <p class="lede">When one brand page tries to talk to everyone, most followers see posts that aren't for them, so they stop paying attention. Some brands fix this by running a few pages, each made for one kind of follower. This short guide helps you decide whether that makes sense for you.</p>
+    <div class="btns"><a class="btn solid" href="#s-quiz">Take the 1-minute quiz</a><a class="btn" href="#s-idea">Explain it simply</a></div>
+  </div>
+  <div class="stage">
+    <div class="say s1">Why is this in my feed?</div>
+    <div class="say s2">Muted.</div>
+    <div class="phone" role="img" aria-label="A phone showing one brand page crammed with grumpy characters">
+      <div class="scr">
+        <div class="notch"></div>
+        <div class="hdr"><i></i><div>The Brand Page<small>everyone, about everything</small></div></div>
+        <div data-scene="crowd"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="s-idea" class="concept" aria-label="The idea in 30 seconds">
+  <div class="cx">
+    <div class="label">The idea in 30 seconds</div>
+    <h2>Think of it like a family WhatsApp group</h2>
+    <ol>
+      <li><i style="--c:var(--paper2)">1</i><span><b>Everyone is in it,</b> but most messages aren't for you. So you mute it.</span></li>
+      <li><i style="--c:var(--yellow)">2</i><span><b>Smaller groups</b> about one thing people love (comedy, movies, food) get read.</span></li>
+      <li><i style="--c:var(--mint)">3</i><span><b>Your brand page</b> still does the selling. The other pages keep people interested in between.</span></li>
+    </ol>
+  </div>
+  <div class="net" data-net="hero" role="img" aria-label="Diagram: a main brand page connected to three pages, one each for comedy fans, movie fans and food lovers"></div>
+</section>
+
+<section id="s-quiz">
+  <div class="sh"><span class="tag">1-minute quiz · 5 questions</span><h2>Does your brand need more than one Instagram page?</h2>
+  <p class="q">Pick the answer that sounds most like your business. You'll get a simple recommendation and the questions to ask your team. Nothing you answer is saved or sent anywhere.</p></div>
+  <div class="quiz" id="sqz" aria-live="polite"></div>
+</section>
+
+<section id="s-options">
+  <div class="sh"><span class="tag">Your options</span><h2>The three usual setups</h2><p class="q">Most brands end up with one of these. Start with the simplest one that fits.</p></div>
+  <div class="grid" style="--min:250px">
+    <div class="card"><div data-net="A" class="net mini"></div><h3>Keep one page, organised</h3><p>Split your posts into two or three regular series, so followers know what to expect.</p><p class="sm"><b>Good if</b> your followers mostly want the same things.</p></div>
+    <div class="card"><div data-net="B" class="net mini"></div><h3>Add one fun page</h3><p>Your brand page sells. A second, entertaining page keeps people thinking about you between purchases.</p><p class="sm"><b>Good if</b> people buy from you rarely, like luggage or furniture.</p></div>
+    <div class="card"><div data-net="C" class="net mini"></div><h3>A few pages for different interests</h3><p>Your main page plus one page for each big group of followers, each with its own style.</p><p class="sm"><b>Good if</b> different people follow you for very different reasons.</p></div>
+  </div>
+  <p class="col" style="color:var(--muted);font-size:.95rem">Very large brands sometimes go further and build a whole media brand about their industry, like Swiggy's "Served". That needs a full content team and at least a year of patience.</p>
+</section>
+
+<section id="s-takes">
+  <div class="sh"><span class="tag">What it takes</span><h2>Before you add a page, check you can keep it going</h2></div>
+  <div class="grid" style="--min:230px">
+    <div class="card"><div data-scene="r5" style="max-width:90px"></div><h3>One owner per page</h3><p>A named person responsible for each page, even if they share a team.</p></div>
+    <div class="card"><div data-scene="r4" style="max-width:90px"></div><h3>3 to 5 short videos a week</h3><p>Per extra page, posted on the same days every week. Steady beats a lot at once.</p></div>
+    <div class="card"><div data-scene="nope" style="max-width:90px"></div><h3>About 90 days of patience</h3><p>Give a new page 90 days before deciding. Judge it on whether people watch and share, not on sales in its first six months.</p></div>
+  </div>
+</section>
+
+<section id="s-payoff">
+  <div class="sh"><span class="tag">What you get back</span><h2>How it pays off, step by step</h2><p class="q">The benefits come in this order, and they take time. Don't expect step five in month two.</p></div>
+  <div class="stairs">
+    <div data-scene="stairs" role="img" aria-label="Five characters climbing five steps, each happier than the last"></div>
+    <ol class="steps">
+      <li><div><b>People know and like your pages</b><span>They comment asking for the next episode.</span></div></li>
+      <li><div><b>Launches cost less</b><span>New products reach people who already like you, without big ad spend.</span></div></li>
+      <li><div><b>Others want to work with you</b><span>Brands and creators start asking to collaborate.</span></div></li>
+      <li><div><b>Sponsors pay to reach your audience</b><span>Other companies pay to appear on your pages.</span></div></li>
+      <li><div><b>The pages pay for themselves</b><span>Money from the pages covers what they cost to run.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="s-ask">
+  <div class="sh"><span class="tag">Before you say yes</span><h2>Questions to ask your team or agency</h2><p class="q">If someone proposes a new Instagram page, these five questions tell you whether it's ready.</p></div>
+  <ol class="steps col">
+    <li><div><b>Who exactly is this page for?</b><span>And do they really want different posts from our main page?</span></div></li>
+    <li><div><b>What's the recurring show?</b><span>Could we list 20 episode ideas today?</span></div></li>
+    <li><div><b>Who owns it, and how often will it post?</b><span>A named person, on fixed days each week.</span></div></li>
+    <li><div><b>How will we judge it in the first 90 days?</b><span>Watch time and shares, not sales.</span></div></li>
+    <li><div><b>What happens if it isn't working?</b><span>Change the show once, then fold it back into the main page.</span></div></li>
+  </ol>
+</section>
+
+<div class="closing">
+  <div data-scene="party" role="img" aria-label="A happy crowd of characters"></div>
+  <div class="band">
+    <div class="label" style="color:inherit;opacity:.7">The short version</div>
+    <h2>Make pages people actually want to follow, and selling gets easier.</h2>
+    <p>Want the detailed version, with scoring tools and planning templates for your marketing team?</p>
+    <div class="btns"><button type="button" class="btn" data-goto="m">Switch to the Marketer view</button></div>
+  </div>
+</div>
+
+<footer>Adapted from the ideas in "Everyone Wants a Media Network", episode 2. Brand examples describe public strategies as discussed in that episode. Illustrations are original.</footer>
+</div>
+
 <script>
 (function(){
 const C={coral:'#EC6F78',blue:'#5B9BE0',orange:'#F29E4C',lilac:'#B9A2DE',mint:'#8CCB9B',yellow:'#F5C84C',sky:'#8EC1EE',pink:'#F4A6B5',brown:'#B88466',ink:'#3B3035'};
@@ -1158,18 +1247,6 @@ document.querySelectorAll('[data-net]').forEach(el=>{const c=NETS[el.dataset.net
 // Position in the six decisions
 document.querySelectorAll('.pips').forEach(el=>{const k=+el.dataset.step;el.innerHTML=[1,2,3,4,5,6].map(j=>`<i class="${j<k?'done':j===k?'now':''}"></i>`).join('')});
 
-// Highlight the nav chip for the section on screen
-(function(){
-  const links=[...document.querySelectorAll('nav.chips a')];const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
-  const secs=[...map.keys()].map(id=>document.getElementById(id)).filter(Boolean);
-  if(!('IntersectionObserver' in window))return;
-  const vis=new Set();
-  const io=new IntersectionObserver(es=>{es.forEach(e=>{e.isIntersecting?vis.add(e.target.id):vis.delete(e.target.id)});
-    const cur=secs.find(sec=>vis.has(sec.id));links.forEach(a=>a.classList.remove('on'));
-    if(cur){const a=map.get(cur.id);a.classList.add('on');const row=a.parentElement;const l=a.offsetLeft-row.offsetLeft;if(l<row.scrollLeft||l+a.offsetWidth>row.scrollLeft+row.clientWidth)row.scrollTo({left:l-16,behavior:'smooth'})}
-  },{rootMargin:'-30% 0px -60% 0px'});
-  secs.forEach(sec=>io.observe(sec));
-})();
 
 // Strategy quiz: answers live only in this variable and vanish on reload.
 (function(){
@@ -1282,6 +1359,101 @@ function result(){
   document.getElementById('qRe').addEventListener('click',()=>{a=new Array(Q.length).fill(null);i=0;ask();box.scrollIntoView({block:'start'})});
 }
 ask();
+})();
+
+// Non-marketer quiz: plain language, answers kept only in memory.
+(function(){
+const Q=[
+ {q:'How often do your customers buy from you?',hint:'Think about a typical customer.',art:{shape:'square',color:'coral',mood:'happy',prop:'suitcase',arms:'hold'},
+  o:[['Often','Every week or month'],['Once in a while','About once a year'],['Rarely','Every few years']]},
+ {q:'Do different kinds of people follow you for different reasons?',hint:'For example, some come for tips, others for jokes.',art:{shape:'cloud',color:'lilac',mood:'shock'},
+  o:[['No, mostly the same','They want similar things'],['A few different groups','Two or three kinds of follower'],['Lots of different groups','Each wants something different']]},
+ {q:'How is your current Instagram page doing?',hint:'Over the last few months.',art:{shape:'bean',color:'mint',mood:'happy',prop:'phone',arms:'hold'},
+  o:[['Growing','More views and likes'],['About the same','Steady, not growing'],['Getting quieter','Fewer views and likes']]},
+ {q:'Who could make posts every week?',hint:'Be honest about what you can keep up.',art:{shape:'tall',color:'orange',mood:'meh',prop:'clap',arms:'hold'},
+  o:[['Mostly just me','A few posts a week at most'],['A helper or agency','Part-time help'],['A dedicated person or team','Someone whose job this is']]},
+ {q:'How soon do you need to see results?',hint:'New pages take a few months to get going.',art:{shape:'cloud',color:'sky',mood:'sleepy'},
+  o:[['Within 3 months',''],['In about 6 months',''],['I can wait a year','']]}
+];
+const R={
+ A:{name:'Keep one page, and organise it',sum:'Your followers mostly want the same things. Split your posts into two or three regular series so people know what to expect.',
+    means:['No new pages for now.','Pick two or three regular series, each with a clear name.','Look again in 90 days. If one series takes off, it could become its own page.'],
+    ask:['Which two or three regular series should our page have?','Which series do people watch and share the most?']},
+ B:{name:'Add one fun page next to your brand page',sum:'Keep your brand page for selling. Start one entertaining page about something your customers love, so they remember you between purchases.',
+    means:['One named owner for the new page.','3 or more short videos a week, on fixed days.','About 90 days before deciding whether it works, and no sales targets for it in the first six months.'],
+    ask:['What will the new page be about, and who is it for?','What’s the recurring show, and do we have 20 episode ideas?','How will we judge it after 90 days?']},
+ C:{name:'Run a few pages for different interests',sum:'Different groups follow you for different reasons. Give the two biggest groups their own pages, and add more only once those work.',
+    means:['One to two dedicated people, and an owner for each page.','3 to 5 short videos a week per page.','Give each page 90 days before deciding, and expect slow results at first.'],
+    ask:['Which two groups of followers matter most to us?','Who will own each page?','What happens to a page that isn’t working after 90 days?']}
+};
+let a=new Array(Q.length).fill(null),i=0;
+const box=document.getElementById('sqz');if(!box)return;
+const prog=()=>`<div class="qtop"><div class="qprog" aria-hidden="true">${Q.map((_,j)=>`<i class="${j<i?'done':j===i?'now':''}"></i>`).join('')}</div><span class="qcount">${i<Q.length?'Question '+(i+1)+' of '+Q.length:'Your answer'}</span></div>`;
+const next=()=>{i++;i<Q.length?ask():result()};
+function ask(){
+  const q=Q[i];
+  box.innerHTML=prog()+`<div class="qbody"><div class="qart">${one(Object.assign({w:84},q.art))}</div><div class="qq"><h3>${q.q}</h3><p class="hint">${q.hint}</p>
+    <div class="qopts" role="group" aria-label="${q.q}">${q.o.map((o,j)=>`<button type="button" class="qopt${a[i]===j?' sel':''}" data-v="${j}"><b>${'ABC'[j]}</b><span>${o[0]}${o[1]?`<small>${o[1]}</small>`:''}</span></button>`).join('')}</div></div></div>
+    <div class="qnav"><button type="button" class="qbtn" data-act="back"${i===0?' disabled':''}>← Back</button><span class="qnote">Tap an answer to continue</span>${a[i]!==null?'<button type="button" class="qbtn solid" data-act="next">Next →</button>':'<span></span>'}</div>`;
+}
+function decide(v){
+  const need=v.freq+v.groups+v.health;const why=[];const warn=[];let m;
+  if(need<=1)m='A';
+  else if(need<=3)m=v.cap>=1?'B':'A';
+  else m=(v.cap>=2&&v.groups>=1)?'C':(v.cap>=1?'B':'A');
+  if(v.patience===0&&m==='C'){m='B';warn.push('Results within 3 months is too soon for several new pages. Start with one fun page and add more later.')}
+  if(v.patience===0&&m==='B')warn.push('A new page rarely pays off within 3 months. Agree up front to judge it on views and shares, not sales.');
+  if(v.freq>=1)why.push('Your customers don’t buy often, so you need a reason for them to hear from you in between.');
+  else why.push('Your customers already buy often, so your brand page has natural reasons to show up.');
+  if(v.groups===2)why.push('Lots of different people follow you for different reasons, and one page can’t please them all.');
+  if(v.groups===0)why.push('Your followers mostly want the same things, so one well-organised page can serve them.');
+  if(v.health===2)why.push('Fewer views often means one page is trying to talk to too many people at once.');
+  if(v.cap===0&&need>=2)why.push('More pages would help, but you’ll need someone who can post regularly before adding them.');
+  if(v.cap>=1&&m!=='A')why.push('You have enough help to keep '+(m==='C'?'more than one extra page':'one extra page')+' going.');
+  return {m,why,warn};
+}
+function result(){
+  const v={freq:a[0],groups:a[1],health:a[2],cap:a[3],patience:a[4]};const d=decide(v);const X=R[d.m];
+  box.innerHTML=prog()+`<div class="qres">
+    <div class="qhero"><div><div class="kicker">Our suggestion</div><h3>${X.name}</h3><p style="margin-top:10px">${X.sum}</p></div><div class="art">${S['m'+d.m]()}</div></div>
+    <div class="qcard qwhy"><h4>Why we suggest this</h4><ul>${d.why.map(t=>`<li>${t}</li>`).join('')}</ul></div>
+    <div class="qgrid">
+      <div class="qcard"><h4>What it means for you</h4><ul>${X.means.map(t=>`<li>${t}</li>`).join('')}</ul></div>
+      <div class="qcard"><h4>Ask your team or agency</h4><ul>${X.ask.map(t=>`<li>${t}</li>`).join('')}</ul></div>
+    </div>
+    ${d.warn.length?`<div class="qcard qwarn"><h4>Keep in mind</h4><ul>${d.warn.map(t=>`<li>${t}</li>`).join('')}</ul></div>`:''}
+    <div class="qnav"><button type="button" class="qbtn" data-act="back">← Change last answer</button><button type="button" class="qbtn" data-goto="m" data-to="quiz">See the detailed version</button><button type="button" class="qbtn solid" data-act="retake">Retake the quiz</button></div>
+  </div>`;
+}
+box.addEventListener('click',e=>{
+  const o=e.target.closest('.qopt');
+  if(o){a[i]=+o.dataset.v;o.classList.add('sel');setTimeout(next,180);return}
+  const b=e.target.closest('[data-act]');if(!b)return;
+  if(b.dataset.act==='back'){i=Math.min(i,Q.length)-1;if(i<0)i=0;ask()}
+  else if(b.dataset.act==='next')next();
+  else if(b.dataset.act==='retake'){a=new Array(Q.length).fill(null);i=0;ask();box.scrollIntoView({block:'start'})}
+});
+ask();
+})();
+
+// View toggle: Marketer (detailed) or Non-marketer (simple). Kept in the URL only, never stored.
+(function(){
+  const views={m:document.getElementById('view-m'),s:document.getElementById('view-s')};
+  const btns=[...document.querySelectorAll('.seg button')];
+  function show(k,scrollTo){
+    views.m.hidden=k!=='m';views.s.hidden=k!=='s';
+    btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===k?'true':'false'));
+    document.body.dataset.view=k;
+    try{const u=new URL(location.href);if(k==='s')u.searchParams.set('view','simple');else u.searchParams.delete('view');history.replaceState(null,'',u.pathname+u.search+(scrollTo?'#'+scrollTo:''))}catch(e){}
+    if(k==='m')doodle();
+    const t=scrollTo&&document.getElementById(scrollTo);
+    if(t)t.scrollIntoView({block:'start'});else window.scrollTo(0,0);
+  }
+  btns.forEach(b=>b.addEventListener('click',()=>{if(b.getAttribute('aria-pressed')!=='true')show(b.dataset.view)}));
+  document.addEventListener('click',e=>{const g=e.target.closest('[data-goto]');if(g)show(g.dataset.goto,g.dataset.to)});
+  let start='m';
+  try{if(new URL(location.href).searchParams.get('view')==='simple')start='s'}catch(e){}
+  if(start==='s'){views.m.hidden=true;views.s.hidden=false;btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.view==='s'?'true':'false'));document.body.dataset.view='s'}
 })();
 })();
 </script>
