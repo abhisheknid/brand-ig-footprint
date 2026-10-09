@@ -272,7 +272,7 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 .infog{background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:16px;min-width:0}
 .infog h3{font-size:1.4rem}
 .infog .cap{font-size:.92rem;color:var(--muted)}
-.scroll{overflow-x:auto}
+.scroll{overflow:visible}
 .svgtxt{font-family:var(--body);fill:var(--ink)}
 
 .road{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;position:relative}
@@ -324,6 +324,15 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 .gantt .ms{justify-self:center;width:24px;height:24px;background:var(--coral);transform:rotate(45deg);border-radius:4px;border:2.5px solid var(--ink)}
 .gantt .phase{grid-column:2/-1;display:grid;grid-template-columns:2fr 11fr;gap:3px;font-family:var(--display);font-weight:600;font-size:.85rem}
 .gantt .phase span{background:var(--paper2);border-radius:8px;padding:2px 8px;text-align:center}
+@media (max-width:900px){
+  .gantt{grid-template-columns:0 repeat(13,minmax(0,1fr));column-gap:0;row-gap:8px;min-width:0}
+  .gantt .task{grid-column:1/-1;padding:8px 0 0;font-size:.92rem}
+  .gantt .wk{font-size:.54rem;letter-spacing:-.04em}
+  .gantt .phase{font-size:.78rem}
+  .gantt .phase span{padding:2px 4px}
+  .gantt .ticks i{width:9px;height:9px}
+  .gantt .bar{height:18px}
+}
 
 .flywrap{position:relative;max-width:520px;margin-inline:auto;width:100%}
 .flywrap svg{display:block;width:100%;height:auto}
@@ -530,9 +539,8 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 .slides .crit{gap:6px}.slides .crit span{font-size:.9rem;padding:6px 10px}
 /* each decision fits one screen: cover card first, cards capped to the viewport */
 :is(#d1,#d2) .slides{padding:8px 8px 10px}
-:is(#d1,#d2){--deckh:clamp(400px,calc(100svh - 290px),620px)}
-:is(#d1,#d2) .slides{height:var(--deckh)}
-:is(#d1,#d2) .slides>*{height:auto;overflow-y:auto;overscroll-behavior-y:contain}
+:is(#d1,#d2) .slides{height:auto;align-items:flex-start}
+:is(#d1,#d2) .slides>*{height:auto;overflow:visible;min-height:var(--deckh,0px)}
 .slides>.cover{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;align-items:center;padding:4px}
 @media (max-width:820px){.slides>.cover{grid-template-columns:minmax(0,1fr);gap:14px;align-content:start}.slides>.cover .sh h2{font-size:1.45rem}.slides>.cover .sh .q{font-size:1rem}}
 #d1 .tool{display:block;background:none;border:0;padding:0;box-shadow:none}
@@ -540,7 +548,6 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 .qs.slides>.result{position:static;--sw:min(100%,440px);align-self:stretch}
 :is(#d1,#d2){scroll-margin-top:64px}
 @media (max-width:820px){
-  :is(#d1,#d2){--deckh:clamp(380px,calc(100svh - 330px),620px)}
   :is(#d1,#d2) .nextdec{padding-top:12px;gap:8px}
   :is(#d1,#d2) .nextdec b{font-size:1rem}
   :is(#d1,#d2) .nextdec .go{padding:5px 12px;font-size:.9rem}
@@ -777,7 +784,7 @@ body{padding-inline:12px}
   <div class="infog">
     <div class="label">Infographic · The gap between purchases</div>
     <h3>How to stay relevant between customer purchases</h3>
-    <div class="scroll"><svg id="gap" viewBox="0 0 820 250" style="min-width:640px;width:100%;height:auto" role="img" aria-label="Over 36 months, a brand page alone has 2 purchases and a handful of sale posts. A content page posting 3 times a week has about 470 chances to be remembered."></svg></div>
+    <div class="scroll"><svg id="gap" viewBox="0 0 820 250" style="width:100%;height:auto" role="img" aria-label="Over 36 months, a brand page alone has 2 purchases and a handful of sale posts. A content page posting 3 times a week has about 470 chances to be remembered."></svg></div>
     <div class="legendrow"><span><i style="background:var(--coral)"></i>Purchase</span><span><i style="background:#B9AFA5"></i>Sale or launch post</span><span><i style="background:var(--mint)"></i>Episode on the content page (3 a week)</span></div>
     <p class="cap">That's why Mokobara built an entertainment page. With three episodes a week, a content page gets about 470 chances to be remembered between two purchases.</p>
   </div>
@@ -1455,19 +1462,32 @@ function feed(id,split){
 }
 feed('fm1',false);feed('fm2',true);
 
-// Purchase-gap timeline
+// Purchase-gap timeline: a wide drawing and a phone-sized one, so it never needs sideways scrolling
 (function(){
-  const x0=200,x1=790,mx=m=>x0+(x1-x0)*m/36;let s='';
-  s+=`<text x="10" y="92" class="svgtxt" font-size="15" font-weight="800">Brand page only</text>`;
-  s+=`<text x="10" y="182" class="svgtxt" font-size="15" font-weight="800">With a content page</text>`;
-  [0,12,24,36].forEach(m=>{s+=`<line x1="${mx(m)}" y1="40" x2="${mx(m)}" y2="215" stroke="#E2D4C1" stroke-width="1.5"/><text x="${mx(m)}" y="238" text-anchor="middle" class="svgtxt" font-size="13" fill="#5B616B">${m===0?'Month 0':m+' mo'}</text>`});
-  s+=`<line x1="${x0}" y1="88" x2="${x1}" y2="88" stroke="#3B3035" stroke-width="2"/><line x1="${x0}" y1="178" x2="${x1}" y2="178" stroke="#3B3035" stroke-width="2"/>`;
-  [6,11,17,23,29].forEach(m=>{s+=`<circle cx="${mx(m)}" cy="88" r="6" fill="#B9AFA5"/>`});
-  for(let w=0;w<156;w++){const m=w*36/156;const h=10+((w*7)%5)*3;s+=`<line x1="${mx(m)}" y1="${178-h}" x2="${mx(m)}" y2="178" stroke="${C.mint}" stroke-width="2.4" stroke-linecap="round"/>`}
-  [0,36].forEach(m=>{[88,178].forEach(y=>{s+=`<circle cx="${mx(m)}" cy="${y}" r="11" fill="${C.coral}" stroke="#3B3035" stroke-width="2"/>`})});
-  s+=`<text x="${mx(18)}" y="62" text-anchor="middle" class="svgtxt" font-size="14" font-weight="800" fill="#5B616B">Long silences. The brand fades from memory.</text>`;
-  s+=`<text x="${mx(18)}" y="146" text-anchor="middle" class="svgtxt" font-size="14" font-weight="800">~470 episodes keep the brand in their week</text>`;
-  document.getElementById('gap').innerHTML=s;
+  const svg=document.getElementById('gap');
+  function build(narrow){
+    const x0=narrow?24:200,x1=narrow?376:790,mx=m=>x0+(x1-x0)*m/36;
+    const y1=narrow?86:88,y2=narrow?216:178,top=narrow?64:40,bot=narrow?236:215,lab=narrow?256:238;
+    const fs=narrow?{l:14,c:11.5,t:11}:{l:15,c:14,t:13};let s='',late='';
+    if(narrow){
+      late+=`<text x="24" y="28" stroke="#FFFBF5" stroke-width="5" paint-order="stroke" class="svgtxt" font-size="${fs.l}" font-weight="800">Brand page only</text><text x="24" y="48" stroke="#FFFBF5" stroke-width="5" paint-order="stroke" class="svgtxt" font-size="${fs.c}" font-weight="800" fill="#5B616B">Long silences. The brand fades from memory.</text>`;
+      late+=`<text x="24" y="124" stroke="#FFFBF5" stroke-width="5" paint-order="stroke" class="svgtxt" font-size="${fs.l}" font-weight="800">With a content page</text><text x="24" y="144" stroke="#FFFBF5" stroke-width="5" paint-order="stroke" class="svgtxt" font-size="${fs.c}" font-weight="800">~470 episodes keep the brand in their week</text>`;
+    }else{
+      s+=`<text x="10" y="92" class="svgtxt" font-size="${fs.l}" font-weight="800">Brand page only</text><text x="10" y="182" class="svgtxt" font-size="${fs.l}" font-weight="800">With a content page</text>`;
+    }
+    [0,12,24,36].forEach(m=>{s+=`<line x1="${mx(m)}" y1="${top}" x2="${mx(m)}" y2="${bot}" stroke="#E2D4C1" stroke-width="1.5"/><text x="${mx(m)}" y="${lab}" text-anchor="${narrow?(m===0?'start':m===36?'end':'middle'):'middle'}" class="svgtxt" font-size="${fs.t}" fill="#5B616B">${m===0?'Month 0':m+' mo'}</text>`});
+    s+=`<line x1="${x0}" y1="${y1}" x2="${x1}" y2="${y1}" stroke="#3B3035" stroke-width="2"/><line x1="${x0}" y1="${y2}" x2="${x1}" y2="${y2}" stroke="#3B3035" stroke-width="2"/>`;
+    [6,11,17,23,29].forEach(m=>{s+=`<circle cx="${mx(m)}" cy="${y1}" r="${narrow?5:6}" fill="#B9AFA5"/>`});
+    for(let w=0;w<156;w++){const m=w*36/156;const hh=(10+((w*7)%5)*3)*(narrow?.75:1);s+=`<line x1="${mx(m)}" y1="${y2-hh}" x2="${mx(m)}" y2="${y2}" stroke="${C.mint}" stroke-width="${narrow?1.5:2.4}" stroke-linecap="round"/>`}
+    [0,36].forEach(m=>{[y1,y2].forEach(y=>{s+=`<circle cx="${mx(m)}" cy="${y}" r="${narrow?9:11}" fill="${C.coral}" stroke="#3B3035" stroke-width="2"/>`})});
+    if(!narrow){
+      s+=`<text x="${mx(18)}" y="62" text-anchor="middle" class="svgtxt" font-size="${fs.c}" font-weight="800" fill="#5B616B">Long silences. The brand fades from memory.</text>`;
+      s+=`<text x="${mx(18)}" y="146" text-anchor="middle" class="svgtxt" font-size="${fs.c}" font-weight="800">~470 episodes keep the brand in their week</text>`;
+    }
+    svg.setAttribute('viewBox',narrow?'0 0 400 270':'0 0 820 250');svg.innerHTML=s+late;
+  }
+  const mq=window.matchMedia('(max-width:760px)');build(mq.matches);
+  (mq.addEventListener?mq.addEventListener.bind(mq,'change'):mq.addListener.bind(mq))(e=>build(e.matches));
 })();
 
 // Model matrix
@@ -2030,6 +2050,24 @@ document.querySelectorAll('[data-deck]').forEach(deck=>{
   if(deck.hasAttribute('data-advance'))track.addEventListener('change',e=>{const f=e.target.closest('.qslide');if(!f)return;const i=items().indexOf(f);if(i>-1&&i<n-1)setTimeout(()=>go(i+1),220)});
   update();
 });
+
+// Decision carousels: every card takes the height of the tallest card, so nothing scrolls inside a card
+(function(){
+  const secs=['d1','d2'].map(id=>document.getElementById(id));
+  let raf=0,last=-1;
+  function fit(){
+    secs.forEach(x=>x.style.setProperty('--deckh','0px'));
+    let max=0;secs.forEach(x=>x.querySelectorAll('.slides>*').forEach(c=>{max=Math.max(max,c.offsetHeight)}));
+    if(max>0&&max!==last){last=max}
+    secs.forEach(x=>x.style.setProperty('--deckh',(max||0)+'px'));
+  }
+  const later=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(fit)};
+  fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(later);
+  addEventListener('resize',later);addEventListener('load',later);
+  secs.forEach(x=>{x.addEventListener('input',later);x.addEventListener('change',()=>setTimeout(later,60))});
+  document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>setTimeout(later,60)));
+  if('ResizeObserver' in window){const ro=new ResizeObserver(later);secs.forEach(x=>x.querySelectorAll('.slides>*').forEach(c=>ro.observe(c)))}
+})();
 
 // Lead capture: sends the form to Abhishek's inbox through FormSubmit. Nothing is stored on this site.
 (function(){
