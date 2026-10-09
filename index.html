@@ -53,9 +53,6 @@ button.btn{cursor:pointer;font-family:var(--display)}
 
 /* brand carousel */
 .subhead{font-size:1.08rem;color:var(--muted);margin-top:-14px}
-.bfilter{display:flex;flex-wrap:wrap;gap:8px}
-.bfilter button{font-family:var(--display);font-weight:500;font-size:.9rem;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
-.bfilter button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .railwrap{position:relative;margin-top:14px}
 .rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:2px;padding:4px 2px 18px;scrollbar-width:thin}
 .rail:focus-visible{outline:3px solid var(--link);outline-offset:4px;border-radius:16px}
@@ -1857,16 +1854,10 @@ function cardHTML(b,i,mode){
 }
 document.querySelectorAll('[data-brands]').forEach(root=>{
   const mode=root.dataset.brands;
-  root.innerHTML=`<div class="bfilter" role="group" aria-label="Filter brands by option">${['all','A','B','C','D'].map(k=>`<button type="button" data-f="${k}" aria-pressed="${k==='all'}">${k==='all'?'All brands':'Option '+k}</button>`).join('')}</div>
-    <div class="railwrap"><button type="button" class="rnav prev" aria-label="Previous brands">←</button><div class="rail" tabindex="0" aria-label="Brand examples">${BR.map((b,i)=>cardHTML(b,i,mode)).join('')}</div><button type="button" class="rnav next" aria-label="Next brands">→</button></div>`;
+  root.innerHTML=`<div class="railwrap"><button type="button" class="rnav prev" aria-label="Previous brands">←</button><div class="rail" tabindex="0" aria-label="Brand examples">${BR.map((b,i)=>cardHTML(b,i,mode)).join('')}</div><button type="button" class="rnav next" aria-label="Next brands">→</button></div>`;
   const rail=root.querySelector('.rail');
   root.querySelector('.prev').addEventListener('click',()=>rail.scrollBy({left:-rail.clientWidth*.8,behavior:'smooth'}));
   root.querySelector('.next').addEventListener('click',()=>rail.scrollBy({left:rail.clientWidth*.8,behavior:'smooth'}));
-  root.querySelectorAll('.bfilter button').forEach(f=>f.addEventListener('click',()=>{
-    root.querySelectorAll('.bfilter button').forEach(x=>x.setAttribute('aria-pressed',x===f?'true':'false'));
-    rail.querySelectorAll('.bcard').forEach(c=>c.hidden=!(f.dataset.f==='all'||c.dataset.opt===f.dataset.f));
-    rail.scrollTo({left:0});
-  }));
   rail.addEventListener('click',e=>{const c=e.target.closest('.bcard');if(c)openBrand(c.dataset.brand,true)});
 });
 
