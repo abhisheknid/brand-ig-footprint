@@ -558,6 +558,29 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
 /* sticker catchword on each key illustration */
 .wall .catch{position:absolute;z-index:6;right:3%;top:var(--ct,38%);max-width:54%;font-family:"Archivo Black","Arial Black","Helvetica Neue",Impact,sans-serif;font-size:var(--cs,9cqw);line-height:1;letter-spacing:-.01em;color:#1D1F24;white-space:nowrap;
   -webkit-text-stroke:.16em #fff;paint-order:stroke fill;transform:rotate(-7deg);transform-origin:right center;filter:drop-shadow(.07em .07em 0 #1D1F24)}
+/* brand-visibility infographic */
+.linkscale{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.linkscale i{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--lilac),var(--orange));position:relative}
+.linkscale i::after{content:"";position:absolute;right:-6px;top:50%;width:0;height:0;border-left:10px solid var(--orange);border-top:8px solid transparent;border-bottom:8px solid transparent;transform:translateY(-50%)}
+.linkstops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.linkstops li{display:flex;flex-direction:column;gap:10px;border-top:5px solid var(--c);padding-top:12px;min-width:0}
+.linkstops .lart{background:var(--paper);border-radius:14px;max-width:240px}
+.linkstops .ltxt{display:flex;flex-direction:column;gap:4px}
+.linkstops b{font-family:var(--heading);font-weight:700;font-size:1.02rem;line-height:1.3}
+.linkstops p{font-size:.95rem}
+.linkstops .sm{color:var(--muted);font-size:.9rem}
+.linkstops .sm em{font-style:normal;font-weight:800;color:var(--ink)}
+.ldot{width:26px;height:26px;border-radius:50%;background:var(--c);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:.85rem}
+@media (max-width:700px){
+  .linkstops{grid-template-columns:minmax(0,1fr);gap:12px}
+  .linkstops li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:start;border-top:0;border-left:5px solid var(--c);padding:2px 0 2px 12px}
+  .linkstops .ldot{display:none}
+  .linkscale{font-size:.7rem}
+  .linkstops li{grid-template-columns:76px minmax(0,1fr)}
+  .linkstops b{font-size:.98rem}
+  .linkstops p{font-size:.9rem;line-height:1.45}
+  .linkstops .sm{font-size:.86rem}
+}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -808,11 +831,15 @@ footer{font-size:.85rem;color:var(--muted);max-width:70ch}
     <p class="cap">Your result from Decision 01 is highlighted in yellow.</p>
   </div>
 
-  <h3 style="font-size:1.5rem">How closely should each new page be linked to your brand?</h3>
-  <div class="grid" style="--min:230px">
-    <div class="card"><div data-scene="v1" style="background:var(--paper);border-radius:16px"></div><h3>Use your brand name and identity</h3><p>Same name, logo and colours, like "Brand Comedy".</p><p class="sm">Pick it when your brand already has fans in that interest.</p></div>
-    <div class="card"><div data-scene="v2" style="background:var(--paper);border-radius:16px"></div><h3>Create a separate identity with “by [Brand]”</h3><p>Its own name and look, with "by Brand" in the bio.</p><p class="sm">The usual default. Feels independent but still credits you.</p></div>
-    <div class="card"><div data-scene="v3" style="background:var(--paper);border-radius:16px"></div><h3>Build an independent media brand</h3><p>Its own name. Your brand shows up only in credits or collabs.</p><p class="sm">Pick it when your logo would put viewers off, or you plan to sell sponsorships.</p></div>
+  <div class="infog linkinfo">
+    <div class="label">Infographic · Brand visibility on new pages</div>
+    <h3>How closely should each new page be linked to your brand?</h3>
+    <div class="linkscale" aria-hidden="true"><span>Closely linked</span><i></i><span>Independent</span></div>
+    <ol class="linkstops">
+      <li style="--c:var(--blue)"><div class="lart" data-scene="v1"></div><div class="ltxt"><span class="ldot">1</span><b>Use your brand name and identity</b><p>Same name, logo and colours, like "Brand Comedy".</p><p class="sm"><em>Pick it when</em> your brand already has fans in that interest.</p></div></li>
+      <li style="--c:var(--lilac)"><div class="lart" data-scene="v2"></div><div class="ltxt"><span class="ldot">2</span><b>Create a separate identity with “by [Brand]”</b><p>Its own name and look, with "by Brand" in the bio.</p><p class="sm"><em>The usual default.</em> Feels independent but still credits you.</p></div></li>
+      <li style="--c:var(--orange)"><div class="lart" data-scene="v3"></div><div class="ltxt"><span class="ldot">3</span><b>Build an independent media brand</b><p>Its own name. Your brand shows up only in credits or collabs.</p><p class="sm"><em>Pick it when</em> your logo would put viewers off, or you plan to sell sponsorships.</p></div></li>
+    </ol>
   </div>
   <a class="nextdec" href="#d4"><div><span class="label">Next decision · 04</span><b>What content will people return for?</b></div><span class="go">Continue →</span></a>
 </section>
