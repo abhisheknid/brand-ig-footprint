@@ -816,6 +816,16 @@ section.stack>.pcar.pcar.pcar.pcar{background:none;border:0;border-radius:0;padd
 .quiz .qopt:hover{transform:none;border-color:#fff}
 .quiz .qopt.sel{border-color:var(--yellow)}
 .quiz .qbtn{min-height:42px}
+.bimg{position:relative;aspect-ratio:16/10;overflow:hidden;background:#222}
+.bimg>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bimg>.scene{position:absolute;right:2%;bottom:0;left:auto;width:56%;height:auto}
+.bimg .sc{filter:drop-shadow(0 0 0 #fff) drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)}
+.bimg .bsticker{position:absolute;right:4px;bottom:4px;width:20%;aspect-ratio:1;transform:rotate(var(--rot,-8deg));filter:drop-shadow(0 3px 5px rgba(0,0,0,.35));display:block}
+.bimg .bsi{position:absolute;inset:0;background:var(--st);border:3px solid #fff;border-radius:50%;box-sizing:border-box;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 52%,52% 100%,0 100%)}
+.bimg .bsi::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(128deg,rgba(255,255,255,.85) 0,rgba(255,255,255,.4) 24%,rgba(255,255,255,0) 25%,rgba(255,255,255,0) 40%,rgba(255,255,255,.22) 41%,rgba(255,255,255,.08) 52%,rgba(255,255,255,0) 53%),radial-gradient(circle at 30% 22%,rgba(255,255,255,.55),rgba(255,255,255,0) 35%)}
+.bimg .bsi .scene{position:absolute;left:50%;top:50%;width:190%;transform:translate(-50%,-40%);aspect-ratio:1}
+.bimg .bsticker::after{content:"";position:absolute;right:0;bottom:0;width:30%;height:30%;right:7%;bottom:7%;background:linear-gradient(315deg,#fff 0,#f1f1f1 45%,#c9c9c9 50%,transparent 50%);border-radius:0 0 40% 0;filter:drop-shadow(-1px -1px 2px rgba(0,0,0,.3))}
+.bsart .bsticker{width:19%;right:12px;bottom:12px}
 </style>
 </head>
 <body>
@@ -2044,7 +2054,25 @@ const extra={
   bLiquid:()=>scene([{shape:'tall',color:'lilac',mood:'shock',arms:'up',x:38,y:6,w:22},{shape:'bean',color:'sky',mood:'joy',prop:'mic',arms:'hold',x:66,y:6,w:24}])
 };
 Object.assign(S,extra);
-const art=b=>S[b.art]();
+const BPOS={netflix:'50% 40%',nike:'50% 30%',mokobara:'8% 50%',natgeo:'50% 40%',duolingo:'50% 50%',redbull:'50% 20%'};
+const ROT=[-9,7,-6,10,-11];
+const STK={
+  netflix:()=>one({shape:'bean',color:'coral',mood:'shock',w:70}),
+  nike:()=>one({shape:'tall',color:'mint',mood:'joy',hat:'cap',w:60}),
+  swiggy:()=>one({shape:'round',color:'orange',mood:'happy',hat:'bun',w:70}),
+  district:()=>one({shape:'tri',color:'lilac',mood:'joy',w:70}),
+  mokobara:()=>one({shape:'square',color:'yellow',mood:'happy',w:70}),
+  adidas:()=>one({shape:'bean',color:'blue',mood:'joy',hat:'cap',w:70}),
+  natgeo:()=>one({shape:'cloud',color:'mint',mood:'happy',w:76}),
+  disney:()=>one({shape:'round',color:'lilac',mood:'joy',hat:'beret',w:70}),
+  mercedes:()=>one({shape:'tall',color:'sky',mood:'happy',w:58}),
+  redbull:()=>one({shape:'bean',color:'coral',mood:'joy',hat:'flame',w:70}),
+  hubspot:()=>one({shape:'square',color:'orange',mood:'shock',w:70}),
+  michelin:()=>one({shape:'cloud',color:'sky',mood:'joy',w:76}),
+  duolingo:()=>one({shape:'round',color:'mint',mood:'joy',hat:'sprout',w:70}),
+  liquiddeath:()=>one({shape:'tri',color:'blue',mood:'shock',w:70})
+};
+const art=b=>`<div class="bimg"><img src="images/brand-${b.id}.webp?v=20261010" alt="" loading="lazy" style="object-position:${BPOS[b.id]||'50% 50%'}"><span class="bsticker" style="--st:${tint(BR.indexOf(b))};--rot:${ROT[BR.indexOf(b)%5]}deg"><span class="bsi">${STK[b.id]()}</span></span></div>`;
 const tint=i=>TINT[i%TINT.length];
 function mkNet(b){
   const c=[{shape:'bean',color:'coral',mood:'joy'},{shape:'round',color:'yellow',mood:'happy'},{shape:'tri',color:'lilac',mood:'happy'},{shape:'cloud',color:'mint',mood:'joy'}];
