@@ -64,7 +64,7 @@ button.btn{cursor:pointer;font-family:var(--display)}
 .bhead b{display:block;font-family:var(--heading);font-weight:700;font-size:1.15rem;line-height:1.2}
 .bhead small{display:block;font-size:.78rem;color:var(--muted);font-weight:600}
 .logo{flex:none;width:42px;height:42px;border-radius:12px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:.95rem;letter-spacing:.02em}
-.otag{align-self:flex-start;font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#C94452;background:#FBE3E5;border-radius:999px;padding:2px 10px}
+.otag{align-self:flex-start;font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#3F4652;background:#E7EAEF;border-radius:999px;padding:2px 10px}
 .otag.big{font-size:.78rem;padding:4px 12px;text-transform:none;letter-spacing:0}
 .bone{font-size:.95rem;line-height:1.5;flex:1}
 .bmore{font-family:var(--display);font-weight:600;font-size:.92rem;color:var(--link)}
@@ -2083,7 +2083,7 @@ function mkNet(b){
 function cardHTML(b,i,mode){
   return `<button type="button" class="bcard" data-brand="${b.id}" data-opt="${b.opt}" aria-label="${b.name}: see how they decided">
     <span class="bart" style="background:${tint(i)}">${art(b)}</span>
-    <span class="bhead"><span class="logo" aria-hidden="true">${b.ini}</span><span><b>${b.name}</b><small>${b.region}</small></span></span>
+    <span class="bhead"><span><b>${b.name}</b><small>${b.region}</small></span></span>
     <span class="otag">${OPTK[b.opt]}</span>
     <span class="bone">${mode==='s'?b.simple:b.one}</span>
     <span class="bmore">See how they decided →</span></button>`;
@@ -2108,7 +2108,7 @@ function render(b){
   sheet.innerHTML=`<div class="bsbar"><button type="button" class="qbtn" data-close>← All brands</button><span class="bscount">${i+1} of ${BR.length}</span></div>
   <article class="bspage">
     <div class="bshero"><div class="bsart" style="background:${tint(i)}">${art(b)}</div>
-      <div class="bsintro"><div class="bhead"><span class="logo" aria-hidden="true">${b.ini}</span><span><small>${b.region}</small></span></div>
+      <div class="bsintro"><div class="bhead"><span><small>${b.region}</small></span></div>
         <h2 id="bsTitle">${b.name}</h2><span class="otag big">${opt}</span>
         <p class="bschose"><span class="label">What they chose</span>${mode==='s'?b.simple:b.chose}</p></div></div>
     <div class="bsgrid">
