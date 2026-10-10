@@ -751,14 +751,17 @@ section.stack>.pcar.pcar.pcar.pcar{background:none;border:0;border-radius:0;padd
 .tcar .pctrack{padding-top:14px;padding-bottom:40px;margin-bottom:-22px}
 .tcar .pcbar{position:relative;z-index:1}
 .tk:focus-visible{outline:3px solid var(--link);outline-offset:4px;border-radius:22px}
-.tks{--cut:128px;--nr:13px;flex:1;display:flex;flex-direction:column;background:var(--tc);border-radius:22px;
+.tks{--cut:156px;--nr:13px;flex:1;display:flex;flex-direction:column;background:var(--tc);border-radius:22px;
   -webkit-mask:radial-gradient(circle var(--nr) at 0 var(--cut),#0000 97%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--nr) at 100% var(--cut),#0000 97%,#000) right/51% 100% no-repeat;
           mask:radial-gradient(circle var(--nr) at 0 var(--cut),#0000 97%,#000) left/51% 100% no-repeat,radial-gradient(circle var(--nr) at 100% var(--cut),#0000 97%,#000) right/51% 100% no-repeat}
 .tkt{height:var(--cut);display:flex;align-items:center;justify-content:flex-start;padding:6px 22px 0;box-sizing:border-box}
-.tkt .ico3d{width:96px;height:96px}
+.tkt .ico3d{width:54px;height:54px}
 .tkb{position:relative;padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px;flex:1}
 .tkb::before{content:"";position:absolute;top:0;left:20px;right:20px;border-top:2px dashed rgba(29,31,36,.26)}
-.tkicon{position:relative;width:96px;height:96px;margin-left:-12px}
+.tkicon{position:relative;width:158px;height:118px;margin-left:-6px}
+.tkph{position:absolute;left:0;top:0;width:112px;height:112px}
+.tkph svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(2.5px 0 0 #fff) drop-shadow(-2.5px 0 0 #fff) drop-shadow(0 2.5px 0 #fff) drop-shadow(0 -2.5px 0 #fff) drop-shadow(1.8px 1.8px 0 #fff) drop-shadow(-1.8px 1.8px 0 #fff) drop-shadow(1.8px -1.8px 0 #fff) drop-shadow(-1.8px -1.8px 0 #fff) drop-shadow(0 6px 7px rgba(29,31,36,.22))}
+.tkicon .ico3d{position:absolute;right:0;bottom:2px;z-index:2}
 .tkb b{font-family:var(--display);font-weight:600;font-size:calc(1.08rem + 2px);line-height:1.2}
 .tkb small{font-size:.9rem;color:#4A5059;line-height:1.35}
 .tk:hover .ico3d{transform:translateY(-3px) rotate(-3deg)}
@@ -816,12 +819,12 @@ section.stack>.pcar.pcar.pcar.pcar{background:none;border:0;border-radius:0;padd
   <div class="rhead"><span class="tag">Your roadmap</span><h2 id="road-h"><mark class="hl">6 decisions</mark> that help you build your Instagram network</h2></div>
   <div class="pcar tcar" role="region" aria-roledescription="carousel" aria-label="The six decisions">
     <div class="pctrack" tabindex="0">
-      <a class="tk" href="#d1" role="group" aria-roledescription="slide" aria-label="Decision 1 of 6" style="--tc:#DCEAF8"><div class="tks"><div class="tkt"><div class="tkicon"><div class="ico3d" data-ico="1" aria-hidden="true"></div></div></div><div class="tkb"><b>Should you create more Instagram pages?</b><small>Or is one page enough?</small></div></div></a>
-      <a class="tk" href="#d2" role="group" aria-roledescription="slide" aria-label="Decision 2 of 6" style="--tc:#DDF0E1"><div class="tks"><div class="tkt"><div class="tkicon"><div class="ico3d" data-ico="2" aria-hidden="true"></div></div></div><div class="tkb"><b>Which audiences deserve their own pages?</b><small>Score each interest</small></div></div></a>
-      <a class="tk" href="#d3" role="group" aria-roledescription="slide" aria-label="Decision 3 of 6" style="--tc:#ECE3F7"><div class="tks"><div class="tkt"><div class="tkicon"><div class="ico3d" data-ico="3" aria-hidden="true"></div></div></div><div class="tkb"><b>Which Instagram structure fits your team?</b><small>Pick one of four options</small></div></div></a>
-      <a class="tk" href="#d4" role="group" aria-roledescription="slide" aria-label="Decision 4 of 6" style="--tc:#FCE6CF"><div class="tks"><div class="tkt"><div class="tkicon"><div class="ico3d" data-ico="4" aria-hidden="true"></div></div></div><div class="tkb"><b>What content will people return for?</b><small>Plan recurring shows</small></div></div></a>
-      <a class="tk" href="#d5" role="group" aria-roledescription="slide" aria-label="Decision 5 of 6" style="--tc:#FBDCDD"><div class="tks"><div class="tkt"><div class="tkicon"><div class="ico3d" data-ico="5" aria-hidden="true"></div></div></div><div class="tkb"><b>How will you run and measure each page?</b><small>Owners, schedule, metrics</small></div></div></a>
-      <a class="tk" href="#d6" role="group" aria-roledescription="slide" aria-label="Decision 6 of 6" style="--tc:#FCF0C8"><div class="tks"><div class="tkt"><div class="tkicon"><div class="ico3d" data-ico="6" aria-hidden="true"></div></div></div><div class="tkb"><b>How will the network pay off?</b><small>Stages of business value</small></div></div></a>
+      <a class="tk" href="#d1" role="group" aria-roledescription="slide" aria-label="Decision 1 of 6" style="--tc:#DCEAF8"><div class="tks"><div class="tkt"><div class="tkicon"><div class="tkph" data-rm="1" aria-hidden="true"></div><div class="ico3d" data-ico="1" aria-hidden="true"></div></div></div><div class="tkb"><b>Should you create more Instagram pages?</b><small>Or is one page enough?</small></div></div></a>
+      <a class="tk" href="#d2" role="group" aria-roledescription="slide" aria-label="Decision 2 of 6" style="--tc:#DDF0E1"><div class="tks"><div class="tkt"><div class="tkicon"><div class="tkph" data-rm="2" aria-hidden="true"></div><div class="ico3d" data-ico="2" aria-hidden="true"></div></div></div><div class="tkb"><b>Which audiences deserve their own pages?</b><small>Score each interest</small></div></div></a>
+      <a class="tk" href="#d3" role="group" aria-roledescription="slide" aria-label="Decision 3 of 6" style="--tc:#ECE3F7"><div class="tks"><div class="tkt"><div class="tkicon"><div class="tkph" data-rm="3" aria-hidden="true"></div><div class="ico3d" data-ico="3" aria-hidden="true"></div></div></div><div class="tkb"><b>Which Instagram structure fits your team?</b><small>Pick one of four options</small></div></div></a>
+      <a class="tk" href="#d4" role="group" aria-roledescription="slide" aria-label="Decision 4 of 6" style="--tc:#FCE6CF"><div class="tks"><div class="tkt"><div class="tkicon"><div class="tkph" data-rm="4" aria-hidden="true"></div><div class="ico3d" data-ico="4" aria-hidden="true"></div></div></div><div class="tkb"><b>What content will people return for?</b><small>Plan recurring shows</small></div></div></a>
+      <a class="tk" href="#d5" role="group" aria-roledescription="slide" aria-label="Decision 5 of 6" style="--tc:#FBDCDD"><div class="tks"><div class="tkt"><div class="tkicon"><div class="tkph" data-rm="5" aria-hidden="true"></div><div class="ico3d" data-ico="5" aria-hidden="true"></div></div></div><div class="tkb"><b>How will you run and measure each page?</b><small>Owners, schedule, metrics</small></div></div></a>
+      <a class="tk" href="#d6" role="group" aria-roledescription="slide" aria-label="Decision 6 of 6" style="--tc:#FCF0C8"><div class="tks"><div class="tkt"><div class="tkicon"><div class="tkph" data-rm="6" aria-hidden="true"></div><div class="ico3d" data-ico="6" aria-hidden="true"></div></div></div><div class="tkb"><b>How will the network pay off?</b><small>Stages of business value</small></div></div></a>
     </div>
     <button type="button" class="pcb prev" aria-label="Previous">&#8249;</button><button type="button" class="pcb next" aria-label="Next">&#8250;</button>
     <div class="pcbar"><div class="pcdots" role="group" aria-label="Choose a decision"></div><span class="pccount" aria-live="polite"></span></div>
@@ -2171,6 +2174,59 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
        <path d="M80 26 l2.4 6.4 6.4 2.4 -6.4 2.4 -2.4 6.4 -2.4 -6.4 -6.4 -2.4 6.4 -2.4z" fill="${F('lilac')}"/><circle cx="22" cy="26" r="3.2" fill="${F('lilac')}"/>`
   };
   document.querySelectorAll('[data-ico]').forEach(el=>{el.innerHTML=`<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">${ICONS[el.dataset.ico]}</svg>`});
+})();
+
+// Roadmap: black-and-white cut-out stickers (drawn in code) with a small coloured icon on the corner
+(function(){
+  const sk='#E9E9E9',sk2='#C4C4C4',hair='#262626',cl='#505050',cl2='#6E6E6E',ink='#1F1F1F';
+  const eye=(x,y,px=1.6,py=-1.8)=>`<ellipse cx="${x}" cy="${y}" rx="5.2" ry="4.6" fill="#fff" stroke="#9A9A9A" stroke-width=".8"/><circle cx="${x+px}" cy="${y+py}" r="2.4" fill="${ink}"/>`;
+  const capsule=(x1,y1,x2,y2,w,f=sk)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${f}" stroke-width="${w}" stroke-linecap="round"/>`;
+  const outl=(x1,y1,x2,y2,w)=>capsule(x1,y1,x2,y2,w+2.4,'#9C9C9C')+capsule(x1,y1,x2,y2,w,sk);
+  const RM={
+    // 1. woman wondering
+    1:`<path d="M10 120 C10 96 32 86 60 86 C88 86 110 96 110 120Z" fill="${cl}"/><rect x="52" y="72" width="16" height="18" rx="6" fill="${sk2}"/>
+       <ellipse cx="60" cy="48" rx="30" ry="33" fill="${hair}"/><circle cx="86" cy="20" r="11" fill="${hair}"/>
+       <ellipse cx="60" cy="54" rx="22" ry="26" fill="${sk}"/><path d="M36 48 C36 24 84 22 84 48 C74 37 50 35 36 48Z" fill="${hair}"/>
+       ${eye(50,56)}${eye(70,56)}<path d="M43 46 Q50 44 57 46" stroke="${ink}" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M64 40 Q71 35 78 40" stroke="${ink}" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+       <path d="M55 73 Q61 70 67 74" stroke="#555" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+       ${outl(92,108,70,78,9)}<ellipse cx="94" cy="108" rx="11" ry="9" fill="${sk}" stroke="#9C9C9C" stroke-width="1.2"/>
+       <text x="96" y="30" font-family="Fredoka,sans-serif" font-weight="700" font-size="26" fill="#6A6A6A">?</text>`,
+    // 2. a crowd sitting in a theatre
+    2:`<rect x="4" y="6" width="112" height="112" rx="18" fill="#DCDCDC"/><path d="M14 6 L60 6 L98 76 L2 76Z" fill="#fff" opacity=".55"/>
+       ${[22,44,66,88,106].map((x,i)=>`<g><path d="M${x-10} 66 q10 -8 20 0v10h-20z" fill="${['#9A9A9A','#A8A8A8','#939393','#A4A4A4','#9C9C9C'][i]}"/><circle cx="${x}" cy="55" r="8" fill="${['#C8C8C8','#B8B8B8','#CFCFCF','#BEBEBE','#C4C4C4'][i]}"/><path d="M${x-8} 53 a8 8 0 0 1 16 0 q-8 -4 -16 0z" fill="#444"/></g>`).join('')}
+       ${[16,42,70,98].map((x,i)=>`<g><path d="M${x-12} 92 q12 -10 24 0v14h-24z" fill="${['#6A6A6A','#7A7A7A','#666','#747474'][i]}"/><circle cx="${x}" cy="78" r="10" fill="${['#DADADA','#CFCFCF','#E2E2E2','#D4D4D4'][i]}"/><path d="M${x-10} 75 a10 10 0 0 1 20 0 q-10 -6 -20 0z" fill="${i%2?'#2E2E2E':'#555'}"/></g>`).join('')}
+       ${[28,60,92].map((x,i)=>`<g><path d="M${x-15} 118 q15 -14 30 0z" fill="#383838"/><circle cx="${x}" cy="100" r="12.5" fill="${['#EDEDED','#E2E2E2','#F0F0F0'][i]}"/><path d="M${x-12.5} 96 a12.5 12.5 0 0 1 25 0 q-12.5 -8 -25 0z" fill="${['#1F1F1F','#444','#2A2A2A'][i]}"/></g>`).join('')}`,
+    // 3. one hand showing 3 fingers beside one showing 2
+    3:`<rect x="4" y="100" width="46" height="20" rx="6" fill="${cl}"/><rect x="70" y="100" width="46" height="20" rx="6" fill="${cl}"/>
+       ${outl(18,66,18,34,11)}${outl(30,66,30,22,11)}${outl(42,66,42,32,11)}
+       <rect x="9" y="58" width="42" height="46" rx="15" fill="${sk}" stroke="#9C9C9C" stroke-width="1.2"/><ellipse cx="10" cy="76" rx="7" ry="10" fill="${sk}" stroke="#9C9C9C" stroke-width="1.2"/>
+       <path d="M18 62 v12 M30 62 v12 M42 62 v12" stroke="#B5B5B5" stroke-width="1.4"/>
+       <g transform="rotate(-9 82 60)">${outl(80,70,80,30,11)}</g><g transform="rotate(9 100 60)">${outl(100,70,100,28,11)}</g>
+       <rect x="72" y="62" width="40" height="42" rx="15" fill="${sk}" stroke="#9C9C9C" stroke-width="1.2"/><ellipse cx="73" cy="86" rx="8" ry="9" fill="${sk}" stroke="#9C9C9C" stroke-width="1.2"/>
+       <path d="M78 76 q-1 8 5 8 q-1 -8 -5 -8z M104 76 q1 8 -5 8 q1 -8 5 -8z" fill="#CFCFCF"/>`,
+    // 4. fingers crossed
+    4:`<path d="M2 120 C2 98 22 88 46 88 C70 88 90 98 90 120Z" fill="${cl}"/><rect x="38" y="72" width="16" height="18" rx="6" fill="${sk2}"/>
+       <ellipse cx="46" cy="50" rx="23" ry="27" fill="${sk}"/><path d="M23 46 C22 20 70 18 69 46 C62 34 34 33 23 46Z" fill="${hair}"/>
+       <ellipse cx="36" cy="52" rx="5" ry="4.4" fill="#fff" stroke="#9A9A9A" stroke-width=".8"/><circle cx="36.5" cy="50" r="2.3" fill="${ink}"/><ellipse cx="56" cy="52" rx="5" ry="4.4" fill="#fff" stroke="#9A9A9A" stroke-width=".8"/><circle cx="56.5" cy="50" r="2.3" fill="${ink}"/>
+       <path d="M29 42 Q36 38 43 42 M49 42 Q56 38 63 42" stroke="${ink}" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+       <path d="M36 68 Q46 78 56 68" stroke="#555" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+       <ellipse cx="84" cy="106" rx="19" ry="13" fill="${sk}" stroke="#9C9C9C" stroke-width="1.2"/>
+       ${outl(78,102,92,52,10)}${outl(94,102,78,54,10)}<path d="M72 76 q8 -4 16 2" stroke="#B0B0B0" stroke-width="1.6" fill="none"/>`,
+    // 5. a hand holding a measuring tape
+    5:`<rect x="62" y="64" width="54" height="13" rx="2" fill="#F4F4F4" stroke="#8A8A8A" stroke-width="1.2" transform="rotate(-6 62 70)"/>
+       <g transform="rotate(-6 62 70)" stroke="#333" stroke-width="1.2">${Array.from({length:12},(_,i)=>`<path d="M${68+i*4} 64 v${i%4===0?8:4}"/>`).join('')}</g>
+       <rect x="22" y="48" width="56" height="52" rx="14" fill="${cl}"/><rect x="30" y="56" width="40" height="22" rx="6" fill="#8A8A8A"/><circle cx="50" cy="67" r="5" fill="#C9C9C9"/>
+       <path d="M2 112 L28 84 L40 98 L14 122Z" fill="${cl2}"/>
+       ${outl(26,104,60,86,10)}${outl(26,93,66,76,10)}${outl(26,82,64,68,10)}
+       <ellipse cx="30" cy="94" rx="12" ry="15" fill="${sk}" stroke="#9C9C9C" stroke-width="1.2"/>${outl(32,80,56,56,10)}`,
+    // 6. a network antenna
+    6:`<rect x="4" y="6" width="112" height="112" rx="18" fill="#E2E2E2"/>
+       <path d="M60 28 L38 110 M60 28 L82 110" stroke="${cl}" stroke-width="5" stroke-linecap="round"/>
+       ${[48,66,84,100].map(y=>{const t=(y-28)/82;const dx=22*t;return `<path d="M${60-dx} ${y} L${60+dx} ${y}" stroke="${cl}" stroke-width="3.4" stroke-linecap="round"/><path d="M${60-dx} ${y} L${60+dx*.5} ${y+14} M${60+dx} ${y} L${60-dx*.5} ${y+14}" stroke="${cl2}" stroke-width="2" opacity=".8"/>`}).join('')}
+       <rect x="28" y="106" width="64" height="8" rx="4" fill="#333"/><circle cx="60" cy="26" r="7.5" fill="#1F1F1F"/><circle cx="58" cy="24" r="2.4" fill="#fff" opacity=".6"/>
+       ${[16,27,38].map((r,i)=>`<path d="M${60-r*.9} ${26-r*.55} A${r} ${r} 0 0 1 ${60-r*.9} ${26+r*.55}" stroke="#555" stroke-width="3" fill="none" stroke-linecap="round" opacity="${1-i*.2}"/><path d="M${60+r*.9} ${26-r*.55} A${r} ${r} 0 0 0 ${60+r*.9} ${26+r*.55}" stroke="#555" stroke-width="3" fill="none" stroke-linecap="round" opacity="${1-i*.2}"/>`).join('')}`
+  };
+  document.querySelectorAll('[data-rm]').forEach(el=>{el.innerHTML=`<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">${RM[el.dataset.rm]}</svg>`});
 })();
 
 // Principles carousel
