@@ -1921,6 +1921,7 @@ ask();
 
 // Brand examples: carousel cards that open a detail "sub page" (#brand-<slug>)
 (function(){
+const OPTK={A:'One page',B:'Brand + fun page',C:'Hub + pages',D:'Media brand'};
 const OPT={
   A:{m:'Option A · One page with focused content series',s:'Keep one page, organised'},
   B:{m:'Option B · Your brand page plus one entertainment page',s:'Add one fun page'},
@@ -2083,7 +2084,7 @@ function cardHTML(b,i,mode){
   return `<button type="button" class="bcard" data-brand="${b.id}" data-opt="${b.opt}" aria-label="${b.name}: see how they decided">
     <span class="bart" style="background:${tint(i)}">${art(b)}</span>
     <span class="bhead"><span class="logo" aria-hidden="true">${b.ini}</span><span><b>${b.name}</b><small>${b.region}</small></span></span>
-    <span class="otag">Option ${b.opt}${mode==='s'?' · '+OPT[b.opt].s:''}</span>
+    <span class="otag">${OPTK[b.opt]}</span>
     <span class="bone">${mode==='s'?b.simple:b.one}</span>
     <span class="bmore">See how they decided →</span></button>`;
 }
@@ -2103,7 +2104,7 @@ let pushed=false,lastFocus=null;
 function curMode(){return document.body.dataset.view==='s'?'s':'m'}
 function render(b){
   const i=BR.indexOf(b),mode=curMode(),prev=BR[(i-1+BR.length)%BR.length],next=BR[(i+1)%BR.length];
-  const opt=mode==='s'?OPT[b.opt].s:OPT[b.opt].m;
+  const opt=OPTK[b.opt];
   sheet.innerHTML=`<div class="bsbar"><button type="button" class="qbtn" data-close>← All brands</button><span class="bscount">${i+1} of ${BR.length}</span></div>
   <article class="bspage">
     <div class="bshero"><div class="bsart" style="background:${tint(i)}">${art(b)}</div>
