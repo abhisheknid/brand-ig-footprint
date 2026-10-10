@@ -784,6 +784,38 @@ section.stack>.pcar.pcar.pcar.pcar{background:none;border:0;border-radius:0;padd
 /* sticker-style icons: white outline plus a soft shadow */
 .tk .ico3d svg{overflow:visible;filter:drop-shadow(2.5px 0 0 #fff) drop-shadow(-2.5px 0 0 #fff) drop-shadow(0 2.5px 0 #fff) drop-shadow(0 -2.5px 0 #fff) drop-shadow(1.8px 1.8px 0 #fff) drop-shadow(-1.8px 1.8px 0 #fff) drop-shadow(1.8px -1.8px 0 #fff) drop-shadow(-1.8px -1.8px 0 #fff) drop-shadow(0 6px 6px rgba(29,31,36,.2))}
 @media (prefers-reduced-motion:reduce){.bob,.eyes{animation:none}*{transition:none!important}html{scroll-behavior:auto}}
+
+/* dark quiz */
+.stack>h2.quiztitle{background:none!important;border:0!important;border-radius:0!important;padding:0!important;box-shadow:none!important;text-align:left}
+.quiztitle mark{white-space:nowrap}
+.quiztitle{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.08;letter-spacing:-.015em;margin:6px 4px -4px}
+.stack>.quiz,.quiz{background:#111214;border:1.5px solid #111214;color:#F4F4F2}
+.quiz h3,.quiz h4,.quiz p,.quiz li{color:#F4F4F2}
+.quiz .hint,.quiz .qcount,.quiz .qnote,.quiz .qopt small,.quiz .qcard h4,.quiz .qscore{color:#B9BDC6}
+.quiz .qprog i{background:#3A3D45}
+.quiz .qprog i.done{background:var(--coral)}
+.quiz .qprog i.now{background:#fff}
+.quiz .qopt,.opts label.qopt{background:#1F2126;border-color:#3A3D45;color:#F4F4F2}
+.quiz .qopt:hover{border-color:#fff}
+.quiz .qopt.sel{background:var(--yellow);border-color:var(--yellow);color:#1D1F24}
+.quiz .qopt b{background:#111214;color:#fff;border-color:#fff}
+.quiz .qopt.sel b{background:#1D1F24;border-color:#1D1F24}
+.quiz .qbtn{background:transparent;color:#fff;border-color:#fff}
+.quiz .qbtn.solid{background:#fff;color:#111214}
+.quiz .qcard{background:#1F2126;border-color:#3A3D45}
+.quiz .qwarn{background:#3a2226;border-color:#6b3a40}
+.quiz .qhero .art{background:#1F2126}
+.quiz .qhero .kicker{color:#FF8F86}
+.quiz .qopt.sel,.quiz .qopt.sel *{color:#1D1F24}
+.quiz .qcard p[style]{color:#B9BDC6!important}
+.quiz .bar{background:#2A2D34;border-color:#3A3D45}
+.stack>.tag.quiztitle{display:inline-block;align-self:flex-start;width:fit-content;font-size:1rem;font-weight:700;padding:7px 16px!important;margin:6px 4px -4px;line-height:1.2;background:#FCF0C8!important;border:0!important;border-radius:999px!important;color:var(--ink)}
+.quiz .qopts{grid-auto-rows:1fr}
+.quiz .qopt{min-height:64px;border:2px solid #3A3D45;box-sizing:border-box;width:100%}
+.quiz .qopt small{margin-top:2px}
+.quiz .qopt:hover{transform:none;border-color:#fff}
+.quiz .qopt.sel{border-color:var(--yellow)}
+.quiz .qbtn{min-height:42px}
 </style>
 </head>
 <body>
@@ -834,6 +866,7 @@ section.stack>.pcar.pcar.pcar.pcar{background:none;border:0;border-radius:0;padd
 <section id="quiz" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">Quick quiz · 9 questions</span><h2>Should you keep one Instagram page or <mark class="hl">create several</mark>?</h2>
   <p class="q">Answer nine quick questions to get a recommended strategy: which page structure to use, how visible your brand should be, your first recurring show, what to measure, and why. Nothing you answer is saved or sent anywhere.</p></div><div class="wall" data-wall="quiz"></div></div>
+  <span class="tag quiztitle">Take a 30&#8209;Second Quiz</span>
   <div class="quiz" id="qz" aria-live="polite"></div>
 </section>
 
@@ -1251,6 +1284,7 @@ section.stack>.pcar.pcar.pcar.pcar{background:none;border:0;border-radius:0;padd
 <section id="s-quiz" class="stack">
   <div class="sectop"><div class="sh"><span class="tag">1-minute quiz · 5 questions</span><h2>Does your brand need <mark class="hl">more than one</mark> Instagram page?</h2>
   <p class="q">Pick the answer that sounds most like your business. You'll get a simple recommendation and the questions to ask your team. Nothing you answer is saved or sent anywhere.</p></div><div class="wall" data-wall="squiz"></div></div>
+  <span class="tag quiztitle">Take a 30&#8209;Second Quiz</span>
   <div class="quiz" id="sqz" aria-live="polite"></div>
 </section>
 
@@ -2283,6 +2317,8 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
 // Lead capture: sends the form to Abhishek's inbox through FormSubmit. Nothing is stored on this site.
 (function(){
   const TO='hellowork.abhi@gmail.com';
+  // Paste the Google Apps Script web app URL here (see README). Until then the form falls back to FormSubmit.
+  const SCRIPT_URL='';
   const GOALS=['Decide whether to create more Instagram pages','Choose which audiences deserve their own pages','Pick the right Instagram structure','Plan recurring shows people return for','Run and measure each page','Turn the audience into collabs and sponsorships'];
   const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
   document.querySelectorAll('[data-lead]').forEach(box=>{
@@ -2322,9 +2358,15 @@ const m0=location.hash.match(/^#brand-([\w-]+)$/);if(m0){openBrand(m0[1],false)}
       btn.disabled=true;say('Sending…');
       const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),15000);
       try{
-        const res=await fetch('https://formsubmit.co/ajax/'+TO,{method:'POST',signal:ctl.signal,headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({
+        const payload={
           name,email:f.email.value.trim(),instagram:handle?'@'+handle:'(not given)',goal:f.goal.value,
-          page_view:form.closest('#view-s')?'Non-marketer view':'Marketer view',page:location.origin+location.pathname,
+          page_view:form.closest('#view-s')?'Non-marketer view':'Marketer view',page:location.origin+location.pathname};
+        if(SCRIPT_URL){
+          // Google Apps Script web app: the reply can't be read cross-origin, so a completed request counts as sent.
+          await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',signal:ctl.signal,headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+          done();return;
+        }
+        const res=await fetch('https://formsubmit.co/ajax/'+TO,{method:'POST',signal:ctl.signal,headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({...payload,
           _subject:'New lead from The Instagram Network Playbook',_template:'table',_captcha:'false'})});
         const data=await res.json().catch(()=>({}));
         if(res.ok&&(data.success===true||data.success==='true')){done();return}

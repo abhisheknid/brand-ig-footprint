@@ -25,3 +25,14 @@ Adapted from the ideas in "Everyone Wants a Media Network", episode 2.
 Both views end with a "Get in touch" form (name, work email, optional Instagram handle, strategy goal). Submissions are emailed to the address set in the `TO` constant near the end of `index.html`, using the free [FormSubmit](https://formsubmit.co) service. No database and nothing is stored on this site.
 
 **One-time setup:** the first real submission makes FormSubmit email an activation link to that address. Submit a test entry yourself and click the link, otherwise visitors' submissions are not delivered.
+
+## Lead form email
+
+Submissions are emailed to hellowork.abhi@gmail.com by a small Google Apps Script (`apps-script/Code.gs`).
+
+1. Go to script.google.com, sign in as hellowork.abhi@gmail.com, and create a new project.
+2. Paste in the contents of `apps-script/Code.gs`.
+3. Click Deploy, then New deployment, then type Web app. Set Execute as: Me and Who has access: Anyone. Authorise when asked.
+4. Copy the web app URL and set `SCRIPT_URL` in `index.html`.
+
+Until `SCRIPT_URL` is set, the form falls back to FormSubmit.
