@@ -26,13 +26,13 @@ Both views end with a "Get in touch" form (name, work email, optional Instagram 
 
 **One-time setup:** the first real submission makes FormSubmit email an activation link to that address. Submit a test entry yourself and click the link, otherwise visitors' submissions are not delivered.
 
-## Lead form email
+## Lead form: Google Sheet and email
 
-Submissions are emailed to hellowork.abhi@gmail.com by a small Google Apps Script (`apps-script/Code.gs`).
+Each submission is added as a row in a Google Sheet and also emailed to hellowork.abhi@gmail.com, by a small Google Apps Script (`apps-script/Code.gs`).
 
-1. Go to script.google.com, sign in as hellowork.abhi@gmail.com, and create a new project.
-2. Paste in the contents of `apps-script/Code.gs`.
+1. Sign in as hellowork.abhi@gmail.com and create a new Google Sheet (sheets.new).
+2. In the sheet, open Extensions, then Apps Script. Paste in the contents of `apps-script/Code.gs`.
 3. Click Deploy, then New deployment, then type Web app. Set Execute as: Me and Who has access: Anyone. Authorise when asked.
 4. Copy the web app URL and set `SCRIPT_URL` in `index.html`.
 
-Until `SCRIPT_URL` is set, the form falls back to FormSubmit.
+If you change the script later, deploy a new version so the change goes live. Until `SCRIPT_URL` is set, the form falls back to FormSubmit.
